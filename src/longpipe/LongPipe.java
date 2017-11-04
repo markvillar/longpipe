@@ -16,14 +16,12 @@ public class LongPipe {
      */
     public static void main(String[] args) {
 
-        PipeMain testpipe = new PipeMain(1, 1);
+        PipeMain testpipe = new PipeMain(1, 1, true);
         testpipe.DisplayInfo();
         Test test = new Test();
-        test.TestPipeValid(true, true , 2 , 5);
-        test.TestPipeValid(true, false , 2 , 5);
+        test.TestPipeValid(true, true, 2, 5, 1, 1);
+        test.TestPipeValid(true, false, 2, 5, 10, 10);
 
     }
-
-   
 
 }

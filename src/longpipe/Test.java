@@ -11,10 +11,11 @@ package longpipe;
  */
 class Test {
 
-    public void TestPipeValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade) {
+    public void TestPipeValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade, double lenght, double diamater) {
         if (outerReinforcement) {
             if (ValidatePipe5(innerInsulation, colour, plasticGrade)) {
                 System.out.println("Valid pipe type 5");
+                Pipe5 testpipe = new Pipe5(lenght, diamater, true);
             } else {
                 System.out.println("Invalid Pipe");
                 return;
@@ -22,6 +23,7 @@ class Test {
         } else if (innerInsulation) {
             if (ValidatePipe4(colour, plasticGrade)) {
                 System.out.println("Valid pipe type 4");
+                Pipe4 testpipe = new Pipe4(lenght, diamater, true);
             } else {
                 System.out.println("Invalid Pipe");
                 return;
@@ -31,6 +33,7 @@ class Test {
         } else if (colour == 2) {
             if (ValidatePipe3(plasticGrade)) {
                 System.out.println("Valid pipe type 3");
+                Pipe3 testpipe = new Pipe3(lenght, diamater, true);
             } else {
                 System.out.println("Invalid Pipe");
                 return;
@@ -39,6 +42,7 @@ class Test {
         } else if (colour == 1) {
             if (ValidatePipe2(plasticGrade)) {
                 System.out.println("Valid pipe type 2");
+                Pipe2 testpipe = new Pipe2(lenght, diamater, true);
             } else {
                 System.out.println("Invalid Pipe");
                 return;
@@ -47,6 +51,7 @@ class Test {
         } else if (colour == 0) {
             if (ValidatePipe1(plasticGrade)) {
                 System.out.println("Valid pipe type 1");
+                Pipe1 testpipe = new Pipe1(lenght, diamater, true);
             } else {
                 System.out.println("Invalid Pipe");
                 return;

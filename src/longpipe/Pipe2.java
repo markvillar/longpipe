@@ -7,18 +7,20 @@ package longpipe;
 
 /**
  *
- * @author up769598
+ * @author James
  */
-public class Pipe1 extends PipeMain {
+public class Pipe2 extends PipeMain {
 
-    public Pipe1() {
+    public Pipe2() {
 
     }
 
-    public Pipe1(double p_length, double p_outerDiamater, boolean chemResistance) {
+    public Pipe2(double p_length, double p_outerDiamater,boolean chemResistance) {
         super(p_length, p_outerDiamater, chemResistance);
-        colour = 0;
-
+        colour = 1;
+        
     }
-
+    private double extraCosts() {
+        return this.ChemicalPrice() * 1.12;
+    }
 }
