@@ -76,7 +76,7 @@ public class PipeMain {
     protected double costOfPalstic() {
         double[] costOfPlastic = {0.4, 0.6, 0.75, 0.8, 0.95};
 
-        return costOfPlastic[this.GetPlasticGrade() - 1];
+        return costOfPlastic[this.GetPlasticGrade()];
     }
     private double extraCosts(){
         return this.ChemicalPrice();

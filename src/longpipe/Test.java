@@ -11,11 +11,13 @@ package longpipe;
  */
 class Test {
 
-    public void TestPipeValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade, double lenght, double diamater) {
+    public void TestPipeValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade, double lenght, double diamater, PipeMain[] pipeList) {
         if (outerReinforcement) {
             if (ValidatePipe5(innerInsulation, colour, plasticGrade)) {
                 System.out.println("Valid pipe type 5");
                 Pipe5 testpipe = new Pipe5(lenght, diamater, true);
+                pipeList[1] = testpipe;
+                
             } else {
                 System.out.println("Invalid Pipe");
                 return;
@@ -58,6 +60,7 @@ class Test {
 
             }
         }
+        
     }
 
     public boolean ValidatePipe5(boolean innerInsulation, int colour, int plasticGrade) {
