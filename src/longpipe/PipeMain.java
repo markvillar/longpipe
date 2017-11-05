@@ -17,6 +17,8 @@ public class PipeMain {
     protected double plasticVolume;
     protected boolean chemicalResistance;
     protected int colour;
+    protected boolean insulation;
+    protected boolean reinforcement;
 
     public PipeMain() {
 
