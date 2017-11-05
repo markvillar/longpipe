@@ -29,7 +29,6 @@ public class PipeMain {
         outerDiameter = p_outerDiameter;
         plasticVolume = WorkOutVolume(outerDiameter, lenght);
         chemicalResistance = chemResistance;
-
     }
 
     protected double WorkOutVolume(double outerDiameter, double length) {
@@ -64,7 +63,7 @@ public class PipeMain {
     }
 
     public void DisplayInfo() {
-        System.out.println(lenght + " Meters : " + outerDiameter + " Inch : " + plasticVolume + " Inch^3 /n" + colour);
+        System.out.println(lenght + " Meters : " + String.format("%.2f", outerDiameter) + " Inch : " + String.format("%.2f", plasticVolume) + " Inch^3 /n" + colour);
     }
 
     protected double ChemicalPrice() {
