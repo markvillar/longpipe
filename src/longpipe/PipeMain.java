@@ -13,32 +13,33 @@ public class PipeMain {
 
     protected double lenght;
     protected int plasticGrade;
-    protected double outerDiamater;
+    protected double outerDiameter;
     protected double plasticVolume;
     protected boolean chemicalResistance;
     protected int colour;
+    protected boolean insulation;
+    protected boolean reinforcement;
 
     public PipeMain() {
 
     }
 
-    public PipeMain(double p_length, double p_outerDiamater, boolean chemResistance) {
+    public PipeMain(double p_length, double p_outerDiameter, boolean chemResistance) {
         lenght = p_length;
-        outerDiamater = p_outerDiamater;
-        plasticVolume = WorkOutVolume(outerDiamater, lenght);
+        outerDiameter = p_outerDiameter;
+        plasticVolume = WorkOutVolume(outerDiameter, lenght);
         chemicalResistance = chemResistance;
-
     }
 
-    protected double WorkOutVolume(double outerDiamater, double length) {
-        double innerDiamater = outerDiamater * 0.9;
+    protected double WorkOutVolume(double outerDiameter, double length) {
+        double innerDiamater = outerDiameter * 0.9;
         double volume;
-        volume = AreaOfCylnder(outerDiamater, lenght) - AreaOfCylnder(innerDiamater, lenght);
+        volume = AreaOfCylinder(outerDiameter, lenght) - AreaOfCylinder(innerDiamater, lenght);
         return volume;
     }
 
-    protected double AreaOfCylnder(double diamater, double length) {
-        return Math.sqrt((diamater / 2) * Math.PI) * length;
+    protected double AreaOfCylinder(double diameter, double length) {
+        return Math.sqrt((diameter / 2) * Math.PI) * length;
     }
 
     protected double InchToMeters(double inch) {
@@ -62,7 +63,7 @@ public class PipeMain {
     }
 
     public void DisplayInfo() {
-        System.out.println(lenght + " Meters : " + outerDiamater + " Inch : " + plasticVolume + " Inch^3 /n" + colour);
+        System.out.println(lenght + " Meters : " + String.format("%.2f", outerDiameter) + " Inch : " + String.format("%.2f", plasticVolume) + " Inch^3 /n" + colour);
     }
 
     protected double ChemicalPrice() {
