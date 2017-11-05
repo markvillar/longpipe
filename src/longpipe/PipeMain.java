@@ -73,7 +73,7 @@ public class PipeMain {
         }
     }
 
-    protected double costOfPalstic() {
+    protected double costOfPlastic() {
         double[] costOfPlastic = {0.4, 0.6, 0.75, 0.8, 0.95};
 
         return costOfPlastic[this.GetPlasticGrade()];
@@ -83,7 +83,7 @@ public class PipeMain {
     }
 
     public double Price() {
-        double price = this.costOfPalstic() * this.costOfPalstic() * this.extraCosts();
+        double price = this.costOfPlastic() * this.costOfPlastic() * this.extraCosts();
         return price;
     }
 }
