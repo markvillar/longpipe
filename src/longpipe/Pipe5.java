@@ -15,8 +15,8 @@ public class Pipe5 extends PipeMain {
 
     }
 
-    public Pipe5(double p_length, double p_outerDiamater, boolean chemResistance) {
-        super(p_length, p_outerDiamater, chemResistance);
+    public Pipe5(double p_length, double p_outerDiameter, boolean chemResistance) {
+        super(p_length, p_outerDiameter, chemResistance);
         colour = 2;
     }
 
