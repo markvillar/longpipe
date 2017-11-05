@@ -34,11 +34,11 @@ public class PipeMain {
     protected double WorkOutVolume(double outerDiameter, double length) {
         double innerDiamater = outerDiameter * 0.9;
         double volume;
-        volume = AreaOfCylnder(outerDiameter, lenght) - AreaOfCylnder(innerDiamater, lenght);
+        volume = AreaOfCylinder(outerDiameter, lenght) - AreaOfCylinder(innerDiamater, lenght);
         return volume;
     }
 
-    protected double AreaOfCylnder(double diameter, double length) {
+    protected double AreaOfCylinder(double diameter, double length) {
         return Math.sqrt((diameter / 2) * Math.PI) * length;
     }
 
