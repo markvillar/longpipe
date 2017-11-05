@@ -132,9 +132,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="tfWidthInput">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfWidthInputActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tfLengthInput">
         </Component>
@@ -269,9 +266,6 @@
             <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="Pipe is not valid"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPipeValidOutputActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblCost">
           <Properties>

@@ -24,6 +24,9 @@ public class LongPipe {
         test.TestPipeValid(true, false, false, 2, 5, 10, 10, pipeList);
         test.TestPipeValid(true, true, true, 2, 5, 1, 1, pipeList);
         System.out.println("£ ;" + pipeList[1].Price());
+        
+        OrderForm of = new OrderForm();
+        of.setVisible(true);
 
     }
 
