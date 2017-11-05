@@ -150,6 +150,11 @@ public class AddPipe extends javax.swing.JDialog {
         btnAddPipe.setText("Add Pipe");
 
         btnClearForm.setText("Clear Form");
+        btnClearForm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearFormActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -183,6 +188,17 @@ public class AddPipe extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnClearFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearFormActionPerformed
+        //Clear the form and reset the from back to default values
+        tfWidthInput.setText("0.00");
+        tfLengthInput.setText("0.00");
+        cboColourInput.setSelectedIndex(0);
+        cboInnerInsInput.setSelectedIndex(0);
+        cboOutReinInput.setSelectedIndex(0);
+        cboChemResis.setSelectedIndex(0);      
+        
+    }//GEN-LAST:event_btnClearFormActionPerformed
 
     /**
      * @param args the command line arguments
