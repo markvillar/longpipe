@@ -1,6 +1,9 @@
 package longpipe;
 
 public class LongPipe {
+    
+    public int numberOfOrders = 0;
+    PipeMain[] orderedPipes = new PipeMain[0];
 
     /**
      * @param args the command line arguments
