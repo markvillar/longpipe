@@ -1,6 +1,7 @@
 package longpipe;
 
 import java.awt.Color;
+import javax.swing.JTextField;
 
 public class AddPipe extends javax.swing.JDialog {
 
@@ -13,18 +14,17 @@ public class AddPipe extends javax.swing.JDialog {
         tfLengthInput.setForeground(Color.black);
         double length;
         try {
-            String value = tfLengthInput.getText();
-            length = Double.parseDouble(value);
+            length = Double.parseDouble(tfLengthInput.getText());
         } catch (NullPointerException ex) {
             tfLengthInput.setText("0.00");
             tfLengthInput.setForeground(Color.red);
             length = 0.00;
-            System.out.println("Entered value is not a double");
+            System.out.println("There is a null value in a text field");
         } catch (NumberFormatException ex) {
             tfLengthInput.setText("0.00");
             tfLengthInput.setForeground(Color.red);
             length = 0.00;
-            System.out.println("There is a null value in text field");
+            System.out.println("Entered Value is not a double or integer");
         }
         return length;
     }
@@ -46,9 +46,43 @@ public class AddPipe extends javax.swing.JDialog {
             tfWidthInput.setText("0.00");
             tfWidthInput.setForeground(Color.red);
             width = 0.00;
-            System.out.println("Entered value is not a double");
+            System.out.println("Entered Value is not a double or integer");
         }
+        
+        
         return width;
+    }
+    
+    public int getQuantityValue(){
+        int quantity;
+        tfQuantityInput.setForeground(Color.black); // Set to default text colour in case value is valid
+        try{
+            quantity = Integer.parseInt(tfQuantityInput.getText()); // Attempt to get the value out of the text box
+        } catch (NumberFormatException ex){
+            //Entered Value is not an integer
+            quantity = 1; //Set to a default value
+            tfQuantityInput.setText(Integer.toString(quantity));
+            tfQuantityInput.setForeground(Color.red);
+            System.out.println("Entered Value is not an integer");
+        } catch (NullPointerException ex) {
+            //There is not value in the text field
+            quantity = 1; //Set to a default value
+            tfQuantityInput.setText(Integer.toString(quantity));
+            tfQuantityInput.setForeground(Color.red);
+            System.out.println("There is a null value in a text field");
+        }
+        if(quantity > 99 || quantity <=0){
+            //Check if value entered is within reasonable bounds
+            quantity = 1;
+            tfQuantityInput.setText(Integer.toString(quantity));
+            tfQuantityInput.setForeground(Color.red); //Set font colour to red to show that the value entered is not within valid limits
+            System.out.println("Entered Quantity is too high or too low. Please enter a value between 1 and 99");
+        }
+        return quantity;
+    }
+    
+    public void resetValueInt(int value, JTextField tf){
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -74,7 +108,7 @@ public class AddPipe extends javax.swing.JDialog {
         tfCostOutput = new javax.swing.JTextField();
         btnTestValid = new javax.swing.JButton();
         lblQuantity = new javax.swing.JLabel();
-        tfQuantity = new javax.swing.JTextField();
+        tfQuantityInput = new javax.swing.JTextField();
         btnAddPipe = new javax.swing.JButton();
         btnClearForm = new javax.swing.JButton();
 
@@ -183,7 +217,12 @@ public class AddPipe extends javax.swing.JDialog {
 
         lblQuantity.setText("Quantity:");
 
-        tfQuantity.setText("1");
+        tfQuantityInput.setText("1");
+        tfQuantityInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfQuantityInputFocusLost(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -197,7 +236,7 @@ public class AddPipe extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblQuantity)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(tfQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfQuantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCost)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -214,7 +253,7 @@ public class AddPipe extends javax.swing.JDialog {
                     .addComponent(tfCostOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnTestValid)
                     .addComponent(lblQuantity)
-                    .addComponent(tfQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tfQuantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -278,7 +317,10 @@ public class AddPipe extends javax.swing.JDialog {
     private void btnAddPipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPipeActionPerformed
         double length = getLengthValue();
         double width = getWidthValue();
-        //Create a new pipe using items from combo boxes and add to arraylist then return to the order form window       
+        //Create a new pipe using items from combo boxes and add to arraylist then return to the order form window
+        
+        //if valid
+        
     }//GEN-LAST:event_btnAddPipeActionPerformed
 
     private void tfLengthInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfLengthInputFocusLost
@@ -290,6 +332,11 @@ public class AddPipe extends javax.swing.JDialog {
         //Check the validity of the width value entered
         getWidthValue();
     }//GEN-LAST:event_tfWidthInputFocusLost
+
+    private void tfQuantityInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfQuantityInputFocusLost
+        //Check the validity of the quantity value entered
+        getQuantityValue();
+    }//GEN-LAST:event_tfQuantityInputFocusLost
 
     /**
      * @param args the command line arguments
@@ -354,7 +401,7 @@ public class AddPipe extends javax.swing.JDialog {
     private javax.swing.JTextField tfCostOutput;
     private javax.swing.JTextField tfLengthInput;
     private javax.swing.JTextField tfPipeValidOutput;
-    private javax.swing.JTextField tfQuantity;
+    private javax.swing.JTextField tfQuantityInput;
     private javax.swing.JTextField tfWidthInput;
     // End of variables declaration//GEN-END:variables
 }

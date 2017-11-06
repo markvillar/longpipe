@@ -252,7 +252,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblQuantity" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="tfQuantity" min="-2" pref="86" max="-2" attributes="0"/>
+                  <Component id="tfQuantityInput" min="-2" pref="86" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblCost" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
@@ -271,7 +271,7 @@
                       <Component id="tfCostOutput" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnTestValid" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="tfQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfQuantityInput" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -306,10 +306,13 @@
             <Property name="text" type="java.lang.String" value="Quantity:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfQuantity">
+        <Component class="javax.swing.JTextField" name="tfQuantityInput">
           <Properties>
             <Property name="text" type="java.lang.String" value="1"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfQuantityInputFocusLost"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

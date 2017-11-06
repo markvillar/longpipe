@@ -84,7 +84,7 @@ public class PipeMain {
     }
 
     public double Price() {
-        double price = this.costOfPlastic() * this.costOfPlastic() * this.extraCosts();
+        double price = this.costOfPlastic() * this.costOfPlastic() * this.extraCosts(); // change to voume ratherthan doubble cost
         return price;
     }
 }
