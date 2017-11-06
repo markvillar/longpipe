@@ -15,8 +15,7 @@ public class OrderForm extends javax.swing.JFrame {
         for(int i = 0; i<PipeOrder.size();i++){
             //Print Pipe Details
         }
-    }
-    
+    }    
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -126,6 +125,8 @@ public class OrderForm extends javax.swing.JFrame {
         //Open the dialog box to add a new pipe
         AddPipe ap = new AddPipe(this,true);
         ap.setVisible(true);
+        System.out.println(ap.returnHello());
+        ap.dispose();
     }//GEN-LAST:event_btnAddPipeActionPerformed
 
     /**
