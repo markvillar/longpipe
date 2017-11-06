@@ -36,6 +36,10 @@ public class AddPipe extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        tfWidthInput.setText("0.00");
+
+        tfLengthInput.setText("0.00");
+
         lblLength.setText("Length (m):");
 
         lblWidth.setText("Width (inch):");
@@ -117,6 +121,7 @@ public class AddPipe extends javax.swing.JDialog {
         lblCost.setText("Cost: £");
 
         tfCostOutput.setEditable(false);
+        tfCostOutput.setText("0.00");
 
         btnTestValid.setText("Test Valid");
 
