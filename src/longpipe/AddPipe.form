@@ -240,10 +240,14 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="tfPipeValidOutput" min="-2" pref="262" max="-2" attributes="0"/>
+                  <Component id="tfPipeValidOutput" min="-2" pref="151" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnTestValid" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="42" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="lblQuantity" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="tfQuantity" min="-2" pref="86" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblCost" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="tfCostOutput" min="-2" pref="224" max="-2" attributes="0"/>
@@ -260,6 +264,8 @@
                       <Component id="lblCost" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="tfCostOutput" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnTestValid" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tfQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -287,6 +293,16 @@
         <Component class="javax.swing.JButton" name="btnTestValid">
           <Properties>
             <Property name="text" type="java.lang.String" value="Test Valid"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblQuantity">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Quantity:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="tfQuantity">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="1"/>
           </Properties>
         </Component>
       </SubComponents>

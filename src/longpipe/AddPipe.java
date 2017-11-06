@@ -29,6 +29,8 @@ public class AddPipe extends javax.swing.JDialog {
         lblCost = new javax.swing.JLabel();
         tfCostOutput = new javax.swing.JTextField();
         btnTestValid = new javax.swing.JButton();
+        lblQuantity = new javax.swing.JLabel();
+        tfQuantity = new javax.swing.JTextField();
         btnAddPipe = new javax.swing.JButton();
         btnClearForm = new javax.swing.JButton();
 
@@ -125,16 +127,24 @@ public class AddPipe extends javax.swing.JDialog {
 
         btnTestValid.setText("Test Valid");
 
+        lblQuantity.setText("Quantity:");
+
+        tfQuantity.setText("1");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tfPipeValidOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tfPipeValidOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnTestValid)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblQuantity)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(tfQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblCost)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(tfCostOutput, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -148,7 +158,9 @@ public class AddPipe extends javax.swing.JDialog {
                     .addComponent(tfPipeValidOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCost)
                     .addComponent(tfCostOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnTestValid))
+                    .addComponent(btnTestValid)
+                    .addComponent(lblQuantity)
+                    .addComponent(tfQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -281,10 +293,12 @@ public class AddPipe extends javax.swing.JDialog {
     private javax.swing.JLabel lblInnerInsulation;
     private javax.swing.JLabel lblLength;
     private javax.swing.JLabel lblOuterReinforcement;
+    private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblWidth;
     private javax.swing.JTextField tfCostOutput;
     private javax.swing.JTextField tfDiameterInput;
     private javax.swing.JTextField tfLengthInput;
     private javax.swing.JTextField tfPipeValidOutput;
+    private javax.swing.JTextField tfQuantity;
     // End of variables declaration//GEN-END:variables
 }
