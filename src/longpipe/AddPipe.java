@@ -1,5 +1,7 @@
 package longpipe;
 
+import java.awt.Color;
+
 public class AddPipe extends javax.swing.JDialog {
 
     public AddPipe(java.awt.Frame parent, boolean modal) {
@@ -7,12 +9,54 @@ public class AddPipe extends javax.swing.JDialog {
         initComponents();
     }
 
+    public double getLengthValue() {
+        tfLengthInput.setForeground(Color.black);
+        double length;
+        try {
+            String value = tfLengthInput.getText();
+            length = Double.parseDouble(value);
+        } catch (NullPointerException ex) {
+            tfLengthInput.setText("0.00");
+            tfLengthInput.setForeground(Color.red);
+            length = 0.00;
+            System.out.println("Entered value is not a double");
+        } catch (NumberFormatException ex) {
+            tfLengthInput.setText("0.00");
+            tfLengthInput.setForeground(Color.red);
+            length = 0.00;
+            System.out.println("There is a null value in text field");
+        }
+        return length;
+    }
+    
+    public double getWidthValue() {
+        tfWidthInput.setForeground(Color.black); //Set to default colour in case value is valid
+        double width;
+        try {
+            String value = tfWidthInput.getText();
+            width = Double.parseDouble(value);
+        } catch (NullPointerException ex) {
+            //There is not value in the text field
+            tfWidthInput.setText("0.00");
+            tfWidthInput.setForeground(Color.red);
+            width = 0.00;
+            System.out.println("There is a null value in a text field");
+        } catch (NumberFormatException ex) {
+            //Entered value is not an integer or double
+            tfWidthInput.setText("0.00");
+            tfWidthInput.setForeground(Color.red);
+            width = 0.00;
+            System.out.println("Entered value is not a double");
+        }
+        return width;
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        tfDiameterInput = new javax.swing.JTextField();
+        tfWidthInput = new javax.swing.JTextField();
         tfLengthInput = new javax.swing.JTextField();
         lblLength = new javax.swing.JLabel();
         lblWidth = new javax.swing.JLabel();
@@ -38,13 +82,23 @@ public class AddPipe extends javax.swing.JDialog {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        tfDiameterInput.setText("0.00");
+        tfWidthInput.setText("0.00");
+        tfWidthInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfWidthInputFocusLost(evt);
+            }
+        });
 
         tfLengthInput.setText("0.00");
+        tfLengthInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfLengthInputFocusLost(evt);
+            }
+        });
 
         lblLength.setText("Length (m):");
 
-        lblWidth.setText("Diameter (inch):");
+        lblWidth.setText("Width (inch):");
 
         lblColours.setText("Colours");
 
@@ -73,7 +127,7 @@ public class AddPipe extends javax.swing.JDialog {
                     .addComponent(lblWidth))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfDiameterInput, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                    .addComponent(tfWidthInput, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
                     .addComponent(tfLengthInput))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -106,7 +160,7 @@ public class AddPipe extends javax.swing.JDialog {
                     .addComponent(lblChemResis))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfDiameterInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tfWidthInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblWidth)
                     .addComponent(cboColourInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cboInnerInsInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,27 +267,29 @@ public class AddPipe extends javax.swing.JDialog {
 
     private void btnClearFormActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearFormActionPerformed
         //Clear the form and reset the from back to default values
-        tfDiameterInput.setText("0.00");
+        tfWidthInput.setText("0.00");
         tfLengthInput.setText("0.00");
         cboColourInput.setSelectedIndex(0);
         cboInnerInsInput.setSelectedIndex(0);
         cboOutReinInput.setSelectedIndex(0);
-        cboChemResis.setSelectedIndex(0);      
-        
+        cboChemResis.setSelectedIndex(0);
     }//GEN-LAST:event_btnClearFormActionPerformed
 
     private void btnAddPipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPipeActionPerformed
-        String length = tfLengthInput.getText();
-        double convertedLength =  Double.parseDouble(length.trim());
-        
-        String diameter = tfDiameterInput.getText();
-        double convertedDiameter =  Double.parseDouble(diameter.trim());
-        
-        PipeMain pipe1 = new PipeMain(convertedLength, convertedDiameter, true);
-        
-        //For debugging purposes
-        System.out.println("Pipe 1 is created with length of : " + pipe1.lenght + " with diameter of: " + pipe1.outerDiameter);
+        double length = getLengthValue();
+        double width = getWidthValue();
+        //Create a new pipe using items from combo boxes and add to arraylist then return to the order form window       
     }//GEN-LAST:event_btnAddPipeActionPerformed
+
+    private void tfLengthInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfLengthInputFocusLost
+        //Check the validity of the length value entered
+        getLengthValue();
+    }//GEN-LAST:event_tfLengthInputFocusLost
+
+    private void tfWidthInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfWidthInputFocusLost
+        //Check the validity of the width value entered
+        getWidthValue();
+    }//GEN-LAST:event_tfWidthInputFocusLost
 
     /**
      * @param args the command line arguments
@@ -296,9 +352,9 @@ public class AddPipe extends javax.swing.JDialog {
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblWidth;
     private javax.swing.JTextField tfCostOutput;
-    private javax.swing.JTextField tfDiameterInput;
     private javax.swing.JTextField tfLengthInput;
     private javax.swing.JTextField tfPipeValidOutput;
     private javax.swing.JTextField tfQuantity;
+    private javax.swing.JTextField tfWidthInput;
     // End of variables declaration//GEN-END:variables
 }
