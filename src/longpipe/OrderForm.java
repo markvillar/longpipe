@@ -12,10 +12,14 @@ public class OrderForm extends javax.swing.JFrame {
     }
     
     public void printPipeOutput(){
+        taOutputOrder.setText(""); //Clear output screen
+        double totalCost = 0;
         for (PipeMain pipe: PipeOrder) {
             //Print Pipe Details
             taOutputOrder.append(pipe.DisplayInfo()+ "\n");
+            totalCost += pipe.Price();
         }
+        tfOutputCost.setText(String.format("%.2f", totalCost));
     }
     
     @SuppressWarnings("unchecked")
