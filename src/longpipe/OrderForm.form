@@ -91,7 +91,10 @@
                           <Component id="tfOutputCost" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="btnRemovePipe" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="btnRemoveAll" alignment="0" max="32767" attributes="0"/>
+                              <Component id="btnRemovePipe" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                           <EmptySpace pref="131" max="32767" attributes="0"/>
                           <Component id="btnAddPipe" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -113,7 +116,9 @@
                       <Component id="btnRemovePipe" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="btnAddPipe" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="btnRemoveAll" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -143,6 +148,14 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAddPipeActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="btnRemoveAll">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Remove All"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRemoveAllActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
