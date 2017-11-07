@@ -43,10 +43,10 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" pref="104" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnAddPipe" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnClearForm" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -83,28 +83,19 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="lblPlasticGrade" min="-2" max="-2" attributes="0"/>
-                      <Component id="cboPlasticGradeInput" min="-2" max="-2" attributes="0"/>
+                      <Component id="cboPlasticGrade" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cboColour" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="lblColours" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="cboColourInput" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblInnerInsulation" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="cboInnerInsInput" alignment="0" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="cboOutReinInput" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblOuterReinforcement" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblChemResis" min="-2" max="-2" attributes="0"/>
-                      <Component id="cboChemResis" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="cbInnerInsulation" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cbOuterRein" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="cbChemResis" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -117,31 +108,35 @@
                       <Component id="tfLengthInput" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblLength" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblColours" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblInnerInsulation" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblOuterReinforcement" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="lblChemResis" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblPlasticGrade" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace min="0" pref="23" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="tfWidthInput" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblWidth" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" attributes="0">
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cboPlasticGradeInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboColourInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboInnerInsInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboOutReinInput" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="cboChemResis" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cboColour" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="cboPlasticGrade" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cbChemResis" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbOuterRein" min="-2" max="-2" attributes="0"/>
+                      <Component id="cbInnerInsulation" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -178,7 +173,7 @@
             <Property name="text" type="java.lang.String" value="Colours"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cboColourInput">
+        <Component class="javax.swing.JComboBox" name="cboColour">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
@@ -188,60 +183,9 @@
               </StringArray>
             </Property>
           </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblInnerInsulation">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Inner Insulation"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cboInnerInsInput">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="NO"/>
-                <StringItem index="1" value="YES"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblOuterReinforcement">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Outer Reinforcement"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cboOutReinInput">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="NO"/>
-                <StringItem index="1" value="YES"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblChemResis">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Chemical Resistance"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="cboChemResis">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="NO"/>
-                <StringItem index="1" value="YES"/>
-              </StringArray>
-            </Property>
-          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cboColourItemStateChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -251,7 +195,7 @@
             <Property name="text" type="java.lang.String" value="Plastic Grade"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="cboPlasticGradeInput">
+        <Component class="javax.swing.JComboBox" name="cboPlasticGrade">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="5">
@@ -263,9 +207,42 @@
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cboPlasticGradeItemStateChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cbInnerInsulation">
+          <Properties>
+            <Property name="text" type="java.lang.String" value=" Inner Insulation"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbInnerInsulationItemStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cbOuterRein">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Outer Reinforcement"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbOuterReinItemStateChanged"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JCheckBox" name="cbChemResis">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Chemical Resistance"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="1"/>
+          </Properties>
+          <Events>
+            <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="cbChemResisItemStateChanged"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -288,7 +265,7 @@
                   <Component id="btnTestValid" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="lblQuantity" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="85" max="32767" attributes="0"/>
+                  <EmptySpace pref="163" max="32767" attributes="0"/>
                   <Component id="tfQuantityInput" min="-2" pref="86" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblCost" min="-2" max="-2" attributes="0"/>
@@ -337,6 +314,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Test Valid"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnTestValidActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblQuantity">
           <Properties>
