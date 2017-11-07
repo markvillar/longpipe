@@ -61,8 +61,8 @@ public class PipeMain {
         return plasticVolume;
     }
 
-    public void DisplayInfo() {
-        System.out.println(lenght + " Meters : " + String.format("%.2f", outerDiameter) + " Inch : " + String.format("%.2f", plasticVolume) + " Inch^3 /n" + colour);
+    public String DisplayInfo() {
+        return (lenght + " Meters : " + String.format("%.2f", outerDiameter) + " Inch : " +" Price: £"+ String.format("%.2f",this.Price()));
     }
 
     protected double ChemicalPrice() {

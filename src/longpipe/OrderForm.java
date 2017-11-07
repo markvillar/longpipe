@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 
 public class OrderForm extends javax.swing.JFrame {
-    public ArrayList PipeOrder;
+    public ArrayList<PipeMain> PipeOrder;
 
     public OrderForm() {
         initComponents();
@@ -12,10 +12,11 @@ public class OrderForm extends javax.swing.JFrame {
     }
     
     public void printPipeOutput(){
-        for(int i = 0; i<PipeOrder.size();i++){
+        for (PipeMain pipe: PipeOrder) {
             //Print Pipe Details
+            taOutputOrder.append(pipe.DisplayInfo()+ "\n");
         }
-    }    
+    }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -34,7 +35,6 @@ public class OrderForm extends javax.swing.JFrame {
 
         jLabel1.setText("Long Pipes Order Form");
 
-        taOutputOrder.setEditable(false);
         taOutputOrder.setColumns(20);
         taOutputOrder.setRows(5);
         jScrollPane1.setViewportView(taOutputOrder);
@@ -128,6 +128,9 @@ public class OrderForm extends javax.swing.JFrame {
         ap.setVisible(true);
         PipeOrder = ap.returnPipeOrder(); //Return a value before closing the window
         ap.dispose(); //Close the dialog window
+        
+        //Call a function to print to text area
+        printPipeOutput();
     }//GEN-LAST:event_btnAddPipeActionPerformed
 
     /**
