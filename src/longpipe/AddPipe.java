@@ -5,22 +5,25 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 public class AddPipe extends javax.swing.JDialog {
-    private ArrayList PipeOrder;
+
+    private ArrayList pipeOrder;
+    private int type;
 
     public AddPipe(java.awt.Frame parent, boolean modal, ArrayList inPipeOrder) {
         super(parent, modal);
         //Need to pass the Arraylist, pass by reference
         initComponents();
-        PipeOrder = inPipeOrder;
+        pipeOrder = inPipeOrder;
         btnAddPipe.setEnabled(false);
+        type = -1;
     }
 
     private AddPipe(JFrame jFrame, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    public ArrayList returnPipeOrder(){
-        return PipeOrder;
+
+    public ArrayList returnPipeOrder() {
+        return pipeOrder;
     }
 
     public double getLengthValue() {
@@ -41,7 +44,7 @@ public class AddPipe extends javax.swing.JDialog {
         }
         return length;
     }
-    
+
     public double getWidthValue() {
         tfWidthInput.setForeground(Color.black); //Set to default colour in case value is valid
         double width;
@@ -61,21 +64,20 @@ public class AddPipe extends javax.swing.JDialog {
             width = 0.00;
             System.out.println("Entered Value is not a double or integer");
         }
-        
-        
+
         return width;
     }
-    
+
     /**
      *
      * @return Quantity value entered into quantity text field
      */
-    public int getQuantityValue(){
+    public int getQuantityValue() {
         int quantity;
         tfQuantityInput.setForeground(Color.black); // Set to default text colour in case value is valid
-        try{
+        try {
             quantity = Integer.parseInt(tfQuantityInput.getText()); // Attempt to get the value out of the text box
-        } catch (NumberFormatException ex){
+        } catch (NumberFormatException ex) {
             //Entered Value is not an integer
             quantity = 1; //Set to a default value
             tfQuantityInput.setForeground(Color.red);
@@ -86,7 +88,7 @@ public class AddPipe extends javax.swing.JDialog {
             tfQuantityInput.setForeground(Color.red);
             System.out.println("There is a null value in a text field");
         }
-        if(quantity > 99 || quantity <=0){
+        if (quantity > 99 || quantity <= 0) {
             //Check if value entered is within reasonable bounds
             quantity = 1;
             tfQuantityInput.setForeground(Color.red); //Set font colour to red to show that the value entered is not within valid limits
@@ -95,9 +97,7 @@ public class AddPipe extends javax.swing.JDialog {
         tfQuantityInput.setText(Integer.toString(quantity));
         return quantity;
     }
-    
-    
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -374,11 +374,32 @@ public class AddPipe extends javax.swing.JDialog {
         double length = getLengthValue();
         double width = getWidthValue();
         //Create a new pipe using items from combo boxes and add to arraylist then return to the order form window
-        
-        //if valid
-        
-        //Set the visibility to false to allow the parent form to retrieve the new ArrayList before the dialog closes
-        setVisible(false);
+
+        for (int i = 0; i < Integer.parseInt(tfQuantityInput.getText()); i++) {
+            //Add Pipes
+            PipeMain p;
+            switch (type) {
+                case 1:
+                    p = new Pipe1(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
+                    break;
+                case 2:
+                    p = new Pipe2(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
+                    break;
+                case 3:
+                    p = new Pipe3(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
+                    break;
+                case 4:
+                    p = new Pipe4(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
+                    break;
+                case 5:
+                    p = new Pipe5(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        setVisible(false); //Set the visibility to false to allow the parent form to retrieve the new ArrayList before the dialog closes
     }//GEN-LAST:event_btnAddPipeActionPerformed
 
     private void tfLengthInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfLengthInputFocusLost
@@ -403,11 +424,11 @@ public class AddPipe extends javax.swing.JDialog {
         boolean chemResis = cbChemResis.isSelected();
         int plasticGrade = cboPlasticGrade.getSelectedIndex() + 1;
         int colour = cboColour.getSelectedIndex();
-        
+
         Test test = new Test();
-        int type = test.TestPipeValid(outerRein, innerInsul, chemResis, colour, plasticGrade, getLengthValue(), getWidthValue(), PipeOrder);
-        
-        if(type == -1){
+        type = test.TestPipeValid(outerRein, innerInsul, chemResis, colour, plasticGrade, getLengthValue(), getWidthValue());
+
+        if (type == -1 || getLengthValue() == 0 || getWidthValue() == 0) {
             //pipe is invalid
             btnAddPipe.setEnabled(false);
             tfPipeValidOutput.setText("Pipe is invalid");

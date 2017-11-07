@@ -15,11 +15,12 @@ public class Pipe2 extends PipeMain {
 
     }
 
-    public Pipe2(double p_length, double p_outerDiameter,boolean chemResistance) {
-        super(p_length, p_outerDiameter, chemResistance);
+    public Pipe2(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
+        super(p_length, p_outerDiameter, plasgrd, chemResistance);
         colour = 1;
-        
+
     }
+
     private double extraCosts() {
         return this.ChemicalPrice() * 1.12;
     }

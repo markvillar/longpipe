@@ -22,11 +22,12 @@ public class PipeMain {
 
     }
 
-    public PipeMain(double p_length, double p_outerDiameter, boolean chemResistance) {
+    public PipeMain(double p_length, double p_outerDiameter,int plasgrd, boolean chemResistance) {
         lenght = p_length;
         outerDiameter = p_outerDiameter;
         plasticVolume = WorkOutVolume(outerDiameter, lenght);
         chemicalResistance = chemResistance;
+        plasticGrade = plasgrd;
     }
 
     protected double WorkOutVolume(double outerDiameter, double length) {

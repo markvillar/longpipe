@@ -13,37 +13,27 @@ import java.util.ArrayList;
  */
 class Test {
 
-    public int TestPipeValid(boolean outerReinforcement, boolean innerInsulation, boolean chemResistance, int colour, int plasticGrade, double lenght, double diamater, ArrayList pipeList) {
+    public int TestPipeValid(boolean outerReinforcement, boolean innerInsulation, boolean chemResistance, int colour, int plasticGrade, double lenght, double diamater) {
         int type = -1;
         if (outerReinforcement) {
             if (ValidatePipe5(innerInsulation, colour, plasticGrade)) {
                 type = 5;
-                Pipe5 testpipe = new Pipe5(lenght, diamater, chemResistance);
-                pipeList.add(testpipe);
             }
         } else if (innerInsulation) {
             if (ValidatePipe4(colour, plasticGrade)) {
                 type = 4;
-                Pipe4 testpipe = new Pipe4(lenght, diamater, chemResistance);
-                pipeList.add(testpipe);
             }
         } else if (colour == 2) {
             if (ValidatePipe3(plasticGrade)) {
                 type = 3;
-                Pipe3 testpipe = new Pipe3(lenght, diamater, chemResistance);
-                pipeList.add(testpipe);
             }
         } else if (colour == 1) {
             if (ValidatePipe2(plasticGrade)) {
                 type = 2;
-                Pipe2 testpipe = new Pipe2(lenght, diamater, chemResistance);
-                pipeList.add(testpipe);
             }
         } else if (colour == 0) {
             if (ValidatePipe1(plasticGrade)) {
                 type = 1;
-                Pipe1 testpipe = new Pipe1(lenght, diamater, chemResistance);
-                pipeList.add(testpipe);
             }
         }
         return type;

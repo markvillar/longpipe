@@ -11,17 +11,7 @@ public class LongPipe {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-
-        ArrayList pipeList = new ArrayList<PipeMain>();
-        PipeMain testpipe = new PipeMain(1, 1, true);
-        testpipe.DisplayInfo();
-        Test test = new Test();
-        test.TestPipeValid(true, true, true, 2, 5, 1, 1, pipeList);
-        test.TestPipeValid(true, false, false, 2, 5, 10, 10, pipeList);
-        test.TestPipeValid(true, true, true, 2, 5, 1, 1, pipeList);
-        
-        //System.out.println("£ ;" + pipeList.get(0).Price());
-        
+        //System.out.println("£ ;" + pipeList.get(0).Price());        
         OrderForm of = new OrderForm();
         of.setVisible(true);
 
