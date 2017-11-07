@@ -13,6 +13,7 @@ public class AddPipe extends javax.swing.JDialog {
         super(parent, modal);
         //Need to pass the Arraylist, pass by reference
         initComponents();
+        this.setLocationRelativeTo(null);
         pipeOrder = inPipeOrder;
         btnAddPipe.setEnabled(false);
         type = -1;
