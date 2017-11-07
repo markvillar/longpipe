@@ -442,7 +442,7 @@ public class AddPipe extends javax.swing.JDialog {
             btnAddPipe.setEnabled(true);
             tfPipeValidOutput.setText("Pipe is of type " + type);
             PipeMain pipePrice = createPipe();
-            tfCostOutput.setText(String.format("%.2f", pipePrice.Price()));
+            tfCostOutput.setText(String.format("%.2f", pipePrice.Price() * Double.parseDouble(tfQuantityInput.getText())));
         }
     }//GEN-LAST:event_btnTestValidActionPerformed
 

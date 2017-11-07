@@ -11,15 +11,17 @@ public class OrderForm extends javax.swing.JFrame {
         PipeOrder = new ArrayList(); //Create a new arraylist to keep track of the pipe order
     }
     
+    /**
+     * Output the order of pipes to the output field on the order form
+     */
     public void printPipeOutput(){
         taOutputOrder.setText(""); //Clear output screen
-        double totalCost = 0;
-        totalCost = PipeOrder.stream().map((pipe) -> {
-            //Print Pipe Details
-            taOutputOrder.append(pipe.DisplayInfo()+ "\n");
-            return pipe;
-        }).map((pipe) -> pipe.Price()).reduce(totalCost, (accumulator, _item) -> accumulator + _item);
-        tfOutputCost.setText(String.format("%.2f", totalCost));
+        double totalCost = 0;        
+        for(PipeMain pipe: PipeOrder){
+            taOutputOrder.append(pipe.DisplayInfo()+ "\n"); //Append pipe data to the output area
+            totalCost += pipe.Price(); 
+        }
+        tfOutputCost.setText(String.format("%.2f", totalCost)); //Output the total cost
     }
     
     @SuppressWarnings("unchecked")
@@ -125,7 +127,7 @@ public class OrderForm extends javax.swing.JFrame {
     private void btnRemovePipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePipeActionPerformed
         //Remove the last pipe in the arraylist
         PipeOrder.remove(PipeOrder.size()-1);
-        printPipeOutput();
+        printPipeOutput(); //Reprint out the list
     }//GEN-LAST:event_btnRemovePipeActionPerformed
 
     private void btnAddPipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPipeActionPerformed

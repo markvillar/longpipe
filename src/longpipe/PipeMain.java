@@ -66,7 +66,7 @@ public class PipeMain {
     }
 
     protected double ChemicalPrice() {
-        if (this.GetChemicalResistance()) {
+        if (this.GetChemicalResistance()) { 
             return 1.14;
         } else {
             return 1;
