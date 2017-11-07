@@ -9,77 +9,98 @@ public class AddPipe extends javax.swing.JDialog {
     private ArrayList pipeOrder;
     private int type;
 
+    /**
+     * Create a new dialog window to allow the user to add a new pipe
+     *
+     * @param parent The form that the dialog box was created from
+     * @param modal Whether the dialog box allows for the parent form to be
+     * selected
+     * @param inPipeOrder The current list of pipes ordered
+     */
     public AddPipe(java.awt.Frame parent, boolean modal, ArrayList inPipeOrder) {
         super(parent, modal);
-        //Need to pass the Arraylist, pass by reference
-        initComponents();
-        this.setLocationRelativeTo(null);
+        initComponents(); //Initialise the components of the dialog box
+        this.setLocationRelativeTo(null); //Set window location to the centre of the screen
         pipeOrder = inPipeOrder;
-        btnAddPipe.setEnabled(false);
-        type = -1;
+        btnAddPipe.setEnabled(false); //Automatically disable the "Add Pipe" button
+        type = -1; //Set the default value of the pipe type
     }
 
     private AddPipe(JFrame jFrame, boolean b) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Ignore
     }
 
+    /**
+     * Returns the list of pipes within the current order
+     *
+     * @return Returns the list of pipes from the order
+     */
     public ArrayList returnPipeOrder() {
         return pipeOrder;
     }
 
+    /**
+     * Check the validity of the value entered into the length text field
+     *
+     * @return The length entered into the text field if valid otherwise the
+     * default value
+     */
     public double getLengthValue() {
-        tfLengthInput.setForeground(Color.black);
+        tfLengthInput.setForeground(Color.black); //Set the default font colour
         double length;
         try {
-            length = Double.parseDouble(tfLengthInput.getText());
+            length = Double.parseDouble(tfLengthInput.getText()); //Try to parse the entered string to a double
         } catch (NullPointerException ex) {
-            tfLengthInput.setText("0.00");
-            tfLengthInput.setForeground(Color.red);
-            length = 0.00;
-            System.out.println("There is a null value in a text field");
+            //The text field is empty
+            tfLengthInput.setText("0.00"); //Set to the default value of the text field
+            tfLengthInput.setForeground(Color.red); //Highlight to the user that the value within the text field was invalid
+            length = 0.00; //Set the length to the default value
         } catch (NumberFormatException ex) {
-            tfLengthInput.setText("0.00");
-            tfLengthInput.setForeground(Color.red);
-            length = 0.00;
+            //Entered value is not a double or integer
+            tfLengthInput.setText("0.00"); //Set to the default value of the text field
+            tfLengthInput.setForeground(Color.red); //Highlight to the user that the value within the text field is invalid
+            length = 0.00; //Set the length to the default value
             System.out.println("Entered Value is not a double or integer");
         }
         return length;
     }
 
+    /**
+     * Check the validity of the value entered into the width text field
+     *
+     * @return The width entered into the text field if valid otherwise the default value
+     */
     public double getWidthValue() {
-        tfWidthInput.setForeground(Color.black); //Set to default colour in case value is valid
+        tfWidthInput.setForeground(Color.black); //Set the default font colour
         double width;
         try {
-            String value = tfWidthInput.getText();
-            width = Double.parseDouble(value);
+            width = Double.parseDouble(tfWidthInput.getText()); //Try to parse the entered string to a double
         } catch (NullPointerException ex) {
-            //There is not value in the text field
-            tfWidthInput.setText("0.00");
-            tfWidthInput.setForeground(Color.red);
-            width = 0.00;
-            System.out.println("There is a null value in a text field");
+            //The text field is empty
+            tfWidthInput.setText("0.00"); //Set to the default value of the text field
+            tfWidthInput.setForeground(Color.red); //Highlight to the user that the value within the text field was invalid
+            width = 0.00; //Set width to the default value
         } catch (NumberFormatException ex) {
-            //Entered value is not an integer or double
-            tfWidthInput.setText("0.00");
-            tfWidthInput.setForeground(Color.red);
-            width = 0.00;
-            System.out.println("Entered Value is not a double or integer");
+            //Entered value is not a double or integer
+            tfWidthInput.setText("0.00"); //Set to the default value of the text field
+            tfWidthInput.setForeground(Color.red); //Highlight to the user that the value within the text field was invalid
+            width = 0.00; //Set width to the default value
         }
-
         return width;
     }
 
     /**
-     *
-     * @return Quantity value entered into quantity text field
+     * Check the validity of the value entered into the quantity text field
+     * 
+     * @return The quantity entered into the text field if valid, otherwise the default value
      */
     public int getQuantityValue() {
+        tfQuantityInput.setForeground(Color.black); // Set the default font colour
         int quantity;
-        tfQuantityInput.setForeground(Color.black); // Set to default text colour in case value is valid
         try {
-            quantity = Integer.parseInt(tfQuantityInput.getText()); // Attempt to get the value out of the text box
+            quantity = Integer.parseInt(tfQuantityInput.getText()); //Try to parse the entered string to an integer
         } catch (NumberFormatException ex) {
-            //Entered Value is not an integer
+            //Entered value is not an integer
             quantity = 1; //Set to a default value
             tfQuantityInput.setForeground(Color.red);
             System.out.println("Entered Value is not an integer");
@@ -98,28 +119,28 @@ public class AddPipe extends javax.swing.JDialog {
         tfQuantityInput.setText(Integer.toString(quantity));
         return quantity;
     }
-    
-    public PipeMain createPipe(){
+
+    public PipeMain createPipe() {
         PipeMain p = null;
-            switch (type) {
-                case 1:
-                    p = new Pipe1(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
-                    break;
-                case 2:
-                    p = new Pipe2(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
-                    break;
-                case 3:
-                    p = new Pipe3(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
-                    break;
-                case 4:
-                    p = new Pipe4(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
-                    break;
-                case 5:
-                    p = new Pipe5(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
-                    break;
-                default:
-                    break;
-            }
+        switch (type) {
+            case 1:
+                p = new Pipe1(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                break;
+            case 2:
+                p = new Pipe2(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                break;
+            case 3:
+                p = new Pipe3(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                break;
+            case 4:
+                p = new Pipe4(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                break;
+            case 5:
+                p = new Pipe5(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                break;
+            default:
+                break;
+        }
         return p;
     }
 
