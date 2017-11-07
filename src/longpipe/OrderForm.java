@@ -123,10 +123,10 @@ public class OrderForm extends javax.swing.JFrame {
 
     private void btnAddPipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPipeActionPerformed
         //Open the dialog box to add a new pipe
-        AddPipe ap = new AddPipe(this,true);
+        AddPipe ap = new AddPipe(this,true,PipeOrder);
         ap.setVisible(true);
-        System.out.println(ap.returnHello());
-        ap.dispose();
+        PipeOrder = ap.returnPipeOrder(); //Return a value before closing the window
+        ap.dispose(); //Close the dialog window
     }//GEN-LAST:event_btnAddPipeActionPerformed
 
     /**

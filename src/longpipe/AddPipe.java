@@ -1,19 +1,25 @@
 package longpipe;
 
 import java.awt.Color;
+import java.util.ArrayList;
+import javax.swing.JFrame;
 
 public class AddPipe extends javax.swing.JDialog {
-    private String hello;
+    private ArrayList PipeOrder;
 
-    public AddPipe(java.awt.Frame parent, boolean modal) {
+    public AddPipe(java.awt.Frame parent, boolean modal, ArrayList inPipeOrder) {
         super(parent, modal);
         //Need to pass the Arraylist, pass by reference
         initComponents();
-        hello = "hello";
+        PipeOrder = inPipeOrder;
+    }
+
+    private AddPipe(JFrame jFrame, boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public String returnHello(){
-        return hello;
+    public ArrayList returnPipeOrder(){
+        return PipeOrder;
     }
 
     public double getLengthValue() {
@@ -346,6 +352,8 @@ public class AddPipe extends javax.swing.JDialog {
         
         //if valid
         Pipe1 p = new Pipe1(getLengthValue(),getWidthValue(),true);
+        
+        //Set the visibility to false to allow the parent form to retrieve the new ArrayList before the dialog closes
         setVisible(false);
     }//GEN-LAST:event_btnAddPipeActionPerformed
 
