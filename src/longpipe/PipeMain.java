@@ -33,12 +33,12 @@ public class PipeMain {
     protected double WorkOutVolume(double outerDiameter, double length) {
         double innerDiamater = outerDiameter * 0.9;
         double volume;
-        volume = AreaOfCylinder(outerDiameter, lenght) - AreaOfCylinder(innerDiamater, lenght);
+        volume = VolumeOfCylinder(outerDiameter, lenght) - VolumeOfCylinder(innerDiamater, lenght);
         return volume;
     }
 
-    protected double AreaOfCylinder(double diameter, double length) {
-        return Math.sqrt((diameter / 2) * Math.PI) * length;
+    protected double VolumeOfCylinder(double diameter, double length) {
+        return Math.pow((diameter / 2) * Math.PI,2) * length;
     }
 
     protected double InchToMeters(double inch) {
@@ -76,14 +76,14 @@ public class PipeMain {
     protected double costOfPlastic() {
         double[] costOfPlastic = {0.4, 0.6, 0.75, 0.8, 0.95};
 
-        return costOfPlastic[this.GetPlasticGrade()];
+        return costOfPlastic[this.GetPlasticGrade()-1];
     }
     private double extraCosts(){
         return this.ChemicalPrice();
     }
 
     public double Price() {
-        double price = this.costOfPlastic() * this.costOfPlastic() * this.extraCosts(); // change to voume ratherthan doubble cost
+        double price = this.costOfPlastic() * this.GetPlasticVolume() * this.extraCosts(); // change to voume ratherthan doubble cost
         return price;
     }
 }

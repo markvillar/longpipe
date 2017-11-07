@@ -97,6 +97,30 @@ public class AddPipe extends javax.swing.JDialog {
         tfQuantityInput.setText(Integer.toString(quantity));
         return quantity;
     }
+    
+    public PipeMain createPipe(){
+        PipeMain p = null;
+            switch (type) {
+                case 1:
+                    p = new Pipe1(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                    break;
+                case 2:
+                    p = new Pipe2(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                    break;
+                case 3:
+                    p = new Pipe3(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                    break;
+                case 4:
+                    p = new Pipe4(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                    break;
+                case 5:
+                    p = new Pipe5(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                    break;
+                default:
+                    break;
+            }
+        return p;
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -377,26 +401,8 @@ public class AddPipe extends javax.swing.JDialog {
 
         for (int i = 0; i < Integer.parseInt(tfQuantityInput.getText()); i++) {
             //Add Pipes
-            PipeMain p;
-            switch (type) {
-                case 1:
-                    p = new Pipe1(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
-                    break;
-                case 2:
-                    p = new Pipe2(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
-                    break;
-                case 3:
-                    p = new Pipe3(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
-                    break;
-                case 4:
-                    p = new Pipe4(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
-                    break;
-                case 5:
-                    p = new Pipe5(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbOuterRein.isSelected());
-                    break;
-                default:
-                    break;
-            }
+            PipeMain p = createPipe();
+            pipeOrder.add(p);
         }
 
         setVisible(false); //Set the visibility to false to allow the parent form to retrieve the new ArrayList before the dialog closes
@@ -435,6 +441,8 @@ public class AddPipe extends javax.swing.JDialog {
         } else {
             btnAddPipe.setEnabled(true);
             tfPipeValidOutput.setText("Pipe is of type " + type);
+            PipeMain pipePrice = createPipe();
+            tfCostOutput.setText(String.format("%.2f", pipePrice.Price()));
         }
     }//GEN-LAST:event_btnTestValidActionPerformed
 

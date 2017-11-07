@@ -34,6 +34,7 @@ public class OrderForm extends javax.swing.JFrame {
 
         jLabel1.setText("Long Pipes Order Form");
 
+        taOutputOrder.setEditable(false);
         taOutputOrder.setColumns(20);
         taOutputOrder.setRows(5);
         jScrollPane1.setViewportView(taOutputOrder);

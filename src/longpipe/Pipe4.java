@@ -21,7 +21,7 @@ public class Pipe4 extends PipeMain {
     }
 
     private double extraCosts() {
-        return this.ChemicalPrice() * 1.16 * 1.3;
+        return this.ChemicalPrice() * 1.16 * 1.13;
     }
 
 }
