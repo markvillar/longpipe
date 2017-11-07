@@ -14,11 +14,11 @@ public class OrderForm extends javax.swing.JFrame {
     public void printPipeOutput(){
         taOutputOrder.setText(""); //Clear output screen
         double totalCost = 0;
-        for (PipeMain pipe: PipeOrder) {
+        totalCost = PipeOrder.stream().map((pipe) -> {
             //Print Pipe Details
             taOutputOrder.append(pipe.DisplayInfo()+ "\n");
-            totalCost += pipe.Price();
-        }
+            return pipe;
+        }).map((pipe) -> pipe.Price()).reduce(totalCost, (accumulator, _item) -> accumulator + _item);
         tfOutputCost.setText(String.format("%.2f", totalCost));
     }
     
@@ -39,6 +39,7 @@ public class OrderForm extends javax.swing.JFrame {
 
         jLabel1.setText("Long Pipes Order Form");
 
+        taOutputOrder.setEditable(false);
         taOutputOrder.setColumns(20);
         taOutputOrder.setRows(5);
         jScrollPane1.setViewportView(taOutputOrder);
@@ -123,7 +124,8 @@ public class OrderForm extends javax.swing.JFrame {
 
     private void btnRemovePipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePipeActionPerformed
         //Remove the last pipe in the arraylist
-        PipeOrder.remove(PipeOrder.size());
+        PipeOrder.remove(PipeOrder.size()-1);
+        printPipeOutput();
     }//GEN-LAST:event_btnRemovePipeActionPerformed
 
     private void btnAddPipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPipeActionPerformed
