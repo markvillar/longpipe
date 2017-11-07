@@ -21,6 +21,7 @@ public class AddPipe extends javax.swing.JDialog {
         super(parent, modal);
         initComponents(); //Initialise the components of the dialog box
         this.setLocationRelativeTo(null); //Set window location to the centre of the screen
+        this.setTitle("Add Pipe"); //Title of the form
         pipeOrder = inPipeOrder;
         btnAddPipe.setEnabled(false); //Automatically disable the "Add Pipe" button
         type = -1; //Set the default value of the pipe type

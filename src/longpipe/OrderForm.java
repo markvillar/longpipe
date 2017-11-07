@@ -9,6 +9,7 @@ public class OrderForm extends javax.swing.JFrame {
     public OrderForm() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("Order Form"); //Title of the form
         PipeOrder = new ArrayList(); //Create a new arraylist to keep track of the pipe order
     }
     
