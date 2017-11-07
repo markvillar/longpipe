@@ -17,7 +17,7 @@ public class Pipe4 extends PipeMain {
 
     public Pipe4(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
         super(p_length, p_outerDiameter, plasgrd, chemResistance);
-        colour = 2;
+        this.setColour(2);
     }
 
     private double extraCosts() {

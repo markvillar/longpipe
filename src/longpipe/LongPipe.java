@@ -10,8 +10,7 @@ public class LongPipe {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        //System.out.println("£ ;" + pipeList.get(0).Price());        
+    public static void main(String[] args) {       
         OrderForm of = new OrderForm();
         of.setVisible(true);
 

@@ -9,10 +9,10 @@ import java.util.ArrayList;
 
 /**
  *
- * @author James
+ * @author up769598
  */
 class Test {
-
+// Methord Used to workout witch type of pipe needs to be created adn then retuns an int of the type of pipe and returns a -1 if the pipe is not valid
     public int TestPipeValid(boolean outerReinforcement, boolean innerInsulation, boolean chemResistance, int colour, int plasticGrade, double lenght, double diamater) {
         int type = -1;
         if (outerReinforcement) {

@@ -7,7 +7,7 @@ package longpipe;
 
 /**
  *
- * @author James
+ * @author up769598
  */
 public class Pipe5 extends PipeMain {
 
@@ -17,7 +17,7 @@ public class Pipe5 extends PipeMain {
 
     public Pipe5(double p_length, double p_outerDiameter,int plasgrd, boolean chemResistance) {
         super(p_length, p_outerDiameter,plasgrd, chemResistance);
-        colour = 2;
+        this.setColour(2);
     }
 
     private double extraCosts() {
