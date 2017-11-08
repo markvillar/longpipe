@@ -139,9 +139,12 @@ public class OrderForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRemovePipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePipeActionPerformed
-        //Remove the last pipe in the arraylist
-        PipeOrder.remove(PipeOrder.size()-1);
-        printPipeOutput(); //Reprint out the list
+        //Check if arraylist is not empty
+        if (!PipeOrder.isEmpty()) {
+            //Remove the last pipe in the arraylist
+            PipeOrder.remove(PipeOrder.size()-1);
+            printPipeOutput(); //Reprint out the list
+        }
     }//GEN-LAST:event_btnRemovePipeActionPerformed
 
     private void btnAddPipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPipeActionPerformed
