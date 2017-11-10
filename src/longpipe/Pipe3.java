@@ -15,6 +15,13 @@ public class Pipe3 extends PipeMain {
 
     }
 
+    /**
+     * Constructor used to make a pipe of type 3
+     * @param p_length
+     * @param p_outerDiameter
+     * @param plasgrd
+     * @param chemResistance
+     */
     public Pipe3(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
         super(p_length, p_outerDiameter, plasgrd, chemResistance);
         this.setColour(2);

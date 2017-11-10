@@ -136,8 +136,8 @@ public class PipeMain {
     }
 
     /**
-     *
-     * @return
+     * adds the price increase if the Chemical Price
+     * @return the price increas for chemical resistance  
      */
     protected double ChemicalPrice() {
         if (this.GetChemicalResistance()) {
@@ -147,16 +147,28 @@ public class PipeMain {
         }
     }
 
+    /**
+     *works out the cost of plastic per inch^3
+     * @return price of plastic
+     */
     protected double costOfPlastic() {
         double[] costOfPlastic = {0.4, 0.6, 0.75, 0.8, 0.95};
 
         return costOfPlastic[this.GetPlasticGrade() - 1];
     }
-
+    
+    /**
+     * returns the total percantage increse of all different price modiffiers 
+     * @return price modifier
+     */
     private double extraCosts() {
         return this.ChemicalPrice();
     }
 
+    /**
+     *works out the total price for the pipe
+     * @return pipe price
+     */
     public double Price() {
         double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts(); // change to voume ratherthan doubble cost
         return price;
