@@ -9,6 +9,19 @@ public class AddPipe extends javax.swing.JDialog {
     private ArrayList pipeOrder;
     private int type;
 
+    /*
+    TODO:
+    cost per pipe
+    total cost
+    html printing IF THERES TIME
+    re-write validation - pass textfield??
+    UML DIAGRAM
+    TEST PLANS AND TESTING WHATEVER
+    Write Assumptions
+    
+    */
+    
+    
     /**
      * Create a new dialog window to allow the user to add a new pipe
      *
@@ -40,6 +53,8 @@ public class AddPipe extends javax.swing.JDialog {
         return pipeOrder;
     }
 
+    
+    
     /**
      * Check the validity of the value entered into the length text field
      *
@@ -121,6 +136,10 @@ public class AddPipe extends javax.swing.JDialog {
         return quantity;
     }
 
+    /**
+     * desc of the method
+     * @return The newly created pipe depending on the inputs from the GUI
+     */
     public PipeMain createPipe() {
         PipeMain p = null;
         switch (type) {
