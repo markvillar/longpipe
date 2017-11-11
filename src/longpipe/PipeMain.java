@@ -24,7 +24,7 @@ public class PipeMain {
     }
 
     /**
-     * Main construtors for the defult Pipe
+     * Main constructor for the default Pipe
      * @param p_length length specified by the user 
      * @param p_outerDiameter width of the pipe specified by the user 
      * @param plasgrd plastic grade specified by the user 
@@ -41,7 +41,7 @@ public class PipeMain {
     }
 
     /**
-     * Used to work out the plastic Volume of the pipe by subtracting the inner diamiter cylinder by the outer diamiter cylinder
+     * Used to work out the plastic Volume of the pipe by subtracting the inner diameter cylinder by the outer diameter cylinder
      * @param outerDiameter the width of the pipe passed through by the constructor
      * @param length the length of the pipe passed through by the constructor
      * @return the plastic volume of the pipe 
@@ -99,7 +99,7 @@ public class PipeMain {
 
     /**
      *used to set the colour 
-     * @param col the color to be set to
+     * @param col the colour to be set to
      */
     public void setColour(int col) {
         colour = col;
@@ -160,7 +160,7 @@ public class PipeMain {
     }
     
     /**
-     * returns the total percantage increse of all different price modiffiers 
+     * returns the total percentage increase of all different price modifiers 
      * @return price modifier
      */
     private double extraCosts() {

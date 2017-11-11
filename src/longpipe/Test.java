@@ -6,7 +6,7 @@ package longpipe;
  */
 class Test {
     /**
-    * Method used to workout witch type of pipe needs to be created adn then retuns an int of the type of pipe and returns a -1 if the pipe is not valid
+    * Method used to workout witch type of pipe needs to be created and then returns an integer of the type of pipe and returns a -1 if the pipe is not valid
     */
     public int TestPipeValid(boolean outerReinforcement, boolean innerInsulation, boolean chemResistance, int colour, int plasticGrade, double lenght, double diamater) {
         int type = -1;
