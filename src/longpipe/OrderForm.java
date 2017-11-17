@@ -19,7 +19,7 @@ public class OrderForm extends javax.swing.JFrame {
 
     public void displayPipes() {
         for(PipeMain pipe : pipeOrder){
-            Object[] data = {pipe.returnType(),pipe.getLength(),pipe.getDiameter(),pipe.GetChemicalResistance(),String.format("%.2f", pipe.Price())};
+            Object[] data = {pipe.returnType(),pipe.getLength(),pipe.getDiameter(),pipe.GetChemicalResistance(),"£" + String.format("%.2f", pipe.Price())};
             model.addRow(data);
         }
     }
