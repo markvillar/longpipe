@@ -14,11 +14,6 @@ public class AddPipe extends javax.swing.JDialog {
 
     /*
     TODO:
-<<<<<<< HEAD
-=======
-    cost per pipe -- Done
-    total cost -- Done
->>>>>>> origin/master
     html printing IF THERES TIME
     UML DIAGRAM
     TEST PLANS AND TESTING WHATEVER
@@ -68,7 +63,6 @@ public class AddPipe extends javax.swing.JDialog {
         double length = 1.0;
         try {
             length = Double.parseDouble(tfLengthInput.getText()); //Try to parse the entered string to a double
-<<<<<<< HEAD
         } catch (NullPointerException | NumberFormatException ex) {
             //The text field is empty or the entered value is not a double or integer
             valid = false;
@@ -82,19 +76,6 @@ public class AddPipe extends javax.swing.JDialog {
             printError("Value entered into length field is either nothing or invalid, please enter a decimal number greater than 0 and less than 99");
         } else {
             tfErrorOutput.setText("");
-=======
-        } catch (NullPointerException ex) {
-            //The text field is empty
-            tfLengthInput.setText("0.00"); //Set to the default value of the text field
-            tfLengthInput.setForeground(Color.red); //Highlight to the user that the value within the text field was invalid
-            length = 0.00; //Set the length to the default value
-        } catch (NumberFormatException ex) {
-            //Entered value is not a double or integer
-            tfLengthInput.setText("0.00"); //Set to the default value of the text field
-            tfLengthInput.setForeground(Color.red); //Highlight to the user that the value within the text field is invalid
-            length = 0.00; //Set the length to the default value
-            tfErrorOutPut.setText("Entered Value is not a double or integer");// sends error to error text line
->>>>>>> origin/master
         }
         tfLengthInput.setText(Double.toString(length));
         return length;
@@ -112,23 +93,9 @@ public class AddPipe extends javax.swing.JDialog {
         boolean valid = true;
         try {
             width = Double.parseDouble(tfWidthInput.getText()); //Try to parse the entered string to a double
-<<<<<<< HEAD
         } catch (NullPointerException | NumberFormatException ex) {
             //The text field is empty or the entered value is not a double or integer
             valid = false;
-=======
-        } catch (NullPointerException ex) {
-            //The text field is empty
-            tfWidthInput.setText("0.00"); //Set to the default value of the text field
-            tfWidthInput.setForeground(Color.red); //Highlight to the user that the value within the text field was invalid
-            width = 0.00; //Set width to the default value
-        } catch (NumberFormatException ex) {
-            //Entered value is not a double or integer
-            tfWidthInput.setText("0.00"); //Set to the default value of the text field
-            tfWidthInput.setForeground(Color.red); //Highlight to the user that the value within the text field was invalid
-            width = 0.00; //Set width to the default value
-            tfErrorOutPut.setText("Entered Value is not a double or integer");// sends error to error text line
->>>>>>> origin/master
         }
         if(width <= 0 || width > 99){
             valid = false;
@@ -159,18 +126,7 @@ public class AddPipe extends javax.swing.JDialog {
             quantity = Integer.parseInt(tfQuantityInput.getText()); //Try to parse the entered string to an integer
         } catch (NumberFormatException | NullPointerException ex) {
             //Entered value is not an integer
-<<<<<<< HEAD
             valid = false;
-=======
-            quantity = 1; //Set to a default value
-            tfQuantityInput.setForeground(Color.red);
-            tfErrorOutPut.setText("Entered Value is not an integer");// sends error to error text line
-        } catch (NullPointerException ex) {
-            //There is not value in the text field
-            quantity = 1; //Set to a default value
-            tfQuantityInput.setForeground(Color.red);
-            tfErrorOutPut.setText("There is a null value in a text field");// sends error to error text line
->>>>>>> origin/master
         }
         if (quantity > 99 || quantity <= 0) {
             //Check if value entered is within reasonable bounds
@@ -178,16 +134,10 @@ public class AddPipe extends javax.swing.JDialog {
         }
         if(!valid){
             quantity = 1;
-<<<<<<< HEAD
             tfQuantityInput.setForeground(darkRed); //Set font colour to red to show that the value entered is not within valid limits
             printError("Entered quantity is either nothing or not a decimal number. Please enter a whole number between 1 and 99");
         } else {
             tfErrorOutput.setText("");
-=======
-            tfQuantityInput.setForeground(Color.red); //Set font colour to red to show that the value entered is not within valid limits
-            tfErrorOutPut.setText("Entered Quantity is too high or low. Enter a value between 1 and 99");// sends error to error text line
-            
->>>>>>> origin/master
         }
         tfQuantityInput.setText(Integer.toString(quantity));
         return quantity;
@@ -254,11 +204,7 @@ public class AddPipe extends javax.swing.JDialog {
         btnAddPipe = new javax.swing.JButton();
         btnClearForm = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
-<<<<<<< HEAD
         tfErrorOutput = new javax.swing.JTextField();
-=======
-        tfErrorOutPut = new javax.swing.JTextField();
->>>>>>> origin/master
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Add Pipe to Order");
@@ -477,11 +423,7 @@ public class AddPipe extends javax.swing.JDialog {
             }
         });
 
-<<<<<<< HEAD
         tfErrorOutput.setEditable(false);
-=======
-        tfErrorOutPut.setEditable(false);
->>>>>>> origin/master
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -493,8 +435,7 @@ public class AddPipe extends javax.swing.JDialog {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(tfErrorOutPut)
-                        .addGap(18, 18, 18)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(btnAddPipe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnClearForm)
@@ -517,8 +458,7 @@ public class AddPipe extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddPipe)
                     .addComponent(btnClearForm)
-                    .addComponent(btnCancel)
-                    .addComponent(tfErrorOutPut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnCancel))
                 .addContainerGap())
         );
 
@@ -716,11 +656,7 @@ public class AddPipe extends javax.swing.JDialog {
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblWidth;
     private javax.swing.JTextField tfCostPerPipeOutput;
-<<<<<<< HEAD
     private javax.swing.JTextField tfErrorOutput;
-=======
-    private javax.swing.JTextField tfErrorOutPut;
->>>>>>> origin/master
     private javax.swing.JTextField tfLengthInput;
     private javax.swing.JTextField tfQuantityInput;
     private javax.swing.JTextField tfTotalCostOutput;
