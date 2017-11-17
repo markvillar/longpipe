@@ -132,7 +132,7 @@ public class PipeMain {
      * @return formated string
      */
     public String DisplayInfo() {
-        return (" Meters : " + this.getLength() + " Inch : " + String.format("%.2f", this.getDiameter()) + " Price: £" + String.format("%.2f", this.Price()));
+        return (" Meters : " + this.getLength() + "      Inch : " + String.format("%.2f", this.getDiameter()) + "       Price: £" + String.format("%.2f", this.Price()));
     }
 
     /**

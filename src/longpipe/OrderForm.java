@@ -1,9 +1,10 @@
 package longpipe;
 
 import java.util.ArrayList;
-
+import javax.swing.JOptionPane;
 
 public class OrderForm extends javax.swing.JFrame {
+
     public ArrayList<PipeMain> PipeOrder;
 
     public OrderForm() {
@@ -12,24 +13,26 @@ public class OrderForm extends javax.swing.JFrame {
         this.setTitle("Order Form"); //Title of the form
         PipeOrder = new ArrayList(); //Create a new arraylist to keep track of the pipe order
     }
-    
+
     /**
      * Output the order of pipes to the output field on the order form
      */
-    public void printPipeOutput(){
+    public void printPipeOutput() {
         taOutputOrder.setText(""); //Clear output screen
-        double totalCost = 0;        
-        for(PipeMain pipe: PipeOrder){
-            taOutputOrder.append(pipe.DisplayInfo()+ "\n"); //Append pipe data to the output area
-            totalCost += pipe.Price(); 
+        double totalCost = 0;
+        for (PipeMain pipe : PipeOrder) {
+            taOutputOrder.append(pipe.DisplayInfo() + "\n"); //Append pipe data to the output area
+            totalCost += pipe.Price();
         }
         tfOutputCost.setText(String.format("%.2f", totalCost)); //Output the total cost
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         taOutputOrder = new javax.swing.JTextArea();
@@ -39,6 +42,20 @@ public class OrderForm extends javax.swing.JFrame {
         btnRemovePipe = new javax.swing.JButton();
         btnAddPipe = new javax.swing.JButton();
         btnRemoveAll = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -76,6 +93,13 @@ public class OrderForm extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Exit");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -92,7 +116,9 @@ public class OrderForm extends javax.swing.JFrame {
                             .addComponent(btnRemoveAll, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnRemovePipe, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
-                        .addComponent(btnAddPipe)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnAddPipe, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -107,7 +133,9 @@ public class OrderForm extends javax.swing.JFrame {
                     .addComponent(btnRemovePipe)
                     .addComponent(btnAddPipe))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRemoveAll)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnRemoveAll)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -142,18 +170,18 @@ public class OrderForm extends javax.swing.JFrame {
         //Check if arraylist is not empty
         if (!PipeOrder.isEmpty()) {
             //Remove the last pipe in the arraylist
-            PipeOrder.remove(PipeOrder.size()-1);
+            PipeOrder.remove(PipeOrder.size() - 1);
             printPipeOutput(); //Reprint out the list
         }
     }//GEN-LAST:event_btnRemovePipeActionPerformed
 
     private void btnAddPipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPipeActionPerformed
         //Open the dialog box to add a new pipe
-        AddPipe ap = new AddPipe(this,true,PipeOrder);
+        AddPipe ap = new AddPipe(this, true, PipeOrder);
         ap.setVisible(true);
         PipeOrder = ap.returnPipeOrder(); //Return a value before closing the window
         ap.dispose(); //Close the dialog window
-        
+
         //Call a function to print to text area
         printPipeOutput();
     }//GEN-LAST:event_btnAddPipeActionPerformed
@@ -163,6 +191,20 @@ public class OrderForm extends javax.swing.JFrame {
         PipeOrder.clear();
         printPipeOutput();
     }//GEN-LAST:event_btnRemoveAllActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Object[] options = {"Yes",
+            "Cancel"};
+        int n = JOptionPane.showOptionDialog(this,
+                "Are you sure you want to exit?",
+                "Warning",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.WARNING_MESSAGE,
+                null,
+                options,
+                options[1]);
+        if(n == 0) System.exit(1);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -203,10 +245,13 @@ public class OrderForm extends javax.swing.JFrame {
     private javax.swing.JButton btnAddPipe;
     private javax.swing.JButton btnRemoveAll;
     private javax.swing.JButton btnRemovePipe;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea taOutputOrder;
     private javax.swing.JTextField tfOutputCost;
     // End of variables declaration//GEN-END:variables
