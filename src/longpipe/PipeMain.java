@@ -134,12 +134,12 @@ public class PipeMain {
      * @return formated string
      */
     public String DisplayInfo() {
-        return (" Meters : " + this.getLength() + "      Inch : " + String.format("%.2f", this.getDiameter()) + "       Price: £" + String.format("%.2f", this.Price()));
+        return (" Lenght(M): " + this.getLength() + "      Width(Inch) : " + String.format("%.2f", this.getDiameter()) + "       Price: £" + String.format("%.2f", this.Price()));
     }
 
     /**
      * adds the price increase if the Chemical Price
-     * @return the price increas for chemical resistance  
+     * @return the price increase for chemical resistance  
      */
     protected double ChemicalPrice() {
         if (this.GetChemicalResistance()) {
@@ -169,7 +169,7 @@ public class PipeMain {
 
     /**
      *works out the total price for the pipe
-     * @return pipe price
+     * @return Final pipe price
      */
     public double Price() {
         double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts(); // change to voume ratherthan doubble cost
