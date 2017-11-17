@@ -11,6 +11,7 @@ public class AddPipe extends javax.swing.JDialog {
     private int type;
     private Color darkGreen;
     private Color darkRed;
+    private Color defaultBlack;
 
     /*
     TODO:
@@ -34,6 +35,7 @@ public class AddPipe extends javax.swing.JDialog {
         pipeOrder = inPipeOrder;
         btnAddPipe.setEnabled(false); //Automatically disable the "Add Pipe" button
         type = -1; //Set the default value of the pipe type
+        defaultBlack = new Color(0,0,0);
         darkGreen = new Color(39,142,43);
         darkRed = new Color(229,48,48);
     }
@@ -467,6 +469,8 @@ public class AddPipe extends javax.swing.JDialog {
         tfQuantityInput.setText("1");
         tfCostPerPipeOutput.setText("0.00");
         tfTotalCostOutput.setText("0.00");
+        tfWidthInput.setForeground(defaultBlack);
+        tfLengthInput.setForeground(defaultBlack);
         tfErrorOutput.setText("");
         cboPlasticGrade.setSelectedIndex(0);
         cboColour.setSelectedIndex(0);
