@@ -12,7 +12,7 @@ public class OrderForm extends javax.swing.JFrame {
     public OrderForm() {
         initComponents();
         pipeOrder = new ArrayList(); //Create a new arraylist to keep track of the pipe order
-        Object[] columnName = {"Type","Lenght","Width","Chemical Resistance","Price"};
+        Object[] columnName = {"Type","Length","Width","Chemical Resistance","Price"};
         model = new DefaultTableModel(columnName,0);
         tblOrder.setModel(model);
     }
@@ -181,6 +181,7 @@ public class OrderForm extends javax.swing.JFrame {
 
             }
         ));
+        tblOrder.setEnabled(false);
         jScrollPane3.setViewportView(tblOrder);
         if (tblOrder.getColumnModel().getColumnCount() > 0) {
             tblOrder.getColumnModel().getColumn(0).setResizable(false);
