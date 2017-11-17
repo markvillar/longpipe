@@ -18,8 +18,8 @@ public class AddPipe extends javax.swing.JDialog {
     UML DIAGRAM
     TEST PLANS AND TESTING WHATEVER
     Write Assumptions
-    
      */
+    
     /**
      * Create a new dialog window to allow the user to add a new pipe
      *
@@ -35,7 +35,7 @@ public class AddPipe extends javax.swing.JDialog {
         btnAddPipe.setEnabled(false); //Automatically disable the "Add Pipe" button
         type = -1; //Set the default value of the pipe type
         darkGreen = new Color(39,142,43);
-        darkRed = new Color(183,36,36);
+        darkRed = new Color(229,48,48);
     }
 
     private AddPipe(JFrame jFrame, boolean b) {
@@ -60,7 +60,7 @@ public class AddPipe extends javax.swing.JDialog {
     public double getLengthValue() {
         tfLengthInput.setForeground(Color.black); //Set the default font colour
         boolean valid = true;
-        double length = 1.00;
+        double length = 1.0;
         try {
             length = Double.parseDouble(tfLengthInput.getText()); //Try to parse the entered string to a double
         } catch (NullPointerException | NumberFormatException ex) {
@@ -71,6 +71,7 @@ public class AddPipe extends javax.swing.JDialog {
             valid = false;
         }
         if(!valid){
+            length = 1.0;
             tfLengthInput.setForeground(darkRed);
             printError("Value entered into length field is either nothing or invalid, please enter a decimal number greater than 0 and less than 99");
         } else {
@@ -88,7 +89,7 @@ public class AddPipe extends javax.swing.JDialog {
      */
     public double getWidthValue() {
         tfWidthInput.setForeground(Color.black); //Set the default font colour
-        double width = 1.00; //Set width to the default value
+        double width = 1.0; //Set width to the default value
         boolean valid = true;
         try {
             width = Double.parseDouble(tfWidthInput.getText()); //Try to parse the entered string to a double
@@ -100,6 +101,7 @@ public class AddPipe extends javax.swing.JDialog {
             valid = false;
         }
         if(!valid){
+            width = 1.0;
             tfWidthInput.setForeground(darkRed);
             //Alert the user that the entered value is invalid
             printError("Value entered into width field is either nothing or invalid, please enter a decimal number greater than 0 and less than 99");
@@ -131,6 +133,7 @@ public class AddPipe extends javax.swing.JDialog {
             valid = false;
         }
         if(!valid){
+            quantity = 1;
             tfQuantityInput.setForeground(darkRed); //Set font colour to red to show that the value entered is not within valid limits
             printError("Entered quantity is either nothing or not a decimal number. Please enter a whole number between 1 and 99");
         } else {

@@ -11,6 +11,7 @@ package longpipe;
  */
 public class PipeMain {
 
+    private int type;
     private double length;
     private int plasticGrade;
     private double outerDiameter;
@@ -30,12 +31,13 @@ public class PipeMain {
      * @param chemResistance if the pipe is chemical resistant then the value will be true
      * 
      */
-    public PipeMain(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
+    public PipeMain(int in_type, double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
         length = p_length;
         outerDiameter = p_outerDiameter;
         plasticVolume = WorkOutVolume(p_outerDiameter, p_length);
         chemicalResistance = chemResistance;
         plasticGrade = plasgrd;
+        type = in_type;
     }
 
     /**
@@ -172,5 +174,9 @@ public class PipeMain {
     public double Price() {
         double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts(); // change to voume ratherthan doubble cost
         return price;
+    }
+    
+    public int returnType(){
+        return type;
     }
 }

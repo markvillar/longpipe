@@ -1,7 +1,5 @@
 package longpipe;
 
-import java.util.ArrayList;
-
 public class LongPipe {
     
     public int numberOfOrders = 0;

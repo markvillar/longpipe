@@ -23,7 +23,7 @@ public class Pipe4 extends PipeMain {
      * @param chemResistance
      */
     public Pipe4(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        super(p_length, p_outerDiameter, plasgrd, chemResistance);
+        super(4,p_length, p_outerDiameter, plasgrd, chemResistance);
         this.setColour(2);
     }
      /**
