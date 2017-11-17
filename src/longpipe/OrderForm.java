@@ -19,7 +19,7 @@ public class OrderForm extends javax.swing.JFrame {
 
     public void displayPipes() {
         for(PipeMain pipe : pipeOrder){
-            Object[] data = {pipe.returnType(),pipe.getLength(),pipe.getDiameter(),pipe.GetChemicalResistance(),"£" + String.format("%.2f", pipe.Price())};
+            Object[] data = {pipe.returnType(),pipe.getLength() + " M",pipe.getDiameter() + " Inch",pipe.GetChemicalResistance(),"£" + String.format("%.2f", pipe.Price())};
             model.addRow(data);
         }
     }
@@ -202,10 +202,9 @@ public class OrderForm extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 586, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(261, Short.MAX_VALUE))
+            .addComponent(jScrollPane3)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -477,6 +477,7 @@ public class AddPipe extends javax.swing.JDialog {
         cbInnerInsulation.setSelected(false);
         cbOuterRein.setSelected(false);
         cbChemResis.setSelected(false);
+        btnAddPipe.setEnabled(false);
     }//GEN-LAST:event_btnClearFormActionPerformed
 
     private void btnAddPipeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPipeActionPerformed
