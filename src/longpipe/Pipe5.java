@@ -26,7 +26,10 @@ public class Pipe5 extends PipeMain {
         super(p_length, p_outerDiameter,plasgrd, chemResistance);
         this.setColour(2);
     }
-
+     /**
+     * this method combines all the price modifier for the different statuses of the pipe.
+     * @return the price modifier for the pipe 
+     */
     private double extraCosts() {
         return this.ChemicalPrice() * 1.16 * 1.13 * 1.17;
     }

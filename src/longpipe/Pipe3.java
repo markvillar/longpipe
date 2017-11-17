@@ -27,7 +27,10 @@ public class Pipe3 extends PipeMain {
         this.setColour(2);
 
     }
-
+     /**
+     * this method combines all the price modifier for the different statuses of the pipe.
+     * @return the price modifier for the pipe 
+     */
     private double extraCosts() {
         return this.ChemicalPrice() * 1.16;
     }
