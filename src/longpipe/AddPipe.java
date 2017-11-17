@@ -74,8 +74,6 @@ public class AddPipe extends javax.swing.JDialog {
             length = 1.0;
             tfLengthInput.setForeground(darkRed);
             printError("Value entered into length field is either nothing or invalid, please enter a decimal number greater than 0 and less than 99");
-        } else {
-            tfErrorOutput.setText("");
         }
         tfLengthInput.setText(Double.toString(length));
         return length;
@@ -105,8 +103,6 @@ public class AddPipe extends javax.swing.JDialog {
             tfWidthInput.setForeground(darkRed);
             //Alert the user that the entered value is invalid
             printError("Value entered into width field is either nothing or invalid, please enter a decimal number greater than 0 and less than 99");
-        } else {
-            tfErrorOutput.setText("");
         }
         tfWidthInput.setText(Double.toString(width));
         return width;
@@ -136,8 +132,6 @@ public class AddPipe extends javax.swing.JDialog {
             quantity = 1;
             tfQuantityInput.setForeground(darkRed); //Set font colour to red to show that the value entered is not within valid limits
             printError("Entered quantity is either nothing or not a decimal number. Please enter a whole number between 1 and 99");
-        } else {
-            tfErrorOutput.setText("");
         }
         tfQuantityInput.setText(Integer.toString(quantity));
         return quantity;
