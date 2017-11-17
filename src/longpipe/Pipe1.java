@@ -16,11 +16,12 @@ public class Pipe1 extends PipeMain {
     }
 
     /**
-     * Constructor used to make a pipe of type 1 
-     * @param p_length
-     * @param p_outerDiameter
-     * @param plasgrd
-     * @param chemResistance
+     * Constructor used to make a pipe of type 1
+     *
+     * @param p_length The given Length of the pipe
+     * @param p_outerDiameter The given Width of the pipe
+     * @param plasgrd The plastic grade of the pipe
+     * @param chemResistance If the pipe is chemical resistant
      */
     public Pipe1(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
         super(p_length, p_outerDiameter, plasgrd, chemResistance);

@@ -12,8 +12,8 @@ public class AddPipe extends javax.swing.JDialog {
 
     /*
     TODO:
-    cost per pipe
-    total cost
+    cost per pipe -- Done
+    total cost -- Done
     html printing IF THERES TIME
     re-write validation - pass textfield??
     UML DIAGRAM
