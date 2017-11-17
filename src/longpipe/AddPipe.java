@@ -73,7 +73,7 @@ public class AddPipe extends javax.swing.JDialog {
             tfLengthInput.setText("0.00"); //Set to the default value of the text field
             tfLengthInput.setForeground(Color.red); //Highlight to the user that the value within the text field is invalid
             length = 0.00; //Set the length to the default value
-            System.out.println("Entered Value is not a double or integer");
+            tfErrorOutPut.setText("Entered Value is not a double or integer");// sends error to error text line
         }
         return length;
     }
@@ -99,6 +99,7 @@ public class AddPipe extends javax.swing.JDialog {
             tfWidthInput.setText("0.00"); //Set to the default value of the text field
             tfWidthInput.setForeground(Color.red); //Highlight to the user that the value within the text field was invalid
             width = 0.00; //Set width to the default value
+            tfErrorOutPut.setText("Entered Value is not a double or integer");// sends error to error text line
         }
         return width;
     }
@@ -118,18 +119,19 @@ public class AddPipe extends javax.swing.JDialog {
             //Entered value is not an integer
             quantity = 1; //Set to a default value
             tfQuantityInput.setForeground(Color.red);
-            System.out.println("Entered Value is not an integer");
+            tfErrorOutPut.setText("Entered Value is not an integer");// sends error to error text line
         } catch (NullPointerException ex) {
             //There is not value in the text field
             quantity = 1; //Set to a default value
             tfQuantityInput.setForeground(Color.red);
-            System.out.println("There is a null value in a text field");
+            tfErrorOutPut.setText("There is a null value in a text field");// sends error to error text line
         }
         if (quantity > 99 || quantity <= 0) {
             //Check if value entered is within reasonable bounds
             quantity = 1;
             tfQuantityInput.setForeground(Color.red); //Set font colour to red to show that the value entered is not within valid limits
-            System.out.println("Entered Quantity is too high or too low. Please enter a value between 1 and 99");
+            tfErrorOutPut.setText("Entered Quantity is too high or low. Enter a value between 1 and 99");// sends error to error text line
+            
         }
         tfQuantityInput.setText(Integer.toString(quantity));
         return quantity;
@@ -192,6 +194,7 @@ public class AddPipe extends javax.swing.JDialog {
         btnAddPipe = new javax.swing.JButton();
         btnClearForm = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        tfErrorOutPut = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -411,6 +414,8 @@ public class AddPipe extends javax.swing.JDialog {
             }
         });
 
+        tfErrorOutPut.setEditable(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -421,7 +426,8 @@ public class AddPipe extends javax.swing.JDialog {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(tfErrorOutPut)
+                        .addGap(18, 18, 18)
                         .addComponent(btnAddPipe)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnClearForm)
@@ -441,7 +447,8 @@ public class AddPipe extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAddPipe)
                     .addComponent(btnClearForm)
-                    .addComponent(btnCancel))
+                    .addComponent(btnCancel)
+                    .addComponent(tfErrorOutPut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -636,6 +643,7 @@ public class AddPipe extends javax.swing.JDialog {
     private javax.swing.JLabel lblQuantity;
     private javax.swing.JLabel lblWidth;
     private javax.swing.JTextField tfCostPerPipeOutput;
+    private javax.swing.JTextField tfErrorOutPut;
     private javax.swing.JTextField tfLengthInput;
     private javax.swing.JTextField tfPipeValidOutput;
     private javax.swing.JTextField tfQuantityInput;
