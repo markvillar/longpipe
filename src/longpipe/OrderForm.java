@@ -9,42 +9,47 @@ public class OrderForm extends javax.swing.JFrame {
     private ArrayList<PipeMain> pipeOrder;
     private DefaultTableModel model;
 
+    /**
+     * Create the Order Form and set the model for the table.
+     */
     public OrderForm() {
         initComponents();
         pipeOrder = new ArrayList(); //Create a new arraylist to keep track of the pipe order
-        Object[] columnName = {"Type","Length","Width","Chemical Resistance","Price"};
+        Object[] columnName = {"Type","Length","Width","Chemical Resistance","Price"}; //Set the column names
         model = new DefaultTableModel(columnName,0);
         tblOrder.setModel(model);
     }
 
+    /**
+     * Display the current pipe order within the gui JTable
+     */
     public void displayPipes() {
+        clearTable();
         for(PipeMain pipe : pipeOrder){
             Object[] data = {pipe.returnType(),pipe.getLength() + " M",pipe.getDiameter() + " Inch",pipe.GetChemicalResistance(),"£" + String.format("%.2f", pipe.Price())};
             model.addRow(data);
         }
     }
 
+    /**
+     * Create the option pane to ask the user to confirm or cancel an action
+     * @param message The message to be displayed on the option pane
+     * @param title The title displayed in the window border
+     * @return 0 if the user selected "Yes" otherwise 1 if the user selected "Cancel"
+     */
     public int createOptionPane(String message, String title) {
-        Object[] options = {"Yes",
-            "Cancel"};
-        int n = JOptionPane.showOptionDialog(this,
-                message,
-                title,
-                JOptionPane.YES_NO_OPTION,
-                JOptionPane.WARNING_MESSAGE,
-                null,
-                options,
-                options[1]);
+        Object[] options = {"Yes","Cancel"}; //Set the names of the buttons on the option dialog
+        int n = JOptionPane.showOptionDialog(this,message,title,JOptionPane.YES_NO_OPTION,JOptionPane.WARNING_MESSAGE,null,options,options[1]); //Create the option pane
         return n;
     }
 
+    /**
+     * Clear the table of all rows
+     */
     public void clearTable() {
-        for (int j = 0; j < tblOrder.getColumnCount(); j++) {
-            for (int k = 0; k < tblOrder.getRowCount(); k++) {
-                tblOrder.setValueAt(null, k, j);
-            }
-        }
+        model.setRowCount(0); //Clear the table
     }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
