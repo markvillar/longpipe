@@ -471,6 +471,7 @@ public class AddPipe extends javax.swing.JDialog {
         tfTotalCostOutput.setText("0.00");
         tfWidthInput.setForeground(defaultBlack);
         tfLengthInput.setForeground(defaultBlack);
+        tfQuantityInput.setForeground(defaultBlack);
         tfErrorOutput.setText("");
         cboPlasticGrade.setSelectedIndex(0);
         cboColour.setSelectedIndex(0);
