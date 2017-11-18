@@ -196,7 +196,7 @@ public class AddPipe extends javax.swing.JDialog {
         lblQuantity = new javax.swing.JLabel();
         tfQuantityInput = new javax.swing.JTextField();
         tfCostPerPipeOutput = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        lblCostPerPipe = new javax.swing.JLabel();
         btnAddPipe = new javax.swing.JButton();
         btnClearForm = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
@@ -353,7 +353,7 @@ public class AddPipe extends javax.swing.JDialog {
         tfCostPerPipeOutput.setEditable(false);
         tfCostPerPipeOutput.setText("0.00");
 
-        jLabel1.setText("Cost Per Pipe: £");
+        lblCostPerPipe.setText("Cost Per Pipe: £");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -369,7 +369,7 @@ public class AddPipe extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCost, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblCostPerPipe, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(tfCostPerPipeOutput)
@@ -390,7 +390,7 @@ public class AddPipe extends javax.swing.JDialog {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(tfCostPerPipeOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1))
+                                .addComponent(lblCostPerPipe))
                             .addComponent(tfQuantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
@@ -648,11 +648,11 @@ public class AddPipe extends javax.swing.JDialog {
     private javax.swing.JCheckBox cbOuterRein;
     private javax.swing.JComboBox<String> cboColour;
     private javax.swing.JComboBox<String> cboPlasticGrade;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lblColours;
     private javax.swing.JLabel lblCost;
+    private javax.swing.JLabel lblCostPerPipe;
     private javax.swing.JLabel lblLength;
     private javax.swing.JLabel lblPlasticGrade;
     private javax.swing.JLabel lblQuantity;
