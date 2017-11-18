@@ -550,8 +550,8 @@ public class AddPipe extends javax.swing.JDialog {
             tfErrorOutput.setForeground(darkGreen);
             tfErrorOutput.setText("This pipe is stocked and is of type " + type);
             PipeMain pipePrice = createPipe();
-            tfTotalCostOutput.setText(String.format("%.2f", pipePrice.Price() * Double.parseDouble(tfQuantityInput.getText())));
-            tfCostPerPipeOutput.setText(String.format("%.2f", pipePrice.Price()));
+            tfTotalCostOutput.setText(String.format("%.2f", pipePrice.getPrice() * Double.parseDouble(tfQuantityInput.getText())));
+            tfCostPerPipeOutput.setText(String.format("%.2f", pipePrice.getPrice()));
         }
     }//GEN-LAST:event_btnTestValidActionPerformed
 
