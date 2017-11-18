@@ -273,13 +273,13 @@
                   </Group>
                   <EmptySpace pref="258" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblTotalCost" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCostPerPipe" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTotalCost" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="tfCostPerPipeOutput" max="32767" attributes="0"/>
-                      <Component id="tfTotalCostOutput" pref="224" max="32767" attributes="0"/>
+                      <Component id="tfTotalCostOutput" max="32767" attributes="0"/>
+                      <Component id="tfCostPerPipeOutput" pref="224" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -292,15 +292,15 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblTotalCost" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="tfTotalCostOutput" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblCostPerPipe" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tfCostPerPipeOutput" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="103" groupAlignment="3" attributes="0">
-                                  <Component id="tfCostPerPipeOutput" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lblCostPerPipe" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="tfTotalCostOutput" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblTotalCost" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="tfQuantityInput" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -316,12 +316,12 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblTotalCost">
+        <Component class="javax.swing.JLabel" name="lblCostPerPipe">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Total Cost: &#xa3;"/>
+            <Property name="text" type="java.lang.String" value="Cost Per Pipe: &#xa3;"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfTotalCostOutput">
+        <Component class="javax.swing.JTextField" name="tfCostPerPipeOutput">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="0.00"/>
@@ -348,15 +348,15 @@
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tfQuantityInputFocusLost"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="tfCostPerPipeOutput">
+        <Component class="javax.swing.JTextField" name="tfTotalCostOutput">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="0.00"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblCostPerPipe">
+        <Component class="javax.swing.JLabel" name="lblTotalCost">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cost Per Pipe: &#xa3;"/>
+            <Property name="text" type="java.lang.String" value="Total Cost: &#xa3;"/>
           </Properties>
         </Component>
       </SubComponents>

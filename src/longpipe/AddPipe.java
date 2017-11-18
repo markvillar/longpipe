@@ -190,13 +190,13 @@ public class AddPipe extends javax.swing.JDialog {
         cbOuterRein = new javax.swing.JCheckBox();
         cbChemResis = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
-        lblTotalCost = new javax.swing.JLabel();
-        tfTotalCostOutput = new javax.swing.JTextField();
+        lblCostPerPipe = new javax.swing.JLabel();
+        tfCostPerPipeOutput = new javax.swing.JTextField();
         btnTestValid = new javax.swing.JButton();
         lblQuantity = new javax.swing.JLabel();
         tfQuantityInput = new javax.swing.JTextField();
-        tfCostPerPipeOutput = new javax.swing.JTextField();
-        lblCostPerPipe = new javax.swing.JLabel();
+        tfTotalCostOutput = new javax.swing.JTextField();
+        lblTotalCost = new javax.swing.JLabel();
         btnAddPipe = new javax.swing.JButton();
         btnClearForm = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
@@ -329,10 +329,10 @@ public class AddPipe extends javax.swing.JDialog {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        lblTotalCost.setText("Total Cost: £");
+        lblCostPerPipe.setText("Cost Per Pipe: £");
 
-        tfTotalCostOutput.setEditable(false);
-        tfTotalCostOutput.setText("0.00");
+        tfCostPerPipeOutput.setEditable(false);
+        tfCostPerPipeOutput.setText("0.00");
 
         btnTestValid.setText("Test Valid");
         btnTestValid.addActionListener(new java.awt.event.ActionListener() {
@@ -350,10 +350,10 @@ public class AddPipe extends javax.swing.JDialog {
             }
         });
 
-        tfCostPerPipeOutput.setEditable(false);
-        tfCostPerPipeOutput.setText("0.00");
+        tfTotalCostOutput.setEditable(false);
+        tfTotalCostOutput.setText("0.00");
 
-        lblCostPerPipe.setText("Cost Per Pipe: £");
+        lblTotalCost.setText("Total Cost: £");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -368,12 +368,12 @@ public class AddPipe extends javax.swing.JDialog {
                     .addComponent(tfQuantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTotalCost, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblCostPerPipe, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(lblCostPerPipe, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblTotalCost, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(tfCostPerPipeOutput)
-                    .addComponent(tfTotalCostOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
+                    .addComponent(tfTotalCostOutput)
+                    .addComponent(tfCostPerPipeOutput, javax.swing.GroupLayout.DEFAULT_SIZE, 224, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -383,14 +383,14 @@ public class AddPipe extends javax.swing.JDialog {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblTotalCost)
-                            .addComponent(tfTotalCostOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCostPerPipe)
+                            .addComponent(tfCostPerPipeOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblQuantity))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(tfCostPerPipeOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblCostPerPipe))
+                                .addComponent(tfTotalCostOutput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblTotalCost))
                             .addComponent(tfQuantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
