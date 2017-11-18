@@ -273,7 +273,7 @@
                   </Group>
                   <EmptySpace pref="258" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="lblCost" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <Component id="lblTotalCost" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Component id="lblCostPerPipe" alignment="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -292,7 +292,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="lblCost" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblTotalCost" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="tfTotalCostOutput" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="lblQuantity" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -316,7 +316,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JLabel" name="lblCost">
+        <Component class="javax.swing.JLabel" name="lblTotalCost">
           <Properties>
             <Property name="text" type="java.lang.String" value="Total Cost: &#xa3;"/>
           </Properties>
