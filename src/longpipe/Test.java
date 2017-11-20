@@ -11,7 +11,7 @@ class Test {
      * returns an integer of the type of pipe and returns a -1 if the pipe is
      * not valid
      */
-    public int TestPipeValid(boolean outerReinforcement, boolean innerInsulation, boolean chemResistance, int colour, int plasticGrade, double lenght, double diamater) {
+    public int TestPipeValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade, double lenght, double diamater) {
         int type = -1;
         if (outerReinforcement) {
             if (ValidatePipe5(innerInsulation, colour, plasticGrade)) {
@@ -56,4 +56,20 @@ class Test {
     public boolean ValidatePipe1(int plasticGrade) {
         return plasticGrade >= 1 && plasticGrade <= 3;
     }
-}
+
+    public String whyNotValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade) {
+        if (outerReinforcement) {
+            return "With Outer reinforcement plastic grade needs to be 3-5 colour be 2 and Have Inner insuation";
+        } else if (innerInsulation) {
+            return "This pipe must be of colour 2 and plastic grade 2-5";
+        } else if (colour == 2) {
+            return "This must have a plastic grade 2-5";
+        } else if (colour == 1) {
+            return "This must have a plastic grade 2-4";
+        } else if (colour == 0) {
+            return "This must have a plastic grade 1-3";
+        }else{
+        return "Major Error";
+        }
+    }
+    }

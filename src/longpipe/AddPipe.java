@@ -538,7 +538,7 @@ public class AddPipe extends javax.swing.JDialog {
         int colour = cboColour.getSelectedIndex();
 
         Test test = new Test();
-        type = test.TestPipeValid(outerRein, innerInsul, chemResis, colour, plasticGrade, getLengthValue(), getWidthValue());
+        type = test.TestPipeValid(outerRein, innerInsul, colour, plasticGrade, getLengthValue(), getWidthValue());
 
         if (type == -1 || getLengthValue() == 0 || getWidthValue() == 0) {
             //pipe is invalid
