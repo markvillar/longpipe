@@ -146,7 +146,7 @@ public class PipeMain {
     /**
      * adds the price increase if the Chemical getPrice
      *
-     * @return the price increas for chemical resistance
+     * @return the price increase for chemical resistance
      */
     protected double getChemicalPrice() {
         if (this.getChemicalResistance()) {
@@ -157,7 +157,8 @@ public class PipeMain {
     }
 
     /**
-     * works out the cost of plastic per inch^3
+     * works out the cost of plastic per inch^3 Has an array that contains the
+     * prices for the different types of plastic
      *
      * @return price of plastic
      */
@@ -182,7 +183,7 @@ public class PipeMain {
      * @return pipe price
      */
     public double getPrice() {
-        double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts(); // change to voume ratherthan doubble cost
+        double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts(); 
         return price;
     }
 
