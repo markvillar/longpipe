@@ -146,7 +146,7 @@ public class PipeMain {
     /**
      * adds the price increase if the Chemical getPrice
      *
-     * @return the price increas for chemical resistance
+     * @return the price increase for chemical resistance
      */
     protected double getChemicalPrice() {
         if (this.getChemicalResistance()) {
@@ -182,7 +182,7 @@ public class PipeMain {
      * @return pipe price
      */
     public double getPrice() {
-        double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts(); // change to voume ratherthan doubble cost
+        double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts(); // change to volume rather than doubble cost
         return price;
     }
 
