@@ -11,13 +11,21 @@ class Test {
      * returns an integer of the type of pipe and returns a -1 if the pipe is
      * not valid
      *
-     * @param outerReinforcement Boolean describing if the proposed pipe has outer reinforcement 
-     * @param innerInsulation Boolean describing if the proposed pipe has inner insulation 
+     * using a series of if statements that work there way form the pipe type 5
+     * with the most specific things required down to type 1 with the least. the
+     * if statement should be able to work out if a pipe is a valid type without
+     * using brute force.
+     *
+     * To Keep the code readable the complex nested if statement has been
+     * transfered to their own method
+     *
+     * @param outerReinforcement Boolean describing if the proposed pipe has
+     * outer reinforcement
+     * @param innerInsulation Boolean describing if the proposed pipe has inner
+     * insulation
      * @param colour int describing the colour of the pipe
-     * @param plasticGrade int describing the plastic grade  of the pipe
-     * @param lenght 
-     * @param diamater
-     * @return
+     * @param plasticGrade int describing the plastic grade of the pipe
+     * @return the type of pipe or -1 if pipe is invalid
      */
     public int TestPipeValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade) {
         int type = -1;
@@ -65,6 +73,18 @@ class Test {
         return plasticGrade >= 1 && plasticGrade <= 3;
     }
 
+    /**
+     *
+     * @param outerReinforcement Boolean describing if the proposed pipe has
+     * outer reinforcement
+     * @param innerInsulation Boolean describing if the proposed pipe has inner
+     * insulation
+     * @param colour int describing the colour of the pipe
+     * @param plasticGrade int describing the plastic grade of the pipe
+     * @return A string with Information for the user telling them why the Pipe
+     * is invalid for what the program thinks they want. with else case to
+     * return "Major Error" if something gets through the if statements
+     */
     public String whyNotValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade) {
         if (outerReinforcement) {
             return "With outer reinforcement plastic grade must be 3-5, colour must be 2 and it must have inner insuation";
