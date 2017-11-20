@@ -10,8 +10,16 @@ class Test {
      * Method used to workout witch type of pipe needs to be created and then
      * returns an integer of the type of pipe and returns a -1 if the pipe is
      * not valid
+     *
+     * @param outerReinforcement Boolean describing if the proposed pipe has outer reinforcement 
+     * @param innerInsulation Boolean describing if the proposed pipe has inner insulation 
+     * @param colour int describing the colour of the pipe
+     * @param plasticGrade int describing the plastic grade  of the pipe
+     * @param lenght 
+     * @param diamater
+     * @return
      */
-    public int TestPipeValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade, double lenght, double diamater) {
+    public int TestPipeValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade) {
         int type = -1;
         if (outerReinforcement) {
             if (ValidatePipe5(innerInsulation, colour, plasticGrade)) {
