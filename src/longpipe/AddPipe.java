@@ -1,6 +1,8 @@
 package longpipe;
 
 import java.awt.Color;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -546,12 +548,17 @@ public class AddPipe extends javax.swing.JDialog {
             tfErrorOutput.setForeground(darkRed);
             tfErrorOutput.setText("This type of pipe is not stocked, please alter chosen properties");
         } else {
+            //Price formatter
+            DecimalFormat decimal;
+            decimal = new DecimalFormat("#.##"); //Format to two decimal places.
+            decimal.setRoundingMode(RoundingMode.FLOOR); //Do not round the numbers UP or DOWN
+            
             btnAddPipe.setEnabled(true);
             tfErrorOutput.setForeground(darkGreen);
             tfErrorOutput.setText("This pipe is stocked and is of type " + type);
             PipeMain pipePrice = createPipe();
-            tfTotalCostOutput.setText(String.format("%.2f", pipePrice.getPrice() * Integer.parseInt(tfQuantityInput.getText())));
-            tfCostPerPipeOutput.setText(String.format("%.2f", pipePrice.getPrice()));
+            tfTotalCostOutput.setText(decimal.format(pipePrice.getPrice() * Integer.parseInt(tfQuantityInput.getText())));
+            tfCostPerPipeOutput.setText(decimal.format(pipePrice.getPrice()));
         }
     }//GEN-LAST:event_btnTestValidActionPerformed
 
