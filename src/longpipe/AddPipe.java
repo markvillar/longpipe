@@ -549,10 +549,10 @@ public class AddPipe extends javax.swing.JDialog {
 
         if (type == -1 || getLengthValue() == 0 || getWidthValue() == 0) {
             //pipe is invalid
-            String reasonOfInvalid = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade);
+            String reasonNotValidPipe = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade); 
             btnAddPipe.setEnabled(false);
             tfErrorOutput.setForeground(darkRed);
-            tfErrorOutput.setText(reasonOfInvalid);
+            tfErrorOutput.setText(reasonNotValidPipe);
         } else {
             //Price formatter
             DecimalFormat decimal;
