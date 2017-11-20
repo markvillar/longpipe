@@ -59,7 +59,7 @@ class Test {
 
     public String whyNotValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade) {
         if (outerReinforcement) {
-            return "With Outer reinforcement plastic grade needs to be 3-5 colour be 2 and Have Inner insuation";
+            return "With outer reinforcement plastic grade must be 3-5, colour must be 2 and it must have inner insuation";
         } else if (innerInsulation) {
             return "This pipe must be of colour 2 and plastic grade 2-5";
         } else if (colour == 2) {
@@ -68,8 +68,8 @@ class Test {
             return "This must have a plastic grade 2-4";
         } else if (colour == 0) {
             return "This must have a plastic grade 1-3";
-        }else{
-        return "Major Error";
+        } else {
+            return "Major Error";
         }
     }
-    }
+}

@@ -20,6 +20,10 @@ public class AddPipe extends javax.swing.JDialog {
     TEST PLANS AND TESTING WHATEVER
     Write Assumptions
      */
+    /*
+    BUG LIST:
+    When the length or width is != int then the error message only flashes up for a short time and cant be read.
+    */
     
     /**
      * Create a new dialog window to allow the user to add a new pipe
@@ -542,9 +546,10 @@ public class AddPipe extends javax.swing.JDialog {
 
         if (type == -1 || getLengthValue() == 0 || getWidthValue() == 0) {
             //pipe is invalid
+            String reasonOfInvalid = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade);
             btnAddPipe.setEnabled(false);
             tfErrorOutput.setForeground(darkRed);
-            tfErrorOutput.setText("This type of pipe is not stocked, please alter chosen properties");
+            tfErrorOutput.setText(reasonOfInvalid);
         } else {
             btnAddPipe.setEnabled(true);
             tfErrorOutput.setForeground(darkGreen);
