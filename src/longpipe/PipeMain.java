@@ -34,12 +34,14 @@ public abstract class PipeMain {
      *
      */
     public PipeMain(int in_type, double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        length = p_length;
+        length = transferMetersToInch(p_length);
         outerDiameter = p_outerDiameter;
         plasticVolume = calculatePlasticVolume(p_outerDiameter, p_length);
         chemicalResistance = chemResistance;
         plasticGrade = plasgrd;
         type = in_type;
+        System.out.println(plasticVolume);
+        
     }
 
     /**
@@ -66,7 +68,8 @@ public abstract class PipeMain {
      * @return returns the volume of the cylinder
      */
     protected double calculateCylinderVolume(double diameter, double length) {
-        return Math.pow((diameter / 2) * Math.PI, 2) * length;
+        System.out.println(Math.pow((diameter / 2),2) * Math.PI * length);
+        return Math.pow((diameter / 2),2) * Math.PI * length;
     }
 
     /**
