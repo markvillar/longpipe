@@ -28,5 +28,8 @@ public class Pipe1 extends PipeMain {
         this.setColour(0);
 
     }
+        protected double extraCosts() {
+        return this.getChemicalPrice();
+    }
 
 }

@@ -24,11 +24,14 @@ public class OrderForm extends javax.swing.JFrame {
      * Display the current pipe order within the gui JTable
      */
     public void displayPipes() {
+        double totalcost = 0;
         clearTable();
         for (PipeMain pipe : pipeOrder) {
             Object[] data = {pipe.getType(), pipe.getLength() + " M", pipe.getDiameter() + " Inch", pipe.getChemicalResistance(), "£" + String.format("%.2f", pipe.getPrice())};
             model.addRow(data);
+            totalcost += pipe.getPrice();
         }
+        tfOutputCost.setText(String.format("%.2f", totalcost));
     }
 
     /**

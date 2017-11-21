@@ -9,7 +9,7 @@ package longpipe;
  *
  * @author up769598
  */
-public class PipeMain {
+public abstract class PipeMain {
 
     private int type;
     private double length;
@@ -173,9 +173,7 @@ public class PipeMain {
      *
      * @return price modifier
      */
-    private double extraCosts() {
-        return this.getChemicalPrice();
-    }
+    protected abstract double extraCosts();
 
     /**
      * works out the total price for the pipe
@@ -186,7 +184,6 @@ public class PipeMain {
         double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts(); 
         return price;
     }
-
     public int getType() {
         return type;
     }

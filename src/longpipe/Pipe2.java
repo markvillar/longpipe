@@ -35,7 +35,7 @@ public class Pipe2 extends PipeMain {
      *
      * @return the price modifier for the pipe
      */
-    private double extraCosts() {
+    protected double extraCosts() {
         return this.getChemicalPrice() * 1.12;
     }
 }
