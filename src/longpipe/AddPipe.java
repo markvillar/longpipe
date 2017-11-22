@@ -209,7 +209,11 @@ public class AddPipe extends javax.swing.JDialog {
         }
         return p;
     }
-
+    
+    /**
+     * Used to print errors messages on the graphical user interface for the user.
+     * @param input 
+     */
     public void printError(String input) {
         tfErrorOutput.setText(input);
         tfErrorOutput.setForeground(darkRed);
