@@ -58,6 +58,43 @@ public class AddPipe extends javax.swing.JDialog {
         return pipeOrder;
     }
 
+    public void checkIfPipeIsValid() {
+        //Test the validity of the pipe
+        boolean innerInsul = cbInnerInsulation.isSelected();
+        boolean outerRein = cbOuterRein.isSelected();
+        boolean chemResis = cbChemResis.isSelected();
+        int plasticGrade = cboPlasticGrade.getSelectedIndex() + 1;
+        int colour = cboColour.getSelectedIndex();
+
+        Test test = new Test();
+        type = test.TestPipeValid(outerRein, innerInsul, colour, plasticGrade);
+
+        double length = getLengthValue();
+        double width = getWidthValue();
+
+        if (tfLengthInput.getForeground() == darkRed || tfWidthInput.getForeground() == darkRed || tfQuantityInput.getForeground() == darkRed) {
+            //Error
+        } else if (type == -1 || length == 0 || width == 0) {
+            //pipe is invalid
+            String reasonNotValidPipe = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade);
+            btnAddPipe.setEnabled(false);
+            tfErrorOutput.setForeground(darkRed);
+            tfErrorOutput.setText(reasonNotValidPipe);
+        } else {
+            //Price formatter
+            DecimalFormat decimal;
+            decimal = new DecimalFormat("#.##"); //Format to two decimal places.
+            decimal.setRoundingMode(RoundingMode.FLOOR); //Do not round the numbers UP or DOWN
+
+            btnAddPipe.setEnabled(true);
+            tfErrorOutput.setForeground(darkGreen);
+            tfErrorOutput.setText("This pipe is stocked and is of type " + type);
+            PipeMain pipePrice = createPipe();
+            tfTotalCostOutput.setText(decimal.format(pipePrice.getPrice() * Integer.parseInt(tfQuantityInput.getText())));
+            tfCostPerPipeOutput.setText(decimal.format(pipePrice.getPrice()));
+        }
+    }
+
     /**
      * Check the validity of the value entered into the length text field
      *
@@ -505,40 +542,7 @@ public class AddPipe extends javax.swing.JDialog {
     }//GEN-LAST:event_btnAddPipeActionPerformed
 
     private void btnTestValidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestValidActionPerformed
-        //Test the validity of the pipe
-        boolean innerInsul = cbInnerInsulation.isSelected();
-        boolean outerRein = cbOuterRein.isSelected();
-        boolean chemResis = cbChemResis.isSelected();
-        int plasticGrade = cboPlasticGrade.getSelectedIndex() + 1;
-        int colour = cboColour.getSelectedIndex();
-
-        Test test = new Test();
-        type = test.TestPipeValid(outerRein, innerInsul, colour, plasticGrade);
-
-        double length = getLengthValue();
-        double width = getWidthValue();
-        
-        if (tfLengthInput.getForeground() == darkRed || tfWidthInput.getForeground() == darkRed || tfQuantityInput.getForeground() == darkRed) {
-            //Error
-        } else if (type == -1 || length == 0 || width == 0) {
-            //pipe is invalid
-            String reasonNotValidPipe = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade);
-            btnAddPipe.setEnabled(false);
-            tfErrorOutput.setForeground(darkRed);
-            tfErrorOutput.setText(reasonNotValidPipe);
-        } else {
-            //Price formatter
-            DecimalFormat decimal;
-            decimal = new DecimalFormat("#.##"); //Format to two decimal places.
-            decimal.setRoundingMode(RoundingMode.FLOOR); //Do not round the numbers UP or DOWN
-
-            btnAddPipe.setEnabled(true);
-            tfErrorOutput.setForeground(darkGreen);
-            tfErrorOutput.setText("This pipe is stocked and is of type " + type);
-            PipeMain pipePrice = createPipe();
-            tfTotalCostOutput.setText(decimal.format(pipePrice.getPrice() * Integer.parseInt(tfQuantityInput.getText())));
-            tfCostPerPipeOutput.setText(decimal.format(pipePrice.getPrice()));
-        }
+        checkIfPipeIsValid();
     }//GEN-LAST:event_btnTestValidActionPerformed
 
     private void cboColourItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboColourItemStateChanged
