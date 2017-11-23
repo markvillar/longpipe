@@ -65,7 +65,7 @@ public class AddPipe extends javax.swing.JDialog {
         boolean chemResis = cbChemResis.isSelected();
         int plasticGrade = cboPlasticGrade.getSelectedIndex() + 1;
         int colour = cboColour.getSelectedIndex();
-
+        
         Test test = new Test();
         type = test.TestPipeValid(outerRein, innerInsul, colour, plasticGrade);
 
@@ -77,7 +77,7 @@ public class AddPipe extends javax.swing.JDialog {
         } else if (type == -1 || length == 0 || width == 0) {
             //pipe is invalid
             String reasonNotValidPipe = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade);
-            btnAddPipe.setEnabled(false);
+            btnAddPipe.setEnabled(false); //Disable the AddPipe button
             tfErrorOutput.setForeground(darkRed);
             tfErrorOutput.setText(reasonNotValidPipe);
         } else {
@@ -105,12 +105,16 @@ public class AddPipe extends javax.swing.JDialog {
         tfLengthInput.setForeground(black); //Set the default font colour
         boolean valid = true;
         double length = 1.0;
+        
         try {
-            length = Double.parseDouble(tfLengthInput.getText()); //Try to parse the entered string to a double
+            //Try to parse the entered string to a double
+            length = Double.parseDouble(tfLengthInput.getText());
         } catch (NullPointerException | NumberFormatException ex) {
             //The text field is empty or the entered value is not a double or integer
             valid = false;
         }
+        
+        
         if (length > 99 || length <= 0) {
             valid = false;
         }
@@ -182,7 +186,7 @@ public class AddPipe extends javax.swing.JDialog {
     }
 
     /**
-     * Creates the new Pipe based on the type of pipe
+     * Creates a pipe based on the user's specified configuration
      *
      * @return The newly created pipe depending on the inputs from the GUI
      */
