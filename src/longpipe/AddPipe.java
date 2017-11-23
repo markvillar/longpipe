@@ -13,7 +13,7 @@ public class AddPipe extends javax.swing.JDialog {
     private int type;
     private Color darkGreen;
     private Color darkRed;
-    private Color defaultBlack;
+    private Color black;
 
     /*
     TODO:
@@ -40,7 +40,7 @@ public class AddPipe extends javax.swing.JDialog {
         pipeOrder = inPipeOrder;
         btnAddPipe.setEnabled(false); //Automatically disable the "Add Pipe" button
         type = -1; //Set the default value of the pipe type
-        defaultBlack = new Color(0, 0, 0);
+        black = new Color(0, 0, 0);
         darkGreen = new Color(39, 142, 43);
         darkRed = new Color(229, 48, 48);
     }
@@ -102,7 +102,7 @@ public class AddPipe extends javax.swing.JDialog {
      * default value
      */
     public double getLengthValue() {
-        tfLengthInput.setForeground(Color.black); //Set the default font colour
+        tfLengthInput.setForeground(black); //Set the default font colour
         boolean valid = true;
         double length = 1.0;
         try {
@@ -130,7 +130,7 @@ public class AddPipe extends javax.swing.JDialog {
      * default value
      */
     public double getWidthValue() {
-        tfWidthInput.setForeground(Color.black); //Set the default font colour
+        tfWidthInput.setForeground(black); //Set the default font colour
         double width = 1.0; //Set width to the default value
         boolean valid = true;
         try {
@@ -159,7 +159,7 @@ public class AddPipe extends javax.swing.JDialog {
      * default value
      */
     public int getQuantityValue() {
-        tfQuantityInput.setForeground(Color.black); // Set the default font colour
+        tfQuantityInput.setForeground(black); // Set the default font colour
         int quantity = 1;
         boolean valid = true;
         try {
@@ -500,9 +500,9 @@ public class AddPipe extends javax.swing.JDialog {
         tfQuantityInput.setText("1");
         tfCostPerPipeOutput.setText("0.00");
         tfTotalCostOutput.setText("0.00");
-        tfWidthInput.setForeground(defaultBlack);
-        tfLengthInput.setForeground(defaultBlack);
-        tfQuantityInput.setForeground(defaultBlack);
+        tfWidthInput.setForeground(black);
+        tfLengthInput.setForeground(black);
+        tfQuantityInput.setForeground(black);
         tfErrorOutput.setText("");
         cboPlasticGrade.setSelectedIndex(0);
         cboColour.setSelectedIndex(0);
