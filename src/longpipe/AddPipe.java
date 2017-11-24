@@ -13,7 +13,7 @@ public class AddPipe extends javax.swing.JDialog {
     private int type;
     private Color darkGreen;
     private Color darkRed;
-    private Color defaultBlack;
+    private Color black;
 
     /*
     TODO:
@@ -40,7 +40,7 @@ public class AddPipe extends javax.swing.JDialog {
         pipeOrder = inPipeOrder;
         btnAddPipe.setEnabled(false); //Automatically disable the "Add Pipe" button
         type = -1; //Set the default value of the pipe type
-        defaultBlack = new Color(0, 0, 0);
+        black = new Color(0, 0, 0);
         darkGreen = new Color(39, 142, 43);
         darkRed = new Color(229, 48, 48);
     }
@@ -58,6 +58,43 @@ public class AddPipe extends javax.swing.JDialog {
         return pipeOrder;
     }
 
+    public void checkIfPipeIsValid() {
+        //Test the validity of the pipe
+        boolean innerInsul = cbInnerInsulation.isSelected();
+        boolean outerRein = cbOuterRein.isSelected();
+        boolean chemResis = cbChemResis.isSelected();
+        int plasticGrade = cboPlasticGrade.getSelectedIndex() + 1;
+        int colour = cboColour.getSelectedIndex();
+        
+        Test test = new Test();
+        type = test.TestPipeValid(outerRein, innerInsul, colour, plasticGrade);
+
+        double length = getLengthValue();
+        double width = getWidthValue();
+
+        if (tfLengthInput.getForeground() == darkRed || tfWidthInput.getForeground() == darkRed || tfQuantityInput.getForeground() == darkRed) {
+            //Error
+        } else if (type == -1 || length == 0 || width == 0) {
+            //pipe is invalid
+            String reasonNotValidPipe = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade);
+            btnAddPipe.setEnabled(false); //Disable the AddPipe button
+            tfErrorOutput.setForeground(darkRed);
+            tfErrorOutput.setText(reasonNotValidPipe);
+        } else {
+            //Price formatter
+            DecimalFormat decimal;
+            decimal = new DecimalFormat("#.##"); //Format to two decimal places.
+            decimal.setRoundingMode(RoundingMode.FLOOR); //Do not round the numbers UP or DOWN
+
+            btnAddPipe.setEnabled(true);
+            tfErrorOutput.setForeground(darkGreen);
+            tfErrorOutput.setText("This pipe is stocked and is of type " + type);
+            PipeMain pipePrice = createPipe();
+            tfTotalCostOutput.setText(decimal.format(pipePrice.getPrice() * Integer.parseInt(tfQuantityInput.getText())));
+            tfCostPerPipeOutput.setText(decimal.format(pipePrice.getPrice()));
+        }
+    }
+
     /**
      * Check the validity of the value entered into the length text field
      *
@@ -65,15 +102,19 @@ public class AddPipe extends javax.swing.JDialog {
      * default value
      */
     public double getLengthValue() {
-        tfLengthInput.setForeground(Color.black); //Set the default font colour
+        tfLengthInput.setForeground(black); //Set the default font colour
         boolean valid = true;
         double length = 1.0;
+        
         try {
-            length = Double.parseDouble(tfLengthInput.getText()); //Try to parse the entered string to a double
+            //Try to parse the entered string to a double
+            length = Double.parseDouble(tfLengthInput.getText());
         } catch (NullPointerException | NumberFormatException ex) {
             //The text field is empty or the entered value is not a double or integer
             valid = false;
         }
+        
+        
         if (length > 99 || length <= 0) {
             valid = false;
         }
@@ -93,7 +134,7 @@ public class AddPipe extends javax.swing.JDialog {
      * default value
      */
     public double getWidthValue() {
-        tfWidthInput.setForeground(Color.black); //Set the default font colour
+        tfWidthInput.setForeground(black); //Set the default font colour
         double width = 1.0; //Set width to the default value
         boolean valid = true;
         try {
@@ -122,7 +163,7 @@ public class AddPipe extends javax.swing.JDialog {
      * default value
      */
     public int getQuantityValue() {
-        tfQuantityInput.setForeground(Color.black); // Set the default font colour
+        tfQuantityInput.setForeground(black); // Set the default font colour
         int quantity = 1;
         boolean valid = true;
         try {
@@ -145,7 +186,7 @@ public class AddPipe extends javax.swing.JDialog {
     }
 
     /**
-     * Creates the new Pipe based on the type of pipe
+     * Creates a pipe based on the user's specified configuration
      *
      * @return The newly created pipe depending on the inputs from the GUI
      */
@@ -172,7 +213,11 @@ public class AddPipe extends javax.swing.JDialog {
         }
         return p;
     }
-
+    
+    /**
+     * Used to print errors messages on the graphical user interface for the user.
+     * @param input 
+     */
     public void printError(String input) {
         tfErrorOutput.setText(input);
         tfErrorOutput.setForeground(darkRed);
@@ -459,9 +504,9 @@ public class AddPipe extends javax.swing.JDialog {
         tfQuantityInput.setText("1");
         tfCostPerPipeOutput.setText("0.00");
         tfTotalCostOutput.setText("0.00");
-        tfWidthInput.setForeground(defaultBlack);
-        tfLengthInput.setForeground(defaultBlack);
-        tfQuantityInput.setForeground(defaultBlack);
+        tfWidthInput.setForeground(black);
+        tfLengthInput.setForeground(black);
+        tfQuantityInput.setForeground(black);
         tfErrorOutput.setText("");
         cboPlasticGrade.setSelectedIndex(0);
         cboColour.setSelectedIndex(0);
@@ -505,40 +550,7 @@ public class AddPipe extends javax.swing.JDialog {
     }//GEN-LAST:event_btnAddPipeActionPerformed
 
     private void btnTestValidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestValidActionPerformed
-        //Test the validity of the pipe
-        boolean innerInsul = cbInnerInsulation.isSelected();
-        boolean outerRein = cbOuterRein.isSelected();
-        boolean chemResis = cbChemResis.isSelected();
-        int plasticGrade = cboPlasticGrade.getSelectedIndex() + 1;
-        int colour = cboColour.getSelectedIndex();
-
-        Test test = new Test();
-        type = test.TestPipeValid(outerRein, innerInsul, colour, plasticGrade);
-
-        double length = getLengthValue();
-        double width = getWidthValue();
-        
-        if (tfLengthInput.getForeground() == darkRed || tfWidthInput.getForeground() == darkRed || tfQuantityInput.getForeground() == darkRed) {
-            //Error
-        } else if (type == -1 || length == 0 || width == 0) {
-            //pipe is invalid
-            String reasonNotValidPipe = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade);
-            btnAddPipe.setEnabled(false);
-            tfErrorOutput.setForeground(darkRed);
-            tfErrorOutput.setText(reasonNotValidPipe);
-        } else {
-            //Price formatter
-            DecimalFormat decimal;
-            decimal = new DecimalFormat("#.##"); //Format to two decimal places.
-            decimal.setRoundingMode(RoundingMode.FLOOR); //Do not round the numbers UP or DOWN
-
-            btnAddPipe.setEnabled(true);
-            tfErrorOutput.setForeground(darkGreen);
-            tfErrorOutput.setText("This pipe is stocked and is of type " + type);
-            PipeMain pipePrice = createPipe();
-            tfTotalCostOutput.setText(decimal.format(pipePrice.getPrice() * Integer.parseInt(tfQuantityInput.getText())));
-            tfCostPerPipeOutput.setText(decimal.format(pipePrice.getPrice()));
-        }
+        checkIfPipeIsValid();
     }//GEN-LAST:event_btnTestValidActionPerformed
 
     private void cboColourItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboColourItemStateChanged
