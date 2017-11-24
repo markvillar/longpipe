@@ -554,23 +554,28 @@ public class AddPipe extends javax.swing.JDialog {
     }//GEN-LAST:event_btnTestValidActionPerformed
 
     private void cboColourItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboColourItemStateChanged
-        checkIfPipeIsValid();
+        //Disable the add pipe button
+        btnAddPipe.setEnabled(false);
     }//GEN-LAST:event_cboColourItemStateChanged
 
     private void cboPlasticGradeItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cboPlasticGradeItemStateChanged
-        checkIfPipeIsValid();
+        //Disable the add pipe button
+        btnAddPipe.setEnabled(false);
     }//GEN-LAST:event_cboPlasticGradeItemStateChanged
 
     private void cbOuterReinItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbOuterReinItemStateChanged
-        checkIfPipeIsValid();
+        //Disable the add pipe button
+        btnAddPipe.setEnabled(false);
     }//GEN-LAST:event_cbOuterReinItemStateChanged
 
     private void cbInnerInsulationItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbInnerInsulationItemStateChanged
-        checkIfPipeIsValid();
+        //Disable the add pipe button
+        btnAddPipe.setEnabled(false);
     }//GEN-LAST:event_cbInnerInsulationItemStateChanged
 
     private void cbChemResisItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbChemResisItemStateChanged
-        checkIfPipeIsValid();
+        //Disable the add pipe button
+        btnAddPipe.setEnabled(false);
     }//GEN-LAST:event_cbChemResisItemStateChanged
 
     private void btnCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelActionPerformed
