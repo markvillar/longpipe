@@ -5,6 +5,9 @@
  */
 package longpipe;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  *
  * @author up769598
@@ -42,7 +45,7 @@ public abstract class PipeMain {
         type = in_type;
 
     }
-
+    
     /**
      * Used to work out the plastic Volume of the pipe by subtracting the inner
      * diameter cylinder by the outer diameter cylinder
@@ -181,7 +184,16 @@ public abstract class PipeMain {
      * @return pipe price
      */
     public double getPrice() {
+        //Price formatter
+        DecimalFormat decimal;
+        decimal = new DecimalFormat("#.##");         //Format to two decimal places.
+        decimal.setRoundingMode(RoundingMode.FLOOR); //Do not round the numbers UP or DOWN
+        
         double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts();
+        
+        String stringPrice = decimal.format(price);  //format method returns the price in a string type.
+        price = Double.parseDouble(stringPrice);     //convert the price from string to double before returning.
+        
         return price;
     }
 
