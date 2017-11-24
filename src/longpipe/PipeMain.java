@@ -40,8 +40,7 @@ public abstract class PipeMain {
         chemicalResistance = chemResistance;
         plasticGrade = plasgrd;
         type = in_type;
-        System.out.println(plasticVolume);
-        
+
     }
 
     /**
@@ -68,8 +67,7 @@ public abstract class PipeMain {
      * @return returns the volume of the cylinder
      */
     protected double calculateCylinderVolume(double diameter, double length) {
-        System.out.println(Math.pow((diameter / 2),2) * Math.PI * length);
-        return Math.pow((diameter / 2),2) * Math.PI * length;
+        return Math.pow((diameter / 2), 2) * Math.PI * length;
     }
 
     /**
@@ -167,7 +165,6 @@ public abstract class PipeMain {
      */
     protected double costOfPlastic() {
         double[] costOfPlastic = {0.4, 0.6, 0.75, 0.8, 0.95};
-
         return costOfPlastic[this.getPlasticGrade() - 1];
     }
 
@@ -184,9 +181,10 @@ public abstract class PipeMain {
      * @return pipe price
      */
     public double getPrice() {
-        double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts(); 
+        double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts();
         return price;
     }
+
     public int getType() {
         return type;
     }

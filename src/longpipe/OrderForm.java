@@ -27,7 +27,7 @@ public class OrderForm extends javax.swing.JFrame {
         double totalcost = 0;
         clearTable();
         for (PipeMain pipe : pipeOrder) {
-            Object[] data = {pipe.getType(), pipe.getLength() + " M", pipe.getDiameter() + " Inch", pipe.getChemicalResistance(), "£" + String.format("%.2f", pipe.getPrice())};
+            Object[] data = {pipe.getType(), String.format("%.2f",pipe.transferInchToMeters(pipe.getLength())) + " M", pipe.getDiameter() + " Inch", pipe.getChemicalResistance(), "£" + String.format("%.2f", pipe.getPrice())};
             model.addRow(data);
             totalcost += pipe.getPrice();
         }
