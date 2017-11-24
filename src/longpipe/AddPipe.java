@@ -22,12 +22,10 @@ public class AddPipe extends javax.swing.JDialog {
     TEST PLANS AND TESTING WHATEVER
     Write Assumptions
      */
-    
-    /*
+ /*
     BUG LIST:
     When the length or width is != int then the error message only flashes up for a short time and cant be read.
-    */
-    
+     */
     /**
      * Create a new dialog window to allow the user to add a new pipe
      *
@@ -147,7 +145,7 @@ public class AddPipe extends javax.swing.JDialog {
     }
 
     /**
-     * desc of the method
+     * Creates the new Pipe based on the type of pipe
      *
      * @return The newly created pipe depending on the inputs from the GUI
      */
@@ -215,18 +213,8 @@ public class AddPipe extends javax.swing.JDialog {
         pnlAttributes.setBorder(javax.swing.BorderFactory.createTitledBorder("Pipe Properties"));
 
         tfWidthInput.setText("1.00");
-        tfWidthInput.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfWidthInputFocusLost(evt);
-            }
-        });
 
         tfLengthInput.setText("1.00");
-        tfLengthInput.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfLengthInputFocusLost(evt);
-            }
-        });
 
         lblLength.setText("Length (m):");
 
@@ -351,11 +339,6 @@ public class AddPipe extends javax.swing.JDialog {
         lblQuantity.setText("Quantity:");
 
         tfQuantityInput.setText("1");
-        tfQuantityInput.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                tfQuantityInputFocusLost(evt);
-            }
-        });
 
         tfTotalCostOutput.setEditable(false);
         tfTotalCostOutput.setText("0.00");
@@ -521,21 +504,6 @@ public class AddPipe extends javax.swing.JDialog {
 
     }//GEN-LAST:event_btnAddPipeActionPerformed
 
-    private void tfLengthInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfLengthInputFocusLost
-        //Check the validity of the length value entered
-        getLengthValue();
-    }//GEN-LAST:event_tfLengthInputFocusLost
-
-    private void tfWidthInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfWidthInputFocusLost
-        //Check the validity of the width value entered
-        getWidthValue();
-    }//GEN-LAST:event_tfWidthInputFocusLost
-
-    private void tfQuantityInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfQuantityInputFocusLost
-        //Check the validity of the quantity value entered
-        getQuantityValue();
-    }//GEN-LAST:event_tfQuantityInputFocusLost
-
     private void btnTestValidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestValidActionPerformed
         //Test the validity of the pipe
         boolean innerInsul = cbInnerInsulation.isSelected();
@@ -547,9 +515,14 @@ public class AddPipe extends javax.swing.JDialog {
         Test test = new Test();
         type = test.TestPipeValid(outerRein, innerInsul, colour, plasticGrade);
 
-        if (type == -1 || getLengthValue() == 0 || getWidthValue() == 0) {
+        double length = getLengthValue();
+        double width = getWidthValue();
+        
+        if (tfLengthInput.getForeground() == darkRed || tfWidthInput.getForeground() == darkRed || tfQuantityInput.getForeground() == darkRed) {
+            //Error
+        } else if (type == -1 || length == 0 || width == 0) {
             //pipe is invalid
-            String reasonNotValidPipe = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade); 
+            String reasonNotValidPipe = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade);
             btnAddPipe.setEnabled(false);
             tfErrorOutput.setForeground(darkRed);
             tfErrorOutput.setText(reasonNotValidPipe);
@@ -558,7 +531,7 @@ public class AddPipe extends javax.swing.JDialog {
             DecimalFormat decimal;
             decimal = new DecimalFormat("#.##"); //Format to two decimal places.
             decimal.setRoundingMode(RoundingMode.FLOOR); //Do not round the numbers UP or DOWN
-            
+
             btnAddPipe.setEnabled(true);
             tfErrorOutput.setForeground(darkGreen);
             tfErrorOutput.setText("This pipe is stocked and is of type " + type);
