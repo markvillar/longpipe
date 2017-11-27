@@ -47,7 +47,7 @@ public abstract class PipeMain {
     }
     
     /**
-     * Used to work out the plastic Volume of the pipe by subtracting the inner
+     * Calculates the plastic volume of the pipe by subtracting the inner
      * diameter cylinder by the outer diameter cylinder
      *
      * @param outerDiameter the width of the pipe passed through by the
@@ -94,7 +94,7 @@ public abstract class PipeMain {
     }
 
     /**
-     * gets the value of chemical resistance
+     * Gets the value of chemical resistance
      *
      * @return chemical resistance
      */
@@ -103,7 +103,7 @@ public abstract class PipeMain {
     }
 
     /**
-     * gets the value of plastic grade
+     * Gets the value of plastic grade
      *
      * @return plastic grade
      */
@@ -112,7 +112,7 @@ public abstract class PipeMain {
     }
 
     /**
-     * used to set the colour
+     * Sets the number of colour for pipe
      *
      * @param col the colour to be set to
      */
@@ -121,7 +121,7 @@ public abstract class PipeMain {
     }
 
     /**
-     * gets the value of plastic Volume
+     * Gets the value of plastic Volume
      *
      * @return plastic Volume
      */
@@ -130,16 +130,16 @@ public abstract class PipeMain {
     }
 
     /**
-     * gets the value of plastic grade
+     * Gets the value of plastic grade
      *
-     * @return Width of the pipe
+     * @return width of the pipe
      */
     public double getDiameter() {
         return outerDiameter;
     }
 
     /**
-     * gets the value of length of the pipe
+     * Gets the value of length of the pipe
      *
      * @return length of pipe
      */
@@ -148,9 +148,9 @@ public abstract class PipeMain {
     }
 
     /**
-     * adds the price increase if the Chemical getPrice
+     * Adds the price increase if pipe includes chemical resistance.
      *
-     * @return the price increase for chemical resistance
+     * @return price increase for chemical resistance
      */
     protected double getChemicalPrice() {
         if (this.getChemicalResistance()) {
@@ -161,7 +161,7 @@ public abstract class PipeMain {
     }
 
     /**
-     * works out the cost of plastic per inch^3 Has an array that contains the
+     * Works out the cost of plastic per cubic inch. Has an array that contains the
      * prices for the different types of plastic
      *
      * @return price of plastic
@@ -179,7 +179,7 @@ public abstract class PipeMain {
     protected abstract double extraCosts();
 
     /**
-     * works out the total price for the pipe
+     * Works out the total price for the pipe
      *
      * @return pipe price
      */

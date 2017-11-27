@@ -7,18 +7,17 @@ package longpipe;
 class Test {
 
     /**
-     * Method used to workout witch type of pipe needs to be created and then
-     * returns an integer of the type of pipe and returns a -1 if the pipe is
-     * not valid
+     * Method used to workout which type of pipe needs to be created and then
+     * returns an integer that corresponds to the type of pipe. If however the pipe cannot be created, the function will simply return -1.
      *
-     * using a series of if statements that work there way form the pipe type 5
+     * Using a series of if statements that work their way from the pipe type 5
      * with the most specific things required down to type 1 with the least. the
      * if statement should be able to work out if a pipe is a valid type without
      * using brute force.
-     *
+     * 
      * To Keep the code readable the complex nested if statement has been
      * transfered to their own method
-     *
+     * 
      * @param outerReinforcement Boolean describing if the proposed pipe has
      * outer reinforcement
      * @param innerInsulation Boolean describing if the proposed pipe has inner
@@ -52,7 +51,7 @@ class Test {
         }
         return type;
     }
-
+    
     public boolean ValidatePipe5(boolean innerInsulation, int colour, int plasticGrade) {
         return plasticGrade >= 3 && plasticGrade <= 5 && colour == 2 && innerInsulation == true;
     }
