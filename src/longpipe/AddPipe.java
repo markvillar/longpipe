@@ -109,13 +109,13 @@ public class AddPipe extends javax.swing.JDialog {
         }
         
         
-        if (length > 99 || length <= 0) {
+        if (length > 6 || length <= 0) {
             valid = false;
         }
         if (!valid) {
             length = 1.0;
             tfLengthInput.setForeground(darkRed);
-            printError("Value entered into length field is either nothing or invalid, please enter a decimal number greater than 0 and less than 99");
+            printError("Value entered into length field is either nothing or invalid, please enter a decimal number greater than 0 and less than 6");
         }
         tfLengthInput.setText(Double.toString(length));
         return length;
