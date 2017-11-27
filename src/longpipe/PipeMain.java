@@ -79,7 +79,7 @@ public abstract class PipeMain {
      * @param inch the length in inches to be converted into inch
      * @return length in meters
      */
-    protected double transferInchToMeters(double inch) {
+    protected double convertToMeters(double inch) {
         return inch * 0.0254;
     }
 
