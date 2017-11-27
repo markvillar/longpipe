@@ -37,7 +37,7 @@ public abstract class PipeMain {
      *
      */
     public PipeMain(int in_type, double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        length = transferMetersToInch(p_length);
+        length = convertToInches(p_length);
         outerDiameter = p_outerDiameter;
         plasticVolume = calculatePlasticVolume(p_outerDiameter, p_length);
         chemicalResistance = chemResistance;
@@ -89,7 +89,7 @@ public abstract class PipeMain {
      * @param meters the meters value to be converted to inch
      * @return the converted meters value
      */
-    protected double transferMetersToInch(double meters) {
+    protected double convertToInches(double meters) {
         return meters * 39.37;
     }
 
