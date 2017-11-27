@@ -96,7 +96,7 @@ class Test {
         } else if (colour == 0) {
             return "This must have a plastic grade 1-3";
         } else {
-            return "Major Error";
+            return "Unknown Error";
         }
     }
 }
