@@ -7,18 +7,17 @@ package longpipe;
 class Test {
 
     /**
-     * Method used to workout witch type of pipe needs to be created and then
-     * returns an integer of the type of pipe and returns a -1 if the pipe is
-     * not valid
+     * Method used to workout which type of pipe needs to be created and then
+     * returns an integer that corresponds to the type of pipe. If however the pipe cannot be created, the function will simply return -1.
      *
-     * using a series of if statements that work there way form the pipe type 5
+     * Using a series of if statements that work their way from the pipe type 5
      * with the most specific things required down to type 1 with the least. the
      * if statement should be able to work out if a pipe is a valid type without
      * using brute force.
-     *
+     * 
      * To Keep the code readable the complex nested if statement has been
      * transfered to their own method
-     *
+     * 
      * @param outerReinforcement Boolean describing if the proposed pipe has
      * outer reinforcement
      * @param innerInsulation Boolean describing if the proposed pipe has inner
@@ -52,7 +51,7 @@ class Test {
         }
         return type;
     }
-
+    
     public boolean ValidatePipe5(boolean innerInsulation, int colour, int plasticGrade) {
         return plasticGrade >= 3 && plasticGrade <= 5 && colour == 2 && innerInsulation == true;
     }
@@ -87,17 +86,17 @@ class Test {
      */
     public String whyNotValid(boolean outerReinforcement, boolean innerInsulation, int colour, int plasticGrade) {
         if (outerReinforcement) {
-            return "With Outer reinforcement plastic grade needs to be 3-5 colour be 2 and Have Inner insuation";
+            return "Pipe(s) with outer reinforcement must have plastic grade of at least 3, colour of 2, and it must include an inner insuation.";
         } else if (innerInsulation) {
-            return "This pipe must be of colour 2 and plastic grade 2-5";
+            return "Pipe(s) with inner insulation must have at least 2 colours, and a plastic grade of at least 2.";
         } else if (colour == 2) {
-            return "This must have a plastic grade 2-5";
+            return "Pipe(s) with 2 colours must at least have a plastic grade of 2.";
         } else if (colour == 1) {
-            return "This must have a plastic grade 2-4";
+            return "Pipe(s) with 1 colour can only have 2 up to 4 class of plastic grade.";
         } else if (colour == 0) {
-            return "This must have a plastic grade 1-3";
+            return "Pipe(s) without colour can only have a plastic grade of 1 up to 3";
         } else {
-            return "Major Error";
+            return "Unknown Error";
         }
     }
 }
