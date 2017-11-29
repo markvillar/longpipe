@@ -36,14 +36,12 @@ public abstract class PipeMain {
      * will be true
      *
      */
-    public PipeMain(int in_type, double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
+    public PipeMain(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
         length = convertToInches(p_length);
         outerDiameter = p_outerDiameter;
         plasticVolume = calculatePlasticVolume(p_outerDiameter, p_length);
         chemicalResistance = chemResistance;
         plasticGrade = plasgrd;
-        type = in_type;
-
     }
     
     /**

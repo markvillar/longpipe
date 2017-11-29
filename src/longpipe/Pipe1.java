@@ -24,10 +24,9 @@ public class Pipe1 extends PipeMain {
      * @param chemResistance
      */
     public Pipe1(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        super(1, p_length, p_outerDiameter, plasgrd, chemResistance);
-        this.setColour(0);
-        
-
+        super(p_length, p_outerDiameter, plasgrd, chemResistance);
+        type = 1;
+        colour = 0;
     }
         protected double extraCosts() {
         return this.getChemicalPrice();
