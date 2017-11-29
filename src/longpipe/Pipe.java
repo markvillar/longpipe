@@ -12,17 +12,16 @@ import java.text.DecimalFormat;
  *
  * @author up769598
  */
-public abstract class PipeMain {
+public abstract class Pipe {
 
-    private int type;
-    private double length;
-    private int plasticGrade;
-    private double outerDiameter;
-    private double plasticVolume;
-    private boolean chemicalResistance;
-    private int colour;
+    protected int type;
+    protected double length;
+    protected int plasticGrade;
+    protected double outerDiameter;
+    protected double plasticVolume;
+    protected boolean chemicalResistance;
 
-    public PipeMain() {
+    public Pipe() {
 
     }
 
@@ -36,14 +35,12 @@ public abstract class PipeMain {
      * will be true
      *
      */
-    public PipeMain(int in_type, double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
+    public Pipe(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
         length = convertToInches(p_length);
         outerDiameter = p_outerDiameter;
         plasticVolume = calculatePlasticVolume(p_outerDiameter, p_length);
         chemicalResistance = chemResistance;
         plasticGrade = plasgrd;
-        type = in_type;
-
     }
     
     /**
@@ -112,15 +109,6 @@ public abstract class PipeMain {
     }
 
     /**
-     * Sets the number of colour for pipe
-     *
-     * @param col the colour to be set to
-     */
-    public void setColour(int col) {
-        colour = col;
-    }
-
-    /**
      * Gets the value of plastic Volume
      *
      * @return plastic Volume
@@ -153,7 +141,7 @@ public abstract class PipeMain {
      * @return price increase for chemical resistance
      */
     protected double getChemicalPrice() {
-        if (this.getChemicalResistance()) {
+        if (getChemicalResistance()) {
             return 1.14;
         } else {
             return 1;

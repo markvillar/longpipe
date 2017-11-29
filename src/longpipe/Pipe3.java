@@ -9,7 +9,7 @@ package longpipe;
  *
  * @author James
  */
-public class Pipe3 extends PipeMain {
+public class Pipe3 extends Pipe2 {
 
     public Pipe3() {
 
@@ -24,9 +24,9 @@ public class Pipe3 extends PipeMain {
      * @param chemResistance
      */
     public Pipe3(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        super(3, p_length, p_outerDiameter, plasgrd, chemResistance);
-        this.setColour(2);
-
+        super(p_length, p_outerDiameter, plasgrd, chemResistance);
+        type = 3;
+        colour = 2;
     }
 
     /**
