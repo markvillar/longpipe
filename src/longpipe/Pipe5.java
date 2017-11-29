@@ -9,7 +9,7 @@ package longpipe;
  *
  * @author up769598
  */
-public class Pipe5 extends PipeMain {
+public class Pipe5 extends Pipe4 {
     
     boolean outerReinforcement;
 
