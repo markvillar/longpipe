@@ -26,7 +26,6 @@ public class Pipe1 extends PipeMain {
     public Pipe1(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
         super(p_length, p_outerDiameter, plasgrd, chemResistance);
         type = 1;
-        colour = 0;
     }
         protected double extraCosts() {
         return this.getChemicalPrice();

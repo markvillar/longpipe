@@ -20,7 +20,6 @@ public abstract class PipeMain {
     protected double outerDiameter;
     protected double plasticVolume;
     protected boolean chemicalResistance;
-    protected int colour;
 
     public PipeMain() {
 
@@ -107,15 +106,6 @@ public abstract class PipeMain {
      */
     public int getPlasticGrade() {
         return plasticGrade;
-    }
-
-    /**
-     * Sets the number of colour for pipe
-     *
-     * @param col the colour to be set to
-     */
-    public void setColour(int col) {
-        colour = col;
     }
 
     /**

@@ -11,6 +11,8 @@ package longpipe;
  */
 public class Pipe2 extends PipeMain {
 
+    protected int colour;
+    
     public Pipe2() {
 
     }
@@ -37,5 +39,14 @@ public class Pipe2 extends PipeMain {
      */
     protected double extraCosts() {
         return this.getChemicalPrice() * 1.12;
+    }
+    
+    /**
+     * Sets the number of colour for pipe
+     *
+     * @param col the colour to be set to
+     */
+    public void setColour(int col) {
+        colour = col;
     }
 }
