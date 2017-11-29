@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class OrderForm extends javax.swing.JFrame {
 
-    private ArrayList<PipeMain> pipeOrder;
+    private ArrayList<Pipe> pipeOrder;
     private DefaultTableModel model;
 
     /**
@@ -26,7 +26,7 @@ public class OrderForm extends javax.swing.JFrame {
     public void displayPipes() {
         double totalcost = 0;
         clearTable();
-        for (PipeMain pipe : pipeOrder) {
+        for (Pipe pipe : pipeOrder) {
             Object[] data = {pipe.getType(), String.format("%.2f",pipe.convertToMeters(pipe.getLength())) + " M", pipe.getDiameter() + " Inch", pipe.getChemicalResistance(), "£" + String.format("%.2f", pipe.getPrice())};
             model.addRow(data);
             totalcost += pipe.getPrice();

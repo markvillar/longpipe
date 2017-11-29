@@ -83,7 +83,7 @@ public class AddPipe extends javax.swing.JDialog {
             btnAddPipe.setEnabled(true);
             tfErrorOutput.setForeground(darkGreen);
             tfErrorOutput.setText("This pipe is stocked and is of type " + type);
-            PipeMain pipePrice = createPipe();
+            Pipe pipePrice = createPipe();
             tfTotalCostOutput.setText(String.format("%.2f", pipePrice.getPrice() * Integer.parseInt(tfQuantityInput.getText())));
             tfCostPerPipeOutput.setText(String.format("%.2f", pipePrice.getPrice()));
         }
@@ -184,8 +184,8 @@ public class AddPipe extends javax.swing.JDialog {
      *
      * @return The newly created pipe depending on the inputs from the GUI
      */
-    public PipeMain createPipe() {
-        PipeMain p = null;
+    public Pipe createPipe() {
+        Pipe p = null;
         switch (type) {
             case 1:
                 p = new Pipe1(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
@@ -535,7 +535,7 @@ public class AddPipe extends javax.swing.JDialog {
             //Create a new pipe using items from combo boxes and add to arraylist then return to the order form window
             for (int i = 0; i < numOfPipes; i++) {
                 //Add Pipes
-                PipeMain p = createPipe();
+                Pipe p = createPipe();
                 pipeOrder.add(p);
             }
             setVisible(false); //Set the visibility to false to allow the parent form to retrieve the new ArrayList before the dialog closes

@@ -9,7 +9,9 @@ package longpipe;
  *
  * @author up769598
  */
-public class Pipe5 extends PipeMain {
+public class Pipe5 extends Pipe4 {
+    
+    boolean outerReinforcement;
 
     public Pipe5() {
 
@@ -24,8 +26,10 @@ public class Pipe5 extends PipeMain {
      * @param chemResistance
      */
     public Pipe5(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        super(5, p_length, p_outerDiameter, plasgrd, chemResistance);
-        this.setColour(2);
+        super(p_length, p_outerDiameter, plasgrd, chemResistance);
+        type = 5;
+        colour = 2;
+        
     }
 
     /**

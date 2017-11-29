@@ -9,8 +9,10 @@ package longpipe;
  *
  * @author James
  */
-public class Pipe2 extends PipeMain {
+public class Pipe2 extends Pipe {
 
+    protected int colour;
+    
     public Pipe2() {
 
     }
@@ -24,9 +26,9 @@ public class Pipe2 extends PipeMain {
      * @param chemResistance
      */
     public Pipe2(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        super(2, p_length, p_outerDiameter, plasgrd, chemResistance);
-        this.setColour(1);
-
+        super(p_length, p_outerDiameter, plasgrd, chemResistance);
+        type = 2;
+        colour = 1;
     }
 
     /**
@@ -37,5 +39,14 @@ public class Pipe2 extends PipeMain {
      */
     protected double extraCosts() {
         return this.getChemicalPrice() * 1.12;
+    }
+    
+    /**
+     * Sets the number of colour for pipe
+     *
+     * @param col the colour to be set to
+     */
+    public void setColour(int col) {
+        colour = col;
     }
 }
