@@ -12,7 +12,7 @@ import java.text.DecimalFormat;
  *
  * @author up769598
  */
-public abstract class PipeMain {
+public abstract class Pipe {
 
     protected int type;
     protected double length;
@@ -21,7 +21,7 @@ public abstract class PipeMain {
     protected double plasticVolume;
     protected boolean chemicalResistance;
 
-    public PipeMain() {
+    public Pipe() {
 
     }
 
@@ -35,7 +35,7 @@ public abstract class PipeMain {
      * will be true
      *
      */
-    public PipeMain(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
+    public Pipe(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
         length = convertToInches(p_length);
         outerDiameter = p_outerDiameter;
         plasticVolume = calculatePlasticVolume(p_outerDiameter, p_length);

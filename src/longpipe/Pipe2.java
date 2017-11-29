@@ -9,7 +9,7 @@ package longpipe;
  *
  * @author James
  */
-public class Pipe2 extends PipeMain {
+public class Pipe2 extends Pipe {
 
     protected int colour;
     

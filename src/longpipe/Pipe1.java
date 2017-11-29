@@ -9,7 +9,7 @@ package longpipe;
  *
  * @author up769598
  */
-public class Pipe1 extends PipeMain {
+public class Pipe1 extends Pipe {
 
     public Pipe1() {
 
