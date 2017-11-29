@@ -14,13 +14,13 @@ import java.text.DecimalFormat;
  */
 public abstract class PipeMain {
 
-    private int type;
-    private double length;
-    private int plasticGrade;
-    private double outerDiameter;
-    private double plasticVolume;
-    private boolean chemicalResistance;
-    private int colour;
+    protected int type;
+    protected double length;
+    protected int plasticGrade;
+    protected double outerDiameter;
+    protected double plasticVolume;
+    protected boolean chemicalResistance;
+    protected int colour;
 
     public PipeMain() {
 
