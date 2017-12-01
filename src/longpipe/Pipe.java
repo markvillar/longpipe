@@ -28,19 +28,19 @@ public abstract class Pipe {
     /**
      * Main constructor for the default Pipe
      *
-     * @param p_length length specified by the user
-     * @param p_outerDiameter width of the pipe specified by the user
-     * @param plasgrd plastic grade specified by the user
-     * @param chemResistance if the pipe is chemical resistant then the value
+     * @param length length specified by the user
+     * @param outerDiameter width of the pipe specified by the user
+     * @param plasticGrade plastic grade specified by the user
+     * @param chemicalResistance if the pipe is chemical resistant then the value
      * will be true
      *
      */
-    public Pipe(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        length = convertToInches(p_length);
-        outerDiameter = p_outerDiameter;
-        plasticVolume = calculatePlasticVolume(p_outerDiameter, p_length);
-        chemicalResistance = chemResistance;
-        plasticGrade = plasgrd;
+    public Pipe(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
+        this.length = convertToInches(length);
+        this.outerDiameter = outerDiameter;
+        this.plasticVolume = calculatePlasticVolume(outerDiameter, length);
+        this.chemicalResistance = chemicalResistance;
+        this.plasticGrade = plasticGrade;
     }
     
     /**

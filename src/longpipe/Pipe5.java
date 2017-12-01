@@ -20,15 +20,15 @@ public class Pipe5 extends Pipe4 {
     /**
      * Constructor used to make a pipe of type 5
      *
-     * @param p_length
-     * @param p_outerDiameter
-     * @param plasgrd
-     * @param chemResistance
+     * @param length
+     * @param outerDiameter
+     * @param plasticGrade
+     * @param chemicalResistance
      */
-    public Pipe5(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        super(p_length, p_outerDiameter, plasgrd, chemResistance);
-        type = 5;
-        colour = 2;
+    public Pipe5(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
+        super(length, outerDiameter, plasticGrade, chemicalResistance);
+        this.type = 5;
+        this.colour = 2;
         
     }
 

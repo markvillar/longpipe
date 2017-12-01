@@ -20,15 +20,15 @@ public class Pipe2 extends Pipe {
     /**
      * Constructor used to make a pipe of type 2
      *
-     * @param p_length
-     * @param p_outerDiameter
-     * @param plasgrd
-     * @param chemResistance
+     * @param length
+     * @param outerDiameter
+     * @param plasticGrade
+     * @param chemicalResistance
      */
-    public Pipe2(double p_length, double p_outerDiameter, int plasgrd, boolean chemResistance) {
-        super(p_length, p_outerDiameter, plasgrd, chemResistance);
-        type = 2;
-        colour = 1;
+    public Pipe2(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
+        super(length, outerDiameter, plasticGrade, chemicalResistance);
+        this.type = 2;
+        this.colour = 1;
     }
 
     /**
@@ -44,9 +44,9 @@ public class Pipe2 extends Pipe {
     /**
      * Sets the number of colour for pipe
      *
-     * @param col the colour to be set to
+     * @param colour the colour to be set to
      */
-    public void setColour(int col) {
-        colour = col;
+    public void setColour(int colour) {
+        this.colour = colour;
     }
 }
