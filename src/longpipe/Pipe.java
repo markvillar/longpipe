@@ -52,10 +52,10 @@ public abstract class Pipe {
      * @param length the length of the pipe passed through by the constructor
      * @return the plastic volume of the pipe
      */
-    protected double getVolume(double outerDiameter, double length) {
-        double innerDiamater = outerDiameter * 0.9;
+    protected double getVolume() {
+        double innerDiamater = this.getDiameter() * 0.9;
         double volume;
-        volume = this.calculateCylinderVolume(outerDiameter, this.getLength()) - this.calculateCylinderVolume(innerDiamater, this.getLength());
+        volume = this.calculateCylinderVolume(this.getDiameter(), this.getLength()) - this.calculateCylinderVolume(innerDiamater, this.getLength());
         return volume;
     }
 
