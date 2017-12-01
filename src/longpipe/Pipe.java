@@ -172,14 +172,17 @@ public abstract class Pipe {
      * @return pipe price
      */
     public double getPrice() {
+        String stringPrice;
+        double price;
+        
         //Price formatter
         DecimalFormat decimal;
         decimal = new DecimalFormat("#.##");         //Format to two decimal places.
         decimal.setRoundingMode(RoundingMode.FLOOR); //Do not round the numbers UP or DOWN
         
-        double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts();
+        price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts();
         
-        String stringPrice = decimal.format(price);  //format method returns the price in a string type.
+        stringPrice = decimal.format(price);         //format method returns the price in a string type.
         price = Double.parseDouble(stringPrice);     //convert the price from string to double before returning.
         
         return price;
