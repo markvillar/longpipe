@@ -36,9 +36,9 @@ public abstract class Pipe {
      *
      */
     public Pipe(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
-        this.length = convertToInches(length);
+        this.length = this.convertToInches(length);
         this.outerDiameter = outerDiameter;
-        this.plasticVolume = calculatePlasticVolume(outerDiameter, length);
+        this.plasticVolume = this.calculatePlasticVolume(outerDiameter, length);
         this.chemicalResistance = chemicalResistance;
         this.plasticGrade = plasticGrade;
     }
@@ -55,7 +55,7 @@ public abstract class Pipe {
     protected double calculatePlasticVolume(double outerDiameter, double length) {
         double innerDiamater = outerDiameter * 0.9;
         double volume;
-        volume = calculateCylinderVolume(outerDiameter, this.getLength()) - calculateCylinderVolume(innerDiamater, this.getLength());
+        volume = this.calculateCylinderVolume(outerDiameter, this.getLength()) - this.calculateCylinderVolume(innerDiamater, this.getLength());
         return volume;
     }
 
