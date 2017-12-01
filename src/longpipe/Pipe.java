@@ -141,7 +141,7 @@ public abstract class Pipe {
      * @return price increase for chemical resistance
      */
     protected double getChemicalPrice() {
-        if (getChemicalResistance()) {
+        if (this.getChemicalResistance()) {
             return 1.14;
         } else {
             return 1;
