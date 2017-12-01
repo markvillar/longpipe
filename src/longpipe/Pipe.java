@@ -89,7 +89,15 @@ public abstract class Pipe {
     protected double convertToInches(double meters) {
         return meters * 39.37;
     }
-
+    
+    /**
+     * Returns the type number of pipe
+     * @return 
+     */
+    public int getType() {
+        return type;
+    }
+    
     /**
      * Gets the value of chemical resistance
      *
@@ -160,13 +168,6 @@ public abstract class Pipe {
     }
 
     /**
-     * returns the total percentage increase of all different price modifiers
-     *
-     * @return price modifier
-     */
-    protected abstract double extraCosts();
-
-    /**
      * Works out the total price for the pipe
      *
      * @return pipe price
@@ -187,8 +188,11 @@ public abstract class Pipe {
         
         return price;
     }
-
-    public int getType() {
-        return type;
-    }
+    
+    /**
+     * returns the total percentage increase of all different price modifiers
+     *
+     * @return price modifier
+     */
+    protected abstract double extraCosts();
 }
