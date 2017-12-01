@@ -58,14 +58,14 @@ public class AddPipe extends javax.swing.JDialog {
 
     public void checkIfPipeIsValid() {
         //Test the validity of the pipe
-        boolean innerInsul = cbInnerInsulation.isSelected();
-        boolean outerRein = cbOuterRein.isSelected();
-        boolean chemResis = cbChemResis.isSelected();
+        boolean innerInsulation = cbInnerInsulation.isSelected();
+        boolean outerReinforcement = cbOuterRein.isSelected();
+        boolean chemicalResistance = cbChemResis.isSelected();
         int plasticGrade = cboPlasticGrade.getSelectedIndex() + 1;
         int colour = cboColour.getSelectedIndex();
         
         Test test = new Test();
-        type = test.TestPipeValid(outerRein, innerInsul, colour, plasticGrade);
+        type = test.TestPipeValid(outerReinforcement, innerInsulation, colour, plasticGrade);
 
         double length = getLengthValue();
         double width = getWidthValue();
@@ -74,7 +74,7 @@ public class AddPipe extends javax.swing.JDialog {
             //Error
         } else if (type == -1 || length == 0 || width == 0) {
             //pipe is invalid
-            String reasonNotValidPipe = test.whyNotValid(outerRein, innerInsul, colour, plasticGrade);
+            String reasonNotValidPipe = test.whyNotValid(outerReinforcement, innerInsulation, colour, plasticGrade);
             btnAddPipe.setEnabled(false); //Disable the AddPipe button
             tfErrorOutput.setForeground(darkRed);
             tfErrorOutput.setText(reasonNotValidPipe);
