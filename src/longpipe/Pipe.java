@@ -31,8 +31,8 @@ public abstract class Pipe {
      * @param length length specified by the user
      * @param outerDiameter width of the pipe specified by the user
      * @param plasticGrade plastic grade specified by the user
-     * @param chemicalResistance if the pipe is chemical resistant then the value
-     * will be true
+     * @param chemicalResistance if the pipe is chemical resistant then the
+     * value will be true
      *
      */
     public Pipe(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
@@ -42,7 +42,7 @@ public abstract class Pipe {
         this.chemicalResistance = chemicalResistance;
         this.plasticVolume = this.getVolume();
     }
-    
+
     /**
      * Calculates the plastic volume of the pipe by subtracting the inner
      * diameter cylinder by the outer diameter cylinder
@@ -50,7 +50,7 @@ public abstract class Pipe {
      * @param outerDiameter the width of the pipe passed through by the
      * constructor
      * @param length the length of the pipe passed through by the constructor
-     * @return the plastic volume of the pipe
+     * @return double
      */
     protected double getVolume() {
         double innerDiamater = this.getDiameter() * 0.9;
@@ -89,15 +89,15 @@ public abstract class Pipe {
     protected double convertToInches(double meters) {
         return meters * 39.37;
     }
-    
+
     /**
      * Returns the type number of pipe
-     * @return 
+     * @return
      */
     public int getType() {
         return this.type;
     }
-    
+
     /**
      * Gets the value of chemical resistance
      *
@@ -144,9 +144,9 @@ public abstract class Pipe {
     }
 
     /**
-     * Adds the price increase if pipe includes chemical resistance.
+     * Returns the percentage increase if pipe includes chemical resistance.
      *
-     * @return price increase for chemical resistance
+     * @return double
      */
     protected double getChemicalPrice() {
         if (this.getChemicalResistance()) {
@@ -157,8 +157,8 @@ public abstract class Pipe {
     }
 
     /**
-     * Works out the cost of plastic per cubic inch. Has an array that contains the
-     * prices for the different types of plastic
+     * Works out the cost of plastic per cubic inch. Has an array that contains
+     * the prices for the different types of plastic
      *
      * @return price of plastic
      */
