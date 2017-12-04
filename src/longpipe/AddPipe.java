@@ -368,7 +368,7 @@ public class AddPipe extends javax.swing.JDialog {
         tfCostPerPipeOutput.setEditable(false);
         tfCostPerPipeOutput.setText("0.00");
 
-        btnTestValid.setText("Test Valid");
+        btnTestValid.setText("Check Availability");
         btnTestValid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnTestValidActionPerformed(evt);
@@ -395,7 +395,7 @@ public class AddPipe extends javax.swing.JDialog {
                 .addGroup(pnlCostingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lblQuantity)
                     .addComponent(tfQuantityInput, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 258, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                 .addGroup(pnlCostingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblCostPerPipe, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblTotalCost, javax.swing.GroupLayout.Alignment.TRAILING))
