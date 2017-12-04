@@ -11,6 +11,8 @@ package longpipe;
  */
 public class Pipe4 extends Pipe3 {
 
+    boolean innerInsulation;
+
     public Pipe4() {
 
     }
@@ -27,16 +29,52 @@ public class Pipe4 extends Pipe3 {
         super(length, outerDiameter, plasticGrade, chemicalResistance);
         this.type = 4;
         this.colour = 2;
+        this.innerInsulation = true;
     }
 
     /**
-     * this method combines all the price modifier for the different statuses of
-     * the pipe.
+     * Returns the percentage increase if inner insulation is selected.
+     *
+     * @return double
+     */
+    public double getInnerInsulationPercentageIncrease() {
+        return 0.13;
+    }
+
+    /**
+     * Returns the total price of pipe (of type 4).
      *
      * @return the price modifier for the pipe
      */
-    protected double extraCosts() {
-        return this.getChemicalPrice() * 1.16 * 1.13;
-    }
+    protected double getPrice() {
+        double originalPrice, price, percentageIncrease, volume, plasticGrade;
+        boolean chemicalResistant;
+        int numberOfColour;
 
+        //Initialise local variables
+        volume = this.getVolume();
+        plasticGrade = this.getPlasticGradeCost();
+        chemicalResistant = this.chemicalResistance;
+        numberOfColour = this.getColour();
+
+        //Calculate the basic cost
+        price = volume / plasticGrade;
+        originalPrice = price;
+
+        //Increase the price if includes chemical resistance.
+        if (chemicalResistant) {
+            percentageIncrease = this.getChemicalResistanceCost();
+            price = price + (originalPrice * percentageIncrease);
+        }
+
+        //Increase price depending on the number of colour selected.
+        percentageIncrease = this.getColourPercentageIncrease();
+        price = price + (originalPrice * percentageIncrease);
+
+        //Increase price for inner insulation.
+        percentageIncrease = this.getInnerInsulationPercentageIncrease();
+        price = price + (originalPrice * percentageIncrease);
+
+        return price;
+    }
 }
