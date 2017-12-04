@@ -27,8 +27,34 @@ public class Pipe1 extends Pipe {
         super(length, outerDiameter, plasticGrade, chemicalResistance);
         this.type = 1;
     }
-        protected double extraCosts() {
-        return this.getChemicalPrice();
+
+    /**
+     * Returns the total price of pipe (of type 1).
+     *
+     * @return double
+     */
+    protected double getPrice() {
+        double price, percentageIncrease, volume, plasticGrade;
+        boolean chemicalResistant;
+
+        //Initialise local variables
+        volume = this.getVolume();
+        plasticGrade = this.getPlasticGradeCost();
+        chemicalResistant = this.chemicalResistance;
+
+        //Calculate the basic cost
+        price = volume / plasticGrade;
+
+        //Increase the price if includes chemical resistance.
+        if (chemicalResistant) {
+            percentageIncrease = this.getChemicalResistanceCost();
+            price = price + (price * percentageIncrease);
+
+            return price;
+        } else {
+            //Otherwise return the price without additional costs.
+            return price;
+        }
     }
 
 }

@@ -12,7 +12,7 @@ package longpipe;
 public class Pipe2 extends Pipe {
 
     protected int colour;
-    
+
     public Pipe2() {
 
     }
@@ -32,21 +32,67 @@ public class Pipe2 extends Pipe {
     }
 
     /**
-     * this method combines all the price modifier for the different statuses of
-     * the pipe.
+     * Returns the number of colour(s) of the pipe.
+     *
+     * @return int
+     */
+    public int getColour() {
+        return this.colour;
+    }
+
+    /**
+     * Returns the percentage increase of price depending on the number of
+     * colour selected.
+     *
+     * @return double
+     */
+    public double getColourPercentageIncrease() {
+        int colour;
+        double priceIncrease;
+
+        colour = this.getColour();
+
+        if (colour == 1) {
+            //Increase the price by 12%
+            priceIncrease = 0.12;
+        } else {
+            //Increase the price by 16%
+            priceIncrease = 0.16;
+        }
+
+        return priceIncrease;
+    }
+
+    /**
+     * Returns the total price of pipe (of type 2 & 3).
      *
      * @return the price modifier for the pipe
      */
-    protected double extraCosts() {
-        return this.getChemicalPrice() * 1.12;
-    }
-    
-    /**
-     * Sets the number of colour for pipe
-     *
-     * @param colour the colour to be set to
-     */
-    public void setColour(int colour) {
-        this.colour = colour;
+    protected double getPrice() {
+        double originalPrice, price, percentageIncrease, volume, plasticGrade;
+        boolean chemicalResistant;
+        int numberOfColour;
+
+        //Initialise local variables
+        volume = this.getVolume();
+        plasticGrade = this.getPlasticGradeCost();
+        chemicalResistant = this.chemicalResistance;
+        numberOfColour = this.getColour();
+
+        //Calculate the basic cost
+        price = volume / plasticGrade;
+        originalPrice = price;
+
+        //Increase the price if includes chemical resistance.
+        if (chemicalResistant) {
+            percentageIncrease = this.getChemicalResistanceCost();
+            price = price + (originalPrice * percentageIncrease);
+        }
+
+        //Increase price depending on the number of colour selected.
+        percentageIncrease = this.getColourPercentageIncrease();
+        price = price + (originalPrice * percentageIncrease);
+
+        return price;
     }
 }
