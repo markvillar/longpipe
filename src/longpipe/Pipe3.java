@@ -28,14 +28,4 @@ public class Pipe3 extends Pipe2 {
         this.type = 3;
         this.colour = 2;
     }
-
-    /**
-     * this method combines all the price modifier for the different statuses of
-     * the pipe.
-     *
-     * @return the price modifier for the pipe
-     */
-    protected double extraCosts() {
-        return this.getChemicalPrice() * 1.16;
-    }
 }

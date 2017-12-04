@@ -31,18 +31,18 @@ public abstract class Pipe {
      * @param length length specified by the user
      * @param outerDiameter width of the pipe specified by the user
      * @param plasticGrade plastic grade specified by the user
-     * @param chemicalResistance if the pipe is chemical resistant then the value
-     * will be true
+     * @param chemicalResistance if the pipe is chemical resistant then the
+     * value will be true
      *
      */
     public Pipe(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
-        this.length = convertToInches(length);
+        this.length = this.convertToInches(length);
         this.outerDiameter = outerDiameter;
-        this.plasticVolume = calculatePlasticVolume(outerDiameter, length);
-        this.chemicalResistance = chemicalResistance;
         this.plasticGrade = plasticGrade;
+        this.chemicalResistance = chemicalResistance;
+        this.plasticVolume = this.getVolume();
     }
-    
+
     /**
      * Calculates the plastic volume of the pipe by subtracting the inner
      * diameter cylinder by the outer diameter cylinder
@@ -50,12 +50,21 @@ public abstract class Pipe {
      * @param outerDiameter the width of the pipe passed through by the
      * constructor
      * @param length the length of the pipe passed through by the constructor
-     * @return the plastic volume of the pipe
+     * @return double
      */
-    protected double calculatePlasticVolume(double outerDiameter, double length) {
-        double innerDiamater = outerDiameter * 0.9;
-        double volume;
-        volume = calculateCylinderVolume(outerDiameter, this.getLength()) - calculateCylinderVolume(innerDiamater, this.getLength());
+    protected double getVolume() {
+        double length, outerDiameter, innerDiamater, volume, outerVolume, innerVolume;
+
+        length = this.getLength();
+        outerDiameter = this.getDiameter();
+        innerDiamater = outerDiameter * 0.9;
+
+        outerVolume = this.calculateCylinderVolume(outerDiameter, length);
+        innerVolume = this.calculateCylinderVolume(innerDiamater, length);
+
+        //Subtract the inner volume from the outer volume.
+        volume = outerVolume - innerVolume;
+
         return volume;
     }
 
@@ -91,12 +100,21 @@ public abstract class Pipe {
     }
 
     /**
+     * Returns the type number of pipe
+     *
+     * @return
+     */
+    public int getType() {
+        return this.type;
+    }
+
+    /**
      * Gets the value of chemical resistance
      *
      * @return chemical resistance
      */
     public boolean getChemicalResistance() {
-        return chemicalResistance;
+        return this.chemicalResistance;
     }
 
     /**
@@ -105,7 +123,40 @@ public abstract class Pipe {
      * @return plastic grade
      */
     public int getPlasticGrade() {
-        return plasticGrade;
+        return this.plasticGrade;
+    }
+
+    /**
+     * Returns the per cubic inch cost of pipe's plastic grade.
+     *
+     * @return double
+     */
+    public double getPlasticGradeCost() {
+        double perCubicInch;
+        int plasticGrade;
+
+        plasticGrade = this.getPlasticGrade();
+
+        switch (plasticGrade) {
+            case 1:
+                perCubicInch = 0.4;
+                break;
+            case 2:
+                perCubicInch = 0.6;
+                break;
+            case 3:
+                perCubicInch = 0.75;
+            case 4:
+                perCubicInch = 0.8;
+            case 5:
+                perCubicInch = 0.95;
+                break;
+
+            default:
+                perCubicInch = 0.4;
+        }
+
+        return perCubicInch;
     }
 
     /**
@@ -114,7 +165,7 @@ public abstract class Pipe {
      * @return plastic Volume
      */
     public double getPlasticVolume() {
-        return plasticVolume;
+        return this.plasticVolume;
     }
 
     /**
@@ -123,7 +174,7 @@ public abstract class Pipe {
      * @return width of the pipe
      */
     public double getDiameter() {
-        return outerDiameter;
+        return this.outerDiameter;
     }
 
     /**
@@ -132,25 +183,21 @@ public abstract class Pipe {
      * @return length of pipe
      */
     public double getLength() {
-        return length;
+        return this.length;
     }
 
     /**
-     * Adds the price increase if pipe includes chemical resistance.
+     * Returns the percentage increase if pipe includes chemical resistance.
      *
-     * @return price increase for chemical resistance
+     * @return double
      */
-    protected double getChemicalPrice() {
-        if (this.getChemicalResistance()) {
-            return 1.14;
-        } else {
-            return 1;
-        }
+    protected double getChemicalResistanceCost() {
+        return 0.14;
     }
 
     /**
-     * Works out the cost of plastic per cubic inch. Has an array that contains the
-     * prices for the different types of plastic
+     * Works out the cost of plastic per cubic inch. Has an array that contains
+     * the prices for the different types of plastic
      *
      * @return price of plastic
      */
@@ -160,32 +207,9 @@ public abstract class Pipe {
     }
 
     /**
-     * returns the total percentage increase of all different price modifiers
-     *
-     * @return price modifier
-     */
-    protected abstract double extraCosts();
-
-    /**
      * Works out the total price for the pipe
      *
      * @return pipe price
      */
-    public double getPrice() {
-        //Price formatter
-        DecimalFormat decimal;
-        decimal = new DecimalFormat("#.##");         //Format to two decimal places.
-        decimal.setRoundingMode(RoundingMode.FLOOR); //Do not round the numbers UP or DOWN
-        
-        double price = this.costOfPlastic() * this.getPlasticVolume() * this.extraCosts();
-        
-        String stringPrice = decimal.format(price);  //format method returns the price in a string type.
-        price = Double.parseDouble(stringPrice);     //convert the price from string to double before returning.
-        
-        return price;
-    }
-
-    public int getType() {
-        return type;
-    }
+    protected abstract double getPrice();
 }

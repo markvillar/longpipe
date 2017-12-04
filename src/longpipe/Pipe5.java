@@ -10,7 +10,7 @@ package longpipe;
  * @author up769598
  */
 public class Pipe5 extends Pipe4 {
-    
+
     boolean outerReinforcement;
 
     public Pipe5() {
@@ -29,17 +29,56 @@ public class Pipe5 extends Pipe4 {
         super(length, outerDiameter, plasticGrade, chemicalResistance);
         this.type = 5;
         this.colour = 2;
-        
+        this.outerReinforcement = true;
     }
 
     /**
-     * this method combines all the price modifier for the different statuses of
-     * the pipe.
+     * Returns the percentage increase if outer reinforcement is selected.
      *
-     * @return the price modifier for the pipe
+     * @return double
      */
-    protected double extraCosts() {
-        return this.getChemicalPrice() * 1.16 * 1.13 * 1.17;
+    public double getOuterReinforcementPercentageIncrease() {
+        return 0.17;
     }
 
+    /**
+     * Returns the total price of pipe (of type 5).
+     *
+     * @return double
+     */
+    protected double getPrice() {
+        double originalPrice, price, percentageIncrease, volume, plasticGrade;
+        boolean chemicalResistant;
+        int numberOfColour;
+
+        //Initialise local variables
+        volume = this.getVolume();
+        plasticGrade = this.getPlasticGradeCost();
+        chemicalResistant = this.chemicalResistance;
+        numberOfColour = this.getColour();
+
+        //Calculate the basic cost
+        price = volume / plasticGrade;
+        originalPrice = price;
+
+        //Increase the price if includes chemical resistance.
+        if (chemicalResistant) {
+            percentageIncrease = this.getChemicalResistanceCost();
+            price = price + (originalPrice * percentageIncrease);
+        }
+
+        //Increase price depending on the number of colour selected.
+        percentageIncrease = this.getColourPercentageIncrease();
+        price = price + (originalPrice * percentageIncrease);
+
+        //Increase price for inner insulation.
+        percentageIncrease = this.getInnerInsulationPercentageIncrease();
+        price = price + (originalPrice * percentageIncrease);
+
+        //Increase price for outer reinforcement.
+        percentageIncrease = this.getOuterReinforcementPercentageIncrease();
+        price = price + (originalPrice * percentageIncrease);
+
+        return price;
+    }
 }
