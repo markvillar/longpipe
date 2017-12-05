@@ -28,4 +28,11 @@ public class Pipe3 extends Pipe2 {
         this.type = 3;
         this.colour = 2;
     }
+
+    public double getColourPercentageIncrease() {
+        double priceIncrease;
+        //Increase the price by 16%
+        priceIncrease = 0.16;
+        return priceIncrease;
+    }
 }

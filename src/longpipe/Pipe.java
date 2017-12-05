@@ -127,39 +127,6 @@ public abstract class Pipe {
     }
 
     /**
-     * Returns the per cubic inch cost of pipe's plastic grade.
-     *
-     * @return double
-     */
-    public double getPlasticGradeCost() {
-        double perCubicInch;
-        int plasticGrade;
-
-        plasticGrade = this.getPlasticGrade();
-
-        switch (plasticGrade) {
-            case 1:
-                perCubicInch = 0.4;
-                break;
-            case 2:
-                perCubicInch = 0.6;
-                break;
-            case 3:
-                perCubicInch = 0.75;
-            case 4:
-                perCubicInch = 0.8;
-            case 5:
-                perCubicInch = 0.95;
-                break;
-
-            default:
-                perCubicInch = 0.4;
-        }
-
-        return perCubicInch;
-    }
-
-    /**
      * Gets the value of plastic Volume
      *
      * @return plastic Volume
@@ -205,7 +172,12 @@ public abstract class Pipe {
         double[] costOfPlastic = {0.4, 0.6, 0.75, 0.8, 0.95};
         return costOfPlastic[this.getPlasticGrade() - 1];
     }
+    protected double costOfPipe(){
+        double price = this.costOfPlastic() * this.getVolume();
+        return price;
+    }
 
+    
     /**
      * Works out the total price for the pipe
      *
