@@ -155,7 +155,7 @@ public class AddPipe extends javax.swing.JDialog {
             //Entered value is not an integer
             valid = false;
         }
-        if (quantity > 99 || quantity <= 1) {
+        if (quantity > 99 || quantity < 1) {
             //Check if value entered is within reasonable bounds
             valid = false;
         }
@@ -504,7 +504,7 @@ public class AddPipe extends javax.swing.JDialog {
             "Cancel"};
 
         String warningText = "Are you sure you want to add th";
-        int numOfPipes = Integer.parseInt(tfQuantityInput.getText());
+        int numOfPipes = getQuantityValue();
         if (numOfPipes == 1) {
             warningText += "is pipe to your order?";
         } else {
