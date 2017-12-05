@@ -69,15 +69,15 @@ public class Pipe5 extends Pipe4 {
 
         //Increase price depending on the number of colour selected.
         percentageIncrease = this.getColourPercentageIncrease();
-        price = price + (originalPrice * percentageIncrease);
+        price += (originalPrice * percentageIncrease);
 
         //Increase price for inner insulation.
         percentageIncrease = this.getInnerInsulationPercentageIncrease();
-        price = price + (originalPrice * percentageIncrease);
+        price += (originalPrice * percentageIncrease);
 
         //Increase price for outer reinforcement.
         percentageIncrease = this.getOuterReinforcementPercentageIncrease();
-        price = price + (originalPrice * percentageIncrease);
+        price += (originalPrice * percentageIncrease);
 
         return price;
     }

@@ -34,16 +34,16 @@ public class Pipe1 extends Pipe {
      * @return double
      */
     protected double getPrice() {
-        double price, percentageIncrease, volume, plasticGrade;
+        double price, percentageIncrease, volume, plasticGradeCost;
         boolean chemicalResistant;
 
         //Initialise local variables
         volume = this.getVolume();
-        plasticGrade = this.getPlasticGradeCost();
+        plasticGradeCost = this.getPlasticGradeCost();
         chemicalResistant = this.chemicalResistance;
 
         //Calculate the basic cost
-        price = volume / plasticGrade;
+        price = volume * plasticGradeCost;
 
         //Increase the price if includes chemical resistance.
         if (chemicalResistant) {
