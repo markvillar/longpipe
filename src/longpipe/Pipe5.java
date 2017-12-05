@@ -58,7 +58,7 @@ public class Pipe5 extends Pipe4 {
         numberOfColour = this.getColour();
 
         //Calculate the basic cost
-        price = volume / plasticGrade;
+        price = volume * plasticGrade;
         originalPrice = price;
 
         //Increase the price if includes chemical resistance.
