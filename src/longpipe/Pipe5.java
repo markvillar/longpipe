@@ -28,8 +28,6 @@ public class Pipe5 extends Pipe4 {
     public Pipe5(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
         super(length, outerDiameter, plasticGrade, chemicalResistance);
         this.type = 5;
-        this.colour = 2;
-        this.outerReinforcement = true;
     }
 
     /**
@@ -59,7 +57,7 @@ public class Pipe5 extends Pipe4 {
 
         //Increase price depending on the number of colour selected and outer reinforcement and  inner insulation.
         percentageIncrease = this.getColourPercentageIncrease() + this.getOuterReinforcementPercentageIncrease() + this.getInnerInsulationPercentageIncrease();
-        
+
         //Increase the price if includes chemical resistance.
         if (chemicalResistant) {
             percentageIncrease += this.getChemicalResistanceCost();

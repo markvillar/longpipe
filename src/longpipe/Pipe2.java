@@ -48,8 +48,8 @@ public class Pipe2 extends Pipe {
      */
     public double getColourPercentageIncrease() {
         double priceIncrease;
-            //Increase the price by 12%
-            priceIncrease = 0.12;
+        //Increase the price by 12%
+        priceIncrease = 0.12;
         return priceIncrease;
     }
 
@@ -68,14 +68,14 @@ public class Pipe2 extends Pipe {
 
         //Calculate the basic cost
         price = this.costOfPipe();
-        
+
         //Increase the price if includes chemical resistance.
         percentageIncrease = this.getColourPercentageIncrease();
         if (chemicalResistant) {
             percentageIncrease += this.getChemicalResistanceCost();
         }
-        //Increase price depending on the number of colour selected.
         
+        //Increase price depending on the number of colour selected.
         price *= 1 + percentageIncrease;
         System.out.println(1 + percentageIncrease);
 
