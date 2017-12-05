@@ -109,13 +109,13 @@ public class AddPipe extends javax.swing.JDialog {
         }
         
         
-        if (length > 6 || length <= 0) {
+        if (length > 6 || length <= 0.1) {
             valid = false;
         }
         if (!valid) {
             length = 1.0;
             tfLengthInput.setForeground(darkRed);
-            printError("Value entered into length field is either nothing or invalid, please enter a decimal number greater than 0 and less than 6");
+            printError("Value entered into length field is either nothing or invalid, please enter a decimal number greater than 0.1 and less than 6");
         }
         tfLengthInput.setText(Double.toString(length));
         return length;
@@ -137,14 +137,14 @@ public class AddPipe extends javax.swing.JDialog {
             //The text field is empty or the entered value is not a double or integer
             valid = false;
         }
-        if (width <= 0 || width > 99) {
+        if (width <= 0.1 || width > 6) {
             valid = false;
         }
         if (!valid) {
             width = 1.0;
             tfWidthInput.setForeground(darkRed);
             //Alert the user that the entered value is invalid
-            printError("Value entered into width field is either nothing or invalid, please enter a decimal number greater than 0 and less than 99");
+            printError("Value entered into width field is either nothing or invalid, please enter a decimal number greater than 0.1 and less than 6");
         }
         tfWidthInput.setText(Double.toString(width));
         return width;

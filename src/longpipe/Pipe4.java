@@ -52,29 +52,18 @@ public class Pipe4 extends Pipe3 {
         int numberOfColour;
 
         //Initialise local variables
-        volume = this.getVolume();
-        plasticGrade = this.getPlasticGradeCost();
         chemicalResistant = this.chemicalResistance;
-        numberOfColour = this.getColour();
-
         //Calculate the basic cost
-        price = volume / plasticGrade;
-        originalPrice = price;
+        price = this.costOfPipe();
+
+        //Increase price depending on the number of colour selected and inner insulation.
+        percentageIncrease = this.getColourPercentageIncrease() + this.getInnerInsulationPercentageIncrease();
 
         //Increase the price if includes chemical resistance.
         if (chemicalResistant) {
-            percentageIncrease = this.getChemicalResistanceCost();
-            price = price + (originalPrice * percentageIncrease);
+            percentageIncrease += this.getChemicalResistanceCost();
         }
-
-        //Increase price depending on the number of colour selected.
-        percentageIncrease = this.getColourPercentageIncrease();
-        price = price + (originalPrice * percentageIncrease);
-
-        //Increase price for inner insulation.
-        percentageIncrease = this.getInnerInsulationPercentageIncrease();
-        price = price + (originalPrice * percentageIncrease);
-
+        price *= 1 + percentageIncrease;
         return price;
     }
 }

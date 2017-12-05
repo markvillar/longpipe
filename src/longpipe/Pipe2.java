@@ -47,19 +47,9 @@ public class Pipe2 extends Pipe {
      * @return double
      */
     public double getColourPercentageIncrease() {
-        int colour;
         double priceIncrease;
-
-        colour = this.getColour();
-
-        if (colour == 1) {
             //Increase the price by 12%
             priceIncrease = 0.12;
-        } else {
-            //Increase the price by 16%
-            priceIncrease = 0.16;
-        }
-
         return priceIncrease;
     }
 
@@ -74,24 +64,20 @@ public class Pipe2 extends Pipe {
         int numberOfColour;
 
         //Initialise local variables
-        volume = this.getVolume();
-        plasticGrade = this.getPlasticGradeCost();
         chemicalResistant = this.chemicalResistance;
-        numberOfColour = this.getColour();
 
         //Calculate the basic cost
-        price = volume / plasticGrade;
-        originalPrice = price;
-
+        price = this.costOfPipe();
+        
         //Increase the price if includes chemical resistance.
-        if (chemicalResistant) {
-            percentageIncrease = this.getChemicalResistanceCost();
-            price = price + (originalPrice * percentageIncrease);
-        }
-
-        //Increase price depending on the number of colour selected.
         percentageIncrease = this.getColourPercentageIncrease();
-        price = price + (originalPrice * percentageIncrease);
+        if (chemicalResistant) {
+            percentageIncrease += this.getChemicalResistanceCost();
+        }
+        //Increase price depending on the number of colour selected.
+        
+        price *= 1 + percentageIncrease;
+        System.out.println(1 + percentageIncrease);
 
         return price;
     }

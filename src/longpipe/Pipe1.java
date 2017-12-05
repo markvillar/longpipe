@@ -38,23 +38,17 @@ public class Pipe1 extends Pipe {
         boolean chemicalResistant;
 
         //Initialise local variables
-        volume = this.getVolume();
-        plasticGradeCost = this.getPlasticGradeCost();
         chemicalResistant = this.chemicalResistance;
 
         //Calculate the basic cost
-        price = volume * plasticGradeCost;
+         price = this.costOfPipe();
 
         //Increase the price if includes chemical resistance.
         if (chemicalResistant) {
             percentageIncrease = this.getChemicalResistanceCost();
-            price = price + (price * percentageIncrease);
-
+            price *= 1 + percentageIncrease;
+                    }
             return price;
-        } else {
-            //Otherwise return the price without additional costs.
-            return price;
-        }
     }
 
 }
