@@ -12,18 +12,6 @@ public class AddPipe extends javax.swing.JDialog {
     private Color darkGreen;
     private Color darkRed;
     private Color black;
-
-    /*
-    TODO:
-    html printing IF THERES TIME
-    UML DIAGRAM
-    TEST PLANS AND TESTING WHATEVER
-    Write Assumptions
-     */
- /*
-    BUG LIST:
-    When the length or width is != int then the error message only flashes up for a short time and cant be read.
-     */
     /**
      * Create a new dialog window to allow the user to add a new pipe
      *
@@ -69,6 +57,7 @@ public class AddPipe extends javax.swing.JDialog {
 
         double length = getLengthValue();
         double width = getWidthValue();
+        int quantity = getQuantityValue();
 
         if (tfLengthInput.getForeground() == darkRed || tfWidthInput.getForeground() == darkRed || tfQuantityInput.getForeground() == darkRed) {
             //Error
@@ -166,7 +155,7 @@ public class AddPipe extends javax.swing.JDialog {
             //Entered value is not an integer
             valid = false;
         }
-        if (quantity > 99 || quantity <= 0) {
+        if (quantity > 99 || quantity <= 1) {
             //Check if value entered is within reasonable bounds
             valid = false;
         }
