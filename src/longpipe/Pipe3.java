@@ -26,7 +26,6 @@ public class Pipe3 extends Pipe2 {
     public Pipe3(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
         super(length, outerDiameter, plasticGrade, chemicalResistance);
         this.type = 3;
-        this.colour = 2;
     }
 
     public double getColourPercentageIncrease() {

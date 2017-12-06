@@ -11,7 +11,6 @@ package longpipe;
  */
 public class Pipe2 extends Pipe {
 
-    protected int colour;
 
     public Pipe2() {
 
@@ -28,17 +27,10 @@ public class Pipe2 extends Pipe {
     public Pipe2(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
         super(length, outerDiameter, plasticGrade, chemicalResistance);
         this.type = 2;
-        this.colour = 1;
     }
 
-    /**
-     * Returns the number of colour(s) of the pipe.
-     *
-     * @return int
-     */
-    public int getColour() {
-        return this.colour;
-    }
+
+
 
     /**
      * Returns the percentage increase of price depending on the number of
@@ -77,7 +69,6 @@ public class Pipe2 extends Pipe {
         
         //Increase price depending on the number of colour selected.
         price *= 1 + percentageIncrease;
-        System.out.println(1 + percentageIncrease);
 
         return price;
     }
