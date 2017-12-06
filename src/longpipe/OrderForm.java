@@ -263,6 +263,9 @@ public class OrderForm extends javax.swing.JFrame {
                 clearTable(); //Reprint the list of items
             }
         }
+        // resets total cost to 0
+        displayPipes();
+        
     }//GEN-LAST:event_btnRemoveAllActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed

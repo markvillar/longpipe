@@ -12,6 +12,7 @@ public class AddPipe extends javax.swing.JDialog {
     private Color darkGreen;
     private Color darkRed;
     private Color black;
+
     /**
      * Create a new dialog window to allow the user to add a new pipe
      *
@@ -52,7 +53,7 @@ public class AddPipe extends javax.swing.JDialog {
         boolean chemicalResistance = cbChemResis.isSelected();
         int plasticGrade = cboPlasticGrade.getSelectedIndex() + 1;
         int colour = cboColour.getSelectedIndex();
-        
+
         Test test = new Test();
         type = test.TestPipeValid(outerReinforcement, innerInsulation, colour, plasticGrade);
 
@@ -89,7 +90,7 @@ public class AddPipe extends javax.swing.JDialog {
         tfLengthInput.setForeground(black); //Set the default font colour
         boolean valid = true;
         double length = 1.0;
-        
+
         try {
             //Try to parse the entered string to a double
             length = Double.parseDouble(tfLengthInput.getText());
@@ -97,8 +98,7 @@ public class AddPipe extends javax.swing.JDialog {
             //The text field is empty or the entered value is not a double or integer
             valid = false;
         }
-        
-        
+
         if (length > 6 || length <= 0.1) {
             valid = false;
         }
@@ -197,10 +197,12 @@ public class AddPipe extends javax.swing.JDialog {
         }
         return p;
     }
-    
+
     /**
-     * Used to print errors messages on the graphical user interface for the user.
-     * @param input 
+     * Used to print errors messages on the graphical user interface for the
+     * user.
+     *
+     * @param input
      */
     public void printError(String input) {
         tfErrorOutput.setText(input);
@@ -242,8 +244,18 @@ public class AddPipe extends javax.swing.JDialog {
         pnlAttributes.setBorder(javax.swing.BorderFactory.createTitledBorder("Pipe Properties"));
 
         tfWidthInput.setText("1.00");
+        tfWidthInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfWidthInputFocusLost(evt);
+            }
+        });
 
         tfLengthInput.setText("1.00");
+        tfLengthInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfLengthInputFocusLost(evt);
+            }
+        });
 
         lblLength.setText("Length (m):");
 
@@ -368,6 +380,11 @@ public class AddPipe extends javax.swing.JDialog {
         lblQuantity.setText("Quantity:");
 
         tfQuantityInput.setText("1");
+        tfQuantityInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                tfQuantityInputFocusLost(evt);
+            }
+        });
 
         tfTotalCostOutput.setEditable(false);
         tfTotalCostOutput.setText("0.00");
@@ -577,6 +594,21 @@ public class AddPipe extends javax.swing.JDialog {
             this.dispose();
         }
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void tfLengthInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfLengthInputFocusLost
+        //Disable the add pipe button
+        btnAddPipe.setEnabled(false);
+    }//GEN-LAST:event_tfLengthInputFocusLost
+
+    private void tfWidthInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfWidthInputFocusLost
+        //Disable the add pipe button
+        btnAddPipe.setEnabled(false);
+    }//GEN-LAST:event_tfWidthInputFocusLost
+
+    private void tfQuantityInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_tfQuantityInputFocusLost
+        //Disable the add pipe button
+        btnAddPipe.setEnabled(false);
+    }//GEN-LAST:event_tfQuantityInputFocusLost
 
     /**
      * @param args the command line arguments
