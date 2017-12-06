@@ -11,8 +11,6 @@ package longpipe;
  */
 public class Pipe4 extends Pipe3 {
 
-    protected boolean innerInsulation;
-
     public Pipe4() {
 
     }

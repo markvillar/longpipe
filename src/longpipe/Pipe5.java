@@ -11,8 +11,6 @@ package longpipe;
  */
 public class Pipe5 extends Pipe4 {
 
-    private boolean outerReinforcement;
-
     public Pipe5() {
 
     }
