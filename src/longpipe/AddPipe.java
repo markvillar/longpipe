@@ -23,6 +23,7 @@ public class AddPipe extends javax.swing.JDialog {
     public AddPipe(java.awt.Frame parent, boolean modal, ArrayList inPipeOrder) {
         super(parent, modal);
         initComponents(); //Initialise the components of the dialog box
+        setResizable(false); //Disable window resizing
         pipeOrder = inPipeOrder;
         btnAddPipe.setEnabled(false); //Automatically disable the "Add Pipe" button
         type = -1; //Set the default value of the pipe type

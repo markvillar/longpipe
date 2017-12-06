@@ -14,6 +14,7 @@ public class OrderForm extends javax.swing.JFrame {
      */
     public OrderForm() {
         initComponents();
+        setResizable(false); //Disable window resizing
         pipeOrder = new ArrayList(); //Create a new arraylist to keep track of the pipe order
         Object[] columnName = {"Type", "Length", "Width", "Chemical Resistance", "Price"}; //Set the column names
         model = new DefaultTableModel(columnName, 0);
