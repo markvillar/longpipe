@@ -28,7 +28,7 @@ public class OrderForm extends javax.swing.JFrame {
         double totalcost = 0;
         clearTable();
         for (Pipe pipe : pipeOrder) {
-            Object[] data = {pipe.getType(), String.format("%.2f",pipe.convertToMeters(pipe.getLength())) + " M", pipe.getDiameter() + " Inch", pipe.getChemicalResistance(), "£" + String.format("%.2f", pipe.getPrice())};
+            Object[] data = {pipe.getType(), String.format("%.2f", pipe.convertToMeters(pipe.getLength())) + " M", pipe.getDiameter() + " Inch", pipe.getChemicalResistance(), "£" + String.format("%.2f", pipe.getPrice())};
             model.addRow(data);
             totalcost += pipe.getPrice();
         }
@@ -265,7 +265,7 @@ public class OrderForm extends javax.swing.JFrame {
         }
         // resets total cost to 0
         displayPipes();
-        
+
     }//GEN-LAST:event_btnRemoveAllActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed

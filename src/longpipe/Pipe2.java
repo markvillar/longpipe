@@ -11,7 +11,6 @@ package longpipe;
  */
 public class Pipe2 extends Pipe {
 
-
     public Pipe2() {
 
     }
@@ -28,9 +27,6 @@ public class Pipe2 extends Pipe {
         super(length, outerDiameter, plasticGrade, chemicalResistance);
         this.type = 2;
     }
-
-
-
 
     /**
      * Returns the percentage increase of price depending on the number of
@@ -66,7 +62,7 @@ public class Pipe2 extends Pipe {
         if (chemicalResistant) {
             percentageIncrease += this.getChemicalResistanceCost();
         }
-        
+
         //Increase price depending on the number of colour selected.
         price *= 1 + percentageIncrease;
 
