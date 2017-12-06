@@ -41,14 +41,14 @@ public class Pipe1 extends Pipe {
         chemicalResistant = this.chemicalResistance;
 
         //Calculate the basic cost
-         price = this.costOfPipe();
+        price = this.costOfPipe();
 
         //Increase the price if includes chemical resistance.
         if (chemicalResistant) {
             percentageIncrease = this.getChemicalResistanceCost();
             price *= 1 + percentageIncrease;
-                    }
-            return price;
+        }
+        return price;
     }
 
 }

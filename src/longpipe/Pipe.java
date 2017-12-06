@@ -172,12 +172,12 @@ public abstract class Pipe {
         double[] costOfPlastic = {0.4, 0.6, 0.75, 0.8, 0.95};
         return costOfPlastic[this.getPlasticGrade() - 1];
     }
-    protected double costOfPipe(){
+
+    protected double costOfPipe() {
         double price = this.costOfPlastic() * this.getVolume();
         return price;
     }
 
-    
     /**
      * Works out the total price for the pipe
      *

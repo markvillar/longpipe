@@ -28,8 +28,6 @@ public class Pipe4 extends Pipe3 {
     public Pipe4(double length, double outerDiameter, int plasticGrade, boolean chemicalResistance) {
         super(length, outerDiameter, plasticGrade, chemicalResistance);
         this.type = 4;
-        this.colour = 2;
-        this.innerInsulation = true;
     }
 
     /**
