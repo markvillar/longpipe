@@ -65,7 +65,10 @@ public class AddPipe extends javax.swing.JDialog {
             //Error
         } else if (type == -1 || length == 0 || width == 0) {
             //pipe is invalid
-            String reasonNotValidPipe = test.whyNotValid(outerReinforcement, innerInsulation, colour, plasticGrade);
+            String reasonNotValidPipe = test.whyNotValid(outerReinforcement,
+                    innerInsulation,
+                    colour,
+                    plasticGrade);
             btnAddPipe.setEnabled(false); //Disable the AddPipe button
             tfErrorOutput.setForeground(darkRed);
             tfErrorOutput.setText(reasonNotValidPipe);
@@ -73,7 +76,8 @@ public class AddPipe extends javax.swing.JDialog {
 
             btnAddPipe.setEnabled(true);
             tfErrorOutput.setForeground(darkGreen);
-            tfErrorOutput.setText("This pipe is stocked and is of type " + type);
+            tfErrorOutput.setText("This pipe is stocked "
+                    + "and is of type " + type);
             Pipe pipePrice = createPipe();
             tfTotalCostOutput.setText(String.format("%.2f", pipePrice.getPrice() * Integer.parseInt(tfQuantityInput.getText())));
             tfCostPerPipeOutput.setText(String.format("%.2f", pipePrice.getPrice()));
@@ -105,7 +109,9 @@ public class AddPipe extends javax.swing.JDialog {
         if (!valid) {
             length = 1.0;
             tfLengthInput.setForeground(darkRed);
-            printError("Value entered into length field is either nothing or invalid, please enter a decimal number greater than 0.1 and less than 6");
+            printError("Value entered into length field is either nothing"
+                    + " or invalid, please enter a "
+                    + "decimal number greater than 0.1 and less than 6");
         }
         tfLengthInput.setText(Double.toString(length));
         return length;
@@ -134,7 +140,9 @@ public class AddPipe extends javax.swing.JDialog {
             width = 1.0;
             tfWidthInput.setForeground(darkRed);
             //Alert the user that the entered value is invalid
-            printError("Value entered into width field is either nothing or invalid, please enter a decimal number greater than 0.1 and less than 6");
+            printError("Value entered into width field is either nothing or "
+                    + "invalid, please enter a "
+                    + "decimal number greater than 0.1 and less than 6");
         }
         tfWidthInput.setText(Double.toString(width));
         return width;
@@ -163,7 +171,9 @@ public class AddPipe extends javax.swing.JDialog {
         if (!valid) {
             quantity = 1;
             tfQuantityInput.setForeground(darkRed); //Set font colour to red to show that the value entered is not within valid limits
-            printError("Entered quantity is either nothing or not a decimal number. Please enter a whole number between 1 and 99");
+            printError("Entered quantity is either nothing or "
+                    + "not a decimal number. Please enter a "
+                    + "whole number between 1 and 99");
         }
         tfQuantityInput.setText(Integer.toString(quantity));
         return quantity;
@@ -178,19 +188,34 @@ public class AddPipe extends javax.swing.JDialog {
         Pipe p = null;
         switch (type) {
             case 1:
-                p = new Pipe1(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                p = new Pipe1(getLengthValue(),
+                        getWidthValue(),
+                        cboPlasticGrade.getSelectedIndex() + 1,
+                        cbChemResis.isSelected());
                 break;
             case 2:
-                p = new Pipe2(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                p = new Pipe2(getLengthValue(),
+                        getWidthValue(),
+                        cboPlasticGrade.getSelectedIndex() + 1,
+                        cbChemResis.isSelected());
                 break;
             case 3:
-                p = new Pipe3(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                p = new Pipe3(getLengthValue(),
+                        getWidthValue(),
+                        cboPlasticGrade.getSelectedIndex() + 1,
+                        cbChemResis.isSelected());
                 break;
             case 4:
-                p = new Pipe4(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                p = new Pipe4(getLengthValue(),
+                        getWidthValue(),
+                        cboPlasticGrade.getSelectedIndex() + 1,
+                        cbChemResis.isSelected());
                 break;
             case 5:
-                p = new Pipe5(getLengthValue(), getWidthValue(), cboPlasticGrade.getSelectedIndex() + 1, cbChemResis.isSelected());
+                p = new Pipe5(getLengthValue(),
+                        getWidthValue(),
+                        cboPlasticGrade.getSelectedIndex() + 1,
+                        cbChemResis.isSelected());
                 break;
             default:
                 break;
