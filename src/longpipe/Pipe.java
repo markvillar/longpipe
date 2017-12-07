@@ -7,7 +7,6 @@ package longpipe;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 
 /**
  *
@@ -178,11 +177,18 @@ public abstract class Pipe {
         double price = this.costOfPlastic() * this.getVolume();
         return price;
     }
-    
-    protected double setTo2DecimalPlaces(double price){
-       BigDecimal bd = new BigDecimal(price);
-    bd = bd.setScale(2, RoundingMode.HALF_UP);
-    return bd.doubleValue();
+
+    /**
+     * Used mainly for pricing and turns a double number into 2 decimal places
+     * and uses round up on half i.e. 0.5 rounds to 1, 0.4 rounds to 0
+     *
+     * @param price the price of the pipe
+     * @return the price in correct monetary format
+     */
+    protected double setTo2DecimalPlaces(double price) {
+        BigDecimal bd = new BigDecimal(price);
+        bd = bd.setScale(2, RoundingMode.HALF_UP);
+        return bd.doubleValue();
     }
 
     /**
