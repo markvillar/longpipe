@@ -61,6 +61,6 @@ public class Pipe5 extends Pipe4 {
             percentageIncrease += this.getChemicalResistanceCost();
         }
         price *= 1 + percentageIncrease;
-        return price;
+        return setTo2DecimalPlaces(price);
     }
 }

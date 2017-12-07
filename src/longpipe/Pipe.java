@@ -5,6 +5,7 @@
  */
 package longpipe;
 
+import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
 
@@ -176,6 +177,12 @@ public abstract class Pipe {
     protected double costOfPipe() {
         double price = this.costOfPlastic() * this.getVolume();
         return price;
+    }
+    
+    protected double setTo2DecimalPlaces(double price){
+       BigDecimal bd = new BigDecimal(price);
+    bd = bd.setScale(2, RoundingMode.HALF_UP);
+    return bd.doubleValue();
     }
 
     /**

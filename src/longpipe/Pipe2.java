@@ -66,6 +66,6 @@ public class Pipe2 extends Pipe {
         //Increase price depending on the number of colour selected.
         price *= 1 + percentageIncrease;
 
-        return price;
+        return setTo2DecimalPlaces(price);
     }
 }
